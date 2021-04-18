@@ -37,366 +37,471 @@
                   "description": "",
                   "type": "object",
                   "properties": {
-                    "uuid": {
-                      "type": "string",
-                      "format": "uuid",
-                      "readOnly": true
-                    },
-                    "email": {
-                      "type": "string",
-                      "minLength": 1,
-                      "format": "idn-email",
-                      "example": "test@email.com"
-                    },
-                    "subdomain": {
-                      "type": "string",
-                      "minLength": 1,
-                      "example": "mysubdomain"
-                    },
-                    "firstName": {
-                      "type": "string",
-                      "minLength": 1,
-                      "example": "George"
-                    },
-                    "lastName": {
-                      "type": "string",
-                      "minLength": 1,
-                      "example": "Drakakis"
-                    },
-                    "mobile": {
-                      "type": "string",
-                      "example": "6999999999"
-                    },
-                    "isBlocked": {
-                      "type": "boolean"
-                    },
-                    "isSuspended": {
-                      "type": "boolean"
-                    },
-                    "isExpired": {
-                      "type": "boolean"
-                    },
-                    "isAccountant": {
-                      "type": "boolean"
-                    },
-                    "isValidated2fa": {
-                      "type": "boolean"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "minLength": 1,
-                      "format": "date-time"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "minLength": 1,
-                      "format": "date-time"
-                    },
-                    "deletedAt": {},
-                    "relations": {
+                    "data": {
                       "type": "object",
-                      "required": [
-                        "biller",
-                        "paymentMethods",
-                        "vats",
-                        "settings",
-                        "subscription"
-                      ],
                       "properties": {
-                        "biller": {
+                        "uuid": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "subdomain": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "mobile": {},
+                        "isBlocked": {
+                          "type": "boolean"
+                        },
+                        "isSuspended": {
+                          "type": "boolean"
+                        },
+                        "isExpired": {
+                          "type": "boolean"
+                        },
+                        "isAccountant": {
+                          "type": "boolean"
+                        },
+                        "isValidated2fa": {
+                          "type": "boolean"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "deletedAt": {},
+                        "relations": {
                           "type": "object",
-                          "required": [
-                            "id",
-                            "company",
-                            "companySec",
-                            "info",
-                            "object",
-                            "vatId",
-                            "taxOffice",
-                            "streetAddress",
-                            "streetAddressSec",
-                            "streetAddress2",
-                            "city",
-                            "citySec",
-                            "zipCode",
-                            "phone",
-                            "phoneSec",
-                            "mobile",
-                            "mobileSec",
-                            "fax",
-                            "logo",
-                            "url",
-                            "urlSec",
-                            "country",
-                            "createdAt",
-                            "updatedAt"
-                          ],
                           "properties": {
-                            "id": {
-                              "type": "number"
+                            "biller": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "company": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "companySec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "info": {
+                                  "type": "string"
+                                },
+                                "infoSec": {},
+                                "profession": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "professionSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "vatId": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "taxOffice": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "streetAddress": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "streetAddressSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "city": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "citySec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "postalCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "phone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "phoneSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "mobile": {
+                                  "type": "string"
+                                },
+                                "mobileSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "fax": {
+                                  "type": "string"
+                                },
+                                "logo": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "urlSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "urlLabel": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "freeText": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "freeTextSec": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "company",
+                                "companySec",
+                                "info",
+                                "profession",
+                                "professionSec",
+                                "vatId",
+                                "taxOffice",
+                                "streetAddress",
+                                "streetAddressSec",
+                                "city",
+                                "citySec",
+                                "postalCode",
+                                "phone",
+                                "phoneSec",
+                                "mobile",
+                                "mobileSec",
+                                "fax",
+                                "logo",
+                                "url",
+                                "urlSec",
+                                "urlLabel",
+                                "country",
+                                "freeText",
+                                "freeTextSec",
+                                "createdAt",
+                                "updatedAt"
+                              ]
                             },
-                            "company": {
-                              "type": "string",
-                              "minLength": 1
+                            "paymentMethods": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "isOnlineMethod",
+                                  "status",
+                                  "default",
+                                  "createdAt",
+                                  "updatedAt"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "nameSec": {},
+                                  "info": {},
+                                  "infoSec": {},
+                                  "isOnlineMethod": {
+                                    "type": "boolean"
+                                  },
+                                  "status": {
+                                    "type": "boolean"
+                                  },
+                                  "default": {
+                                    "type": "boolean"
+                                  },
+                                  "iban": {},
+                                  "bic": {},
+                                  "accountHolder": {},
+                                  "createdAt": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "updatedAt": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "deletedAt": {}
+                                }
+                              }
                             },
-                            "companySec": {
-                              "type": "string",
-                              "minLength": 1
+                            "vats": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "value",
+                                  "description",
+                                  "isDefault",
+                                  "isHidden",
+                                  "mydataVatCat",
+                                  "operand",
+                                  "isPercentable",
+                                  "taxId"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "value": {
+                                    "type": "number"
+                                  },
+                                  "description": {
+                                    "type": "string"
+                                  },
+                                  "isDefault": {
+                                    "type": "boolean"
+                                  },
+                                  "isHidden": {
+                                    "type": "boolean"
+                                  },
+                                  "mydataVatCat": {
+                                    "type": "number"
+                                  },
+                                  "operand": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "isPercentable": {
+                                    "type": "boolean"
+                                  },
+                                  "taxId": {
+                                    "type": "number"
+                                  },
+                                  "accountingCode": {},
+                                  "deletedAt": {}
+                                }
+                              }
                             },
-                            "info": {
-                              "type": "string"
+                            "settings": {
+                              "type": "object",
+                              "properties": {
+                                "dateFormat": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "currency": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "currencySymbol": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "defaultInvoiceType": {
+                                  "type": "number"
+                                },
+                                "defaultTemplate": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "appLanguage": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "multiLanguage": {
+                                  "type": "boolean"
+                                },
+                                "incrementingNumberLength": {},
+                                "receiveReport": {
+                                  "type": "boolean"
+                                },
+                                "reportToEmail": {},
+                                "forwardingEmail": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "accountant": {
+                                  "type": "object",
+                                  "properties": {
+                                    "accountantEmail": {},
+                                    "accountantAccess": {
+                                      "type": "boolean"
+                                    },
+                                    "accountantLoginNotification": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "accountantAccess",
+                                    "accountantLoginNotification"
+                                  ]
+                                },
+                                "ocp": {
+                                  "type": "object",
+                                  "properties": {
+                                    "receiptTypeId": {
+                                      "type": "number"
+                                    },
+                                    "invoiceTypeId": {
+                                      "type": "number"
+                                    },
+                                    "defaultLanguage": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "reminderEveryDays": {
+                                      "type": "number"
+                                    },
+                                    "autoSendEmail": {
+                                      "type": "boolean"
+                                    },
+                                    "disableReminder": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "receiptTypeId",
+                                    "invoiceTypeId",
+                                    "defaultLanguage",
+                                    "reminderEveryDays",
+                                    "autoSendEmail",
+                                    "disableReminder"
+                                  ]
+                                },
+                                "personalizedEmail": {
+                                  "type": "object",
+                                  "properties": {
+                                    "fromEmailName": {},
+                                    "fromEmailAddress": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "replyToEmail": {}
+                                  },
+                                  "required": [
+                                    "fromEmailAddress"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "dateFormat",
+                                "currency",
+                                "currencySymbol",
+                                "defaultInvoiceType",
+                                "defaultTemplate",
+                                "appLanguage",
+                                "multiLanguage",
+                                "receiveReport",
+                                "forwardingEmail",
+                                "accountant",
+                                "ocp",
+                                "personalizedEmail"
+                              ]
                             },
-                            "infoSec": {},
-                            "object": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "vatId": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "taxOffice": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "streetAddress": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "streetAddressSec": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "streetAddress2": {
-                              "type": "string"
-                            },
-                            "city": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "citySec": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "zipCode": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "phone": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "phoneSec": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "mobile": {
-                              "type": "string"
-                            },
-                            "mobileSec": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "fax": {
-                              "type": "string"
-                            },
-                            "logo": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "url": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "urlSec": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "country": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "createdAt": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "updatedAt": {
-                              "type": "string",
-                              "minLength": 1
+                            "subscription": {
+                              "type": "object",
+                              "properties": {
+                                "plan": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "startedAt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "expiresAt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "recurring": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "plan",
+                                "startedAt",
+                                "expiresAt",
+                                "recurring"
+                              ]
                             }
-                          }
-                        },
-                        "paymentMethods": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number"
-                              },
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "nameSec": {},
-                              "info": {},
-                              "infoSec": {},
-                              "isOnlineMethod": {
-                                "type": "boolean"
-                              },
-                              "status": {
-                                "type": "boolean"
-                              },
-                              "default": {
-                                "type": "boolean"
-                              },
-                              "iban": {},
-                              "bic": {},
-                              "accountHolder": {},
-                              "createdAt": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "updatedAt": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "deletedAt": {}
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "isOnlineMethod",
-                              "status",
-                              "default",
-                              "createdAt",
-                              "updatedAt"
-                            ]
-                          }
-                        },
-                        "vats": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number"
-                              },
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "value": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "description": {},
-                              "default": {
-                                "type": "boolean"
-                              },
-                              "deletedAt": {}
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "value",
-                              "default"
-                            ]
-                          }
-                        },
-                        "settings": {
-                          "type": "object",
+                          },
                           "required": [
-                            "dateFormat",
-                            "currency",
-                            "currSymbol",
-                            "template",
-                            "applang",
-                            "allowAccountantAccess",
-                            "accountantLoginNotification",
-                            "multiLang",
-                            "receiveReport"
-                          ],
-                          "properties": {
-                            "dateFormat": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "currency": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "currSymbol": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "template": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "applang": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "allowAccountantAccess": {
-                              "type": "boolean"
-                            },
-                            "accountantLoginNotification": {
-                              "type": "boolean"
-                            },
-                            "multiLang": {
-                              "type": "boolean"
-                            },
-                            "receiveReport": {
-                              "type": "boolean"
-                            }
-                          }
-                        },
-                        "subscription": {
-                          "type": "object",
-                          "required": [
-                            "plan",
-                            "startedAt",
-                            "expiresAt",
-                            "recurring"
-                          ],
-                          "properties": {
-                            "plan": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "startedAt": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "expiresAt": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "recurring": {
-                              "type": "boolean"
-                            }
-                          }
+                            "biller",
+                            "paymentMethods",
+                            "vats",
+                            "settings",
+                            "subscription"
+                          ]
                         }
-                      }
+                      },
+                      "required": [
+                        "uuid",
+                        "email",
+                        "subdomain",
+                        "firstName",
+                        "lastName",
+                        "isBlocked",
+                        "isSuspended",
+                        "isExpired",
+                        "isAccountant",
+                        "isValidated2fa",
+                        "createdAt",
+                        "updatedAt",
+                        "relations"
+                      ]
                     }
                   },
                   "required": [
-                    "subdomain",
-                    "firstName",
-                    "lastName",
-                    "isBlocked",
-                    "isSuspended",
-                    "isExpired",
-                    "isAccountant",
-                    "isValidated2fa",
-                    "createdAt",
-                    "updatedAt",
-                    "relations"
+                    "data"
                   ]
                 }
               }
@@ -1947,6 +2052,147 @@
           "id",
           "country",
           "customerType"
+        ]
+      },
+      "Biller": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Biller's unique ID",
+            "readOnly": true
+          },
+          "company": {
+            "type": "string",
+            "description": "Biller's name / company"
+          },
+          "companySec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller name in secondary language"
+          },
+          "profession": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller Profession"
+          },
+          "professionSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller profession in secondary language"
+          },
+          "vatId": {
+            "type": "string",
+            "description": "Biller's vat ID",
+            "minLength": 9
+          },
+          "taxOffice": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller's tax office"
+          },
+          "streetAddress": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The physical street address"
+          },
+          "streetAddressSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The physical street address in secondary language"
+          },
+          "city": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller's city"
+          },
+          "citySec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Biller's city in secondary language"
+          },
+          "postalCode": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Postal code"
+          },
+          "phone": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Phone number"
+          },
+          "phoneSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Phone number in secodary language"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "Mobile phone number"
+          },
+          "mobileSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Mobile phone number in secondary language"
+          },
+          "fax": {
+            "type": "string",
+            "description": "Fax number"
+          },
+          "logo": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The full URL of the biller's logo"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Full url of the Biller's website"
+          },
+          "urlSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Full url of the Biller's website in secondary language"
+          },
+          "urlLabel": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A friendly name for website"
+          },
+          "country": {
+            "type": "string",
+            "minLength": 1,
+            "description": "ISO 3166-1 alpha-2 code"
+          },
+          "freeText": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Html block with extra info"
+          },
+          "freeTextSec": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Html block with extra info in secondary language"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "company",
+          "vatId",
+          "postalCode",
+          "country"
         ]
       }
     },
