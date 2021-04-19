@@ -580,7 +580,7 @@
         }
       ],
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Show Invoice",
         "tags": [
           "Invoices"
         ],
@@ -590,7 +590,7 @@
             "API TOKEN": []
           }
         ],
-        "description": "Show an invoice resource",
+        "description": "Show an invoice resource. In case you need the pdf URL add \"/pdf\" in the returned \"permalink\" url and you're ready to go.x`",
         "responses": {
           "200": {
             "description": "OK",
@@ -611,6 +611,224 @@
             "$ref": "#/components/responses/404"
           }
         }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "List of products",
+        "tags": [
+          "Products"
+        ],
+        "responses": {},
+        "operationId": "get-products"
+      },
+      "post": {
+        "summary": "Create a new product",
+        "tags": [
+          "Products"
+        ],
+        "responses": {},
+        "operationId": "post-products"
+      },
+      "put": {
+        "summary": "Update a product",
+        "responses": {},
+        "operationId": "put-products",
+        "tags": [
+          "Products"
+        ]
+      },
+      "delete": {
+        "summary": "Delete a product",
+        "tags": [
+          "Products"
+        ],
+        "responses": {},
+        "operationId": "delete-products"
+      }
+    },
+    "/ocps": {
+      "get": {
+        "summary": "List OCP links",
+        "tags": [
+          "Ocp"
+        ],
+        "responses": {},
+        "operationId": "get-ocps"
+      },
+      "post": {
+        "summary": "Create a new OCP link",
+        "tags": [
+          "Ocp"
+        ],
+        "responses": {},
+        "operationId": "post-ocps"
+      },
+      "put": {
+        "summary": "Update OCP link",
+        "tags": [
+          "Ocp"
+        ],
+        "responses": {},
+        "operationId": "put-ocps"
+      },
+      "delete": {
+        "summary": "Delete OCP link",
+        "tags": [
+          "Ocp"
+        ],
+        "responses": {},
+        "operationId": "delete-ocps"
+      }
+    },
+    "/payments": {
+      "get": {
+        "summary": "List payments",
+        "tags": [
+          "Payments"
+        ],
+        "responses": {},
+        "operationId": "get-payments"
+      },
+      "post": {
+        "summary": "Create a new payment",
+        "tags": [
+          "Payments"
+        ],
+        "responses": {},
+        "operationId": "post-payments"
+      },
+      "delete": {
+        "summary": "Delete a payment",
+        "tags": [
+          "Payments"
+        ],
+        "responses": {},
+        "operationId": "delete-payments"
+      }
+    },
+    "/suppliers": {
+      "get": {
+        "summary": "A list of suppliers",
+        "tags": [
+          "Suppliers"
+        ],
+        "responses": {},
+        "operationId": "get-suppliers"
+      },
+      "post": {
+        "summary": "Create a new supplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "responses": {},
+        "operationId": "post-suppliers"
+      },
+      "put": {
+        "summary": "Update a supplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "responses": {},
+        "operationId": "put-suppliers"
+      },
+      "delete": {
+        "summary": "Delete a supplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "responses": {},
+        "operationId": "delete-suppliers"
+      }
+    },
+    "/suppliers/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Show a supplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "responses": {},
+        "operationId": "get-suppliers-id"
+      }
+    },
+    "/ocps/{uuid}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "uuid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Show an ocp link",
+        "tags": [
+          "Ocp"
+        ],
+        "responses": {},
+        "operationId": "get-ocps-uuid"
+      }
+    },
+    "/tags": {
+      "get": {
+        "summary": "Show a tag",
+        "responses": {},
+        "operationId": "get-tags",
+        "tags": [
+          "Tags"
+        ]
+      }
+    },
+    "/tags/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Show a tag",
+        "tags": [
+          "Tags"
+        ],
+        "responses": {},
+        "operationId": "get-tags-id"
+      }
+    },
+    "/customers/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Show a customer",
+        "tags": [
+          "Customers"
+        ],
+        "responses": {},
+        "operationId": "get-customers-id"
       }
     }
   },
@@ -2039,6 +2257,425 @@
           "postalCode",
           "country"
         ]
+      },
+      "Payment": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "invoiceId": {
+            "type": "number"
+          },
+          "paymentMethodId": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "info": {
+            "type": "string"
+          },
+          "transactionId": {},
+          "apptransactionId": {},
+          "customerId": {
+            "type": "number"
+          },
+          "paidInvoices": {},
+          "overflowAmount": {
+            "type": "number"
+          },
+          "dateOccurred": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "x-examples": {
+          "example": {
+            "id": 994,
+            "invoiceId": 1181,
+            "paymentMethodId": 483,
+            "amount": 123,
+            "info": "",
+            "transactionId": null,
+            "apptransactionId": null,
+            "customerId": 694,
+            "paidInvoices": null,
+            "overflowAmount": 0,
+            "dateOccurred": "2021-01-04T00:00:00+00:00",
+            "createdAt": "2021-01-04T08:48:01+00:00",
+            "updatedAt": "2021-01-04T08:48:01+00:00"
+          }
+        }
+      },
+      "Supplier": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "company": {
+            "type": "string",
+            "minLength": 1
+          },
+          "info": {
+            "type": "string"
+          },
+          "object": {
+            "type": "string"
+          },
+          "vatId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "taxOffice": {
+            "type": "string",
+            "minLength": 1
+          },
+          "streetAddress": {
+            "type": "string",
+            "minLength": 1
+          },
+          "city": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string"
+          },
+          "fax": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "country": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deletedAt": {}
+        }
+      },
+      "Ocp": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customerId": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "productId": {},
+          "returnUrl": {
+            "type": "string"
+          },
+          "paymentmethodId": {
+            "type": "number"
+          },
+          "cost": {
+            "type": "number"
+          },
+          "vatId": {
+            "type": "number"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "invoiceTypeId": {
+            "type": "number"
+          },
+          "cleanCost": {
+            "type": "number"
+          },
+          "locale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "wasSend": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "sales": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "expirationAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deletedAt": {}
+        },
+        "x-examples": {
+          "example": {
+            "id": 994,
+            "invoiceId": 1181,
+            "paymentMethodId": 483,
+            "amount": 123,
+            "info": "",
+            "transactionId": null,
+            "apptransactionId": null,
+            "customerId": 694,
+            "paidInvoices": null,
+            "overflowAmount": 0,
+            "dateOccurred": "2021-01-04T00:00:00+00:00",
+            "createdAt": "2021-01-04T08:48:01+00:00",
+            "updatedAt": "2021-01-04T08:48:01+00:00"
+          }
+        }
+      },
+      "Tag": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "tag": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {}
+        },
+        "required": [
+          "id",
+          "tag"
+        ]
+      },
+      "Product": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nameSec": {
+            "type": "string"
+          },
+          "descriptionSec": {
+            "type": "string"
+          },
+          "unitPrice": {
+            "type": "number"
+          },
+          "defaultVatId": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "number"
+          },
+          "withStock": {
+            "type": "boolean"
+          },
+          "isVatIncluded": {
+            "type": "boolean"
+          },
+          "ordering": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "bulkjobId": {},
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deletedAt": {}
+        },
+        "x-examples": {
+          "example": {
+            "id": 838,
+            "info": "",
+            "supplierId": 647,
+            "price": 66.92,
+            "vatAmount": 15.39,
+            "irsAmount": 66.92,
+            "invoiceNum": "1111",
+            "taxOffice": null,
+            "streetAddress": null,
+            "companyExpense": true,
+            "isCredited": false,
+            "paid": false,
+            "irsType": 1,
+            "irsPercent": null,
+            "receiptId": null,
+            "originalPrice": null,
+            "originalVat": null,
+            "originalCurrency": null,
+            "systemCurrency": null,
+            "rate": null,
+            "dateOccurred": "2018-11-02",
+            "datePaid": "2021-04-19",
+            "createdAt": "2018-11-21T14:56:03+00:00",
+            "updatedAt": "2019-08-08T17:26:53+00:00"
+          }
+        }
+      },
+      "Purchase": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "info": {
+            "type": "string"
+          },
+          "supplierId": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "vatAmount": {
+            "type": "number"
+          },
+          "irsAmount": {
+            "type": "number"
+          },
+          "invoiceNum": {
+            "type": "string",
+            "minLength": 1
+          },
+          "taxOffice": {},
+          "streetAddress": {},
+          "companyExpense": {
+            "type": "boolean"
+          },
+          "isCredited": {
+            "type": "boolean"
+          },
+          "paid": {
+            "type": "boolean"
+          },
+          "irsType": {
+            "type": "number"
+          },
+          "irsPercent": {},
+          "receiptId": {},
+          "originalPrice": {},
+          "originalVat": {},
+          "originalCurrency": {},
+          "systemCurrency": {},
+          "rate": {},
+          "dateOccurred": {
+            "type": "string",
+            "minLength": 1
+          },
+          "datePaid": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "x-examples": {
+          "example": {
+            "id": 838,
+            "info": "",
+            "supplierId": 647,
+            "price": 66.92,
+            "vatAmount": 15.39,
+            "irsAmount": 66.92,
+            "invoiceNum": "1111",
+            "taxOffice": null,
+            "streetAddress": null,
+            "companyExpense": true,
+            "isCredited": false,
+            "paid": false,
+            "irsType": 1,
+            "irsPercent": null,
+            "receiptId": null,
+            "originalPrice": null,
+            "originalVat": null,
+            "originalCurrency": null,
+            "systemCurrency": null,
+            "rate": null,
+            "dateOccurred": "2018-11-02",
+            "datePaid": "2021-04-19",
+            "createdAt": "2018-11-21T14:56:03+00:00",
+            "updatedAt": "2019-08-08T17:26:53+00:00"
+          }
+        }
       }
     },
     "securitySchemes": {
