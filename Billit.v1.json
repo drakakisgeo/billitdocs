@@ -1,4 +1,9 @@
 {
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    }
+  },
   "openapi": "3.0.0",
   "info": {
     "title": "Billit",
