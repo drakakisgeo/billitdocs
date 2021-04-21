@@ -1,7 +1,8 @@
 ## Introduction
 
-Billit API gives you the ability to connect to your billit.io account, retrieve your clients, check your invoice status, see your balance and your Tax obligations. You can of course generate new invoices from any kind of application by using a set of callable API endpoints. To perform an action using the API, you need to send a request to its endpoint specifying a method and some arguments, and you will receive a formatted response.
+Billit API gives you the ability to connect to your billit.io account, retrieve your clients and suppliers, check your invoice's status, see your balance and create OCP (One click payment) links. You can of course generate new invoices from any kind of application by using a set of callable API endpoints. To perform an action using the API, you need to send a request to its endpoint specifying a method and some arguments, and you will receive a formatted response.
 
+In case you're a Greek company, invoices are also compatible with MYDATA and can be forwarded automatically to the authorities (A.A.D.E).
 
 #### Sandbox
   - Web app: https://app.sandbox-billit.xyz
