@@ -608,8 +608,30 @@
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "get-customers-id"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-customers-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Show a customer. Provide his ID in order to get the data."
       }
     }
   },
