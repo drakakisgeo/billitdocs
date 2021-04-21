@@ -243,7 +243,7 @@
         "operationId": "delete-customers"
       },
       "put": {
-        "summary": "",
+        "summary": "Update a customer",
         "operationId": "put-customers",
         "responses": {
           "200": {
