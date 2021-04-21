@@ -31,7 +31,7 @@
   "paths": {
     "account": {
       "get": {
-        "summary": "Account",
+        "summary": "My Account",
         "operationId": "get-user",
         "responses": {
           "200": {
