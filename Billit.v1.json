@@ -1,4 +1,9 @@
 {
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    }
+  },
   "openapi": "3.0.0",
   "info": {
     "title": "Billit",
@@ -26,7 +31,7 @@
   "paths": {
     "account": {
       "get": {
-        "summary": "Account",
+        "summary": "My Account",
         "operationId": "get-user",
         "responses": {
           "200": {
@@ -100,248 +105,24 @@
                               "uniqueItems": true,
                               "minItems": 1,
                               "items": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "number"
-                                  },
-                                  "name": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "nameSec": {},
-                                  "info": {},
-                                  "infoSec": {},
-                                  "isOnlineMethod": {
-                                    "type": "boolean"
-                                  },
-                                  "status": {
-                                    "type": "boolean"
-                                  },
-                                  "default": {
-                                    "type": "boolean"
-                                  },
-                                  "iban": {},
-                                  "bic": {},
-                                  "accountHolder": {},
-                                  "createdAt": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "updatedAt": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "deletedAt": {}
-                                },
-                                "required": [
-                                  "id",
-                                  "name",
-                                  "isOnlineMethod",
-                                  "status",
-                                  "default",
-                                  "createdAt",
-                                  "updatedAt"
-                                ]
-                              }
+                                "$ref": "#/components/schemas/Paymentmethod"
+                              },
+                              "readOnly": true
                             },
                             "vats": {
                               "type": "array",
                               "uniqueItems": true,
                               "minItems": 1,
                               "items": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "number"
-                                  },
-                                  "name": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "value": {
-                                    "type": "number"
-                                  },
-                                  "description": {
-                                    "type": "string"
-                                  },
-                                  "isDefault": {
-                                    "type": "boolean"
-                                  },
-                                  "isHidden": {
-                                    "type": "boolean"
-                                  },
-                                  "mydataVatCat": {
-                                    "type": "number"
-                                  },
-                                  "operand": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "isPercentable": {
-                                    "type": "boolean"
-                                  },
-                                  "taxId": {
-                                    "type": "number"
-                                  },
-                                  "accountingCode": {},
-                                  "deletedAt": {}
-                                },
-                                "required": [
-                                  "id",
-                                  "name",
-                                  "value",
-                                  "description",
-                                  "isDefault",
-                                  "isHidden",
-                                  "mydataVatCat",
-                                  "operand",
-                                  "isPercentable",
-                                  "taxId"
-                                ]
-                              }
+                                "$ref": "#/components/schemas/Vat"
+                              },
+                              "readOnly": true
                             },
                             "settings": {
-                              "type": "object",
-                              "required": [
-                                "dateFormat",
-                                "currency",
-                                "currencySymbol",
-                                "defaultInvoiceType",
-                                "defaultTemplate",
-                                "appLanguage",
-                                "multiLanguage",
-                                "receiveReport",
-                                "forwardingEmail",
-                                "accountant",
-                                "ocp",
-                                "personalizedEmail"
-                              ],
-                              "properties": {
-                                "dateFormat": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "currency": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "currencySymbol": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "defaultInvoiceType": {
-                                  "type": "number"
-                                },
-                                "defaultTemplate": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "appLanguage": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "multiLanguage": {
-                                  "type": "boolean"
-                                },
-                                "incrementingNumberLength": {},
-                                "receiveReport": {
-                                  "type": "boolean"
-                                },
-                                "reportToEmail": {},
-                                "forwardingEmail": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "accountant": {
-                                  "type": "object",
-                                  "required": [
-                                    "accountantAccess",
-                                    "accountantLoginNotification"
-                                  ],
-                                  "properties": {
-                                    "accountantEmail": {},
-                                    "accountantAccess": {
-                                      "type": "boolean"
-                                    },
-                                    "accountantLoginNotification": {
-                                      "type": "boolean"
-                                    }
-                                  }
-                                },
-                                "ocp": {
-                                  "type": "object",
-                                  "required": [
-                                    "receiptTypeId",
-                                    "invoiceTypeId",
-                                    "defaultLanguage",
-                                    "reminderEveryDays",
-                                    "autoSendEmail",
-                                    "disableReminder"
-                                  ],
-                                  "properties": {
-                                    "receiptTypeId": {
-                                      "type": "number"
-                                    },
-                                    "invoiceTypeId": {
-                                      "type": "number"
-                                    },
-                                    "defaultLanguage": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "reminderEveryDays": {
-                                      "type": "number"
-                                    },
-                                    "autoSendEmail": {
-                                      "type": "boolean"
-                                    },
-                                    "disableReminder": {
-                                      "type": "boolean"
-                                    }
-                                  }
-                                },
-                                "personalizedEmail": {
-                                  "type": "object",
-                                  "required": [
-                                    "fromEmailAddress"
-                                  ],
-                                  "properties": {
-                                    "fromEmailName": {},
-                                    "fromEmailAddress": {
-                                      "type": "string",
-                                      "minLength": 1
-                                    },
-                                    "replyToEmail": {}
-                                  }
-                                }
-                              }
+                              "$ref": "#/components/schemas/Setting"
                             },
                             "subscription": {
-                              "type": "object",
-                              "required": [
-                                "plan",
-                                "startedAt",
-                                "expiresAt",
-                                "recurring"
-                              ],
-                              "properties": {
-                                "plan": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "startedAt": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "expiresAt": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "recurring": {
-                                  "type": "boolean"
-                                }
-                              }
+                              "$ref": "#/components/schemas/Subscription"
                             }
                           }
                         }
@@ -476,7 +257,7 @@
             }
           }
         },
-        "description": "Get account details",
+        "description": "Get account details. This endpoint is quite unique since we also provide relations with information that can be \"hard\" cached and used to your requests. Id for vats, or your current Biller ID or payment methods are just some of the extra information provided. Try the end point to see the response with the payload.\n\n<!-- theme: warning -->\n> This is a super charged endpoint with data that can be used in multiple requests and can be safely cached.",
         "parameters": [
           {
             "$ref": "#/components/parameters/Accept"
@@ -585,7 +366,7 @@
         "operationId": "delete-customers"
       },
       "put": {
-        "summary": "",
+        "summary": "Update a customer",
         "operationId": "put-customers",
         "responses": {
           "200": {
@@ -950,8 +731,30 @@
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "get-customers-id"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-customers-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Show a customer. Provide his ID in order to get the data."
       }
     }
   },
@@ -2799,6 +2602,245 @@
             "updatedAt": "2019-08-08T17:26:53+00:00"
           }
         }
+      },
+      "Paymentmethod": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nameSec": {},
+          "info": {},
+          "infoSec": {},
+          "isOnlineMethod": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "iban": {},
+          "bic": {},
+          "accountHolder": {},
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deletedAt": {}
+        },
+        "required": [
+          "id",
+          "name",
+          "isOnlineMethod",
+          "status",
+          "default",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Vat": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "number"
+          },
+          "description": {},
+          "isDefault": {
+            "type": "boolean"
+          },
+          "isHidden": {
+            "type": "boolean"
+          },
+          "mydataVatCat": {
+            "type": "number"
+          },
+          "operand": {
+            "type": "string",
+            "minLength": 1
+          },
+          "isPercentable": {
+            "type": "boolean"
+          },
+          "taxId": {
+            "type": "number"
+          },
+          "accountingCode": {},
+          "deletedAt": {}
+        },
+        "required": [
+          "id",
+          "name",
+          "value",
+          "isDefault",
+          "isHidden",
+          "mydataVatCat",
+          "operand",
+          "isPercentable",
+          "taxId"
+        ]
+      },
+      "Setting": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "dateFormat": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currencySymbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "defaultInvoiceType": {
+            "type": "number"
+          },
+          "defaultTemplate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "appLanguage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "multiLanguage": {
+            "type": "boolean"
+          },
+          "incrementingNumberLength": {},
+          "receiveReport": {
+            "type": "boolean"
+          },
+          "reportToEmail": {},
+          "forwardingEmail": {
+            "type": "string",
+            "minLength": 1
+          },
+          "accountant": {
+            "type": "object",
+            "properties": {
+              "accountantEmail": {},
+              "accountantAccess": {
+                "type": "boolean"
+              },
+              "accountantLoginNotification": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "accountantAccess",
+              "accountantLoginNotification"
+            ]
+          },
+          "ocp": {
+            "type": "object",
+            "properties": {
+              "receiptTypeId": {
+                "type": "number"
+              },
+              "invoiceTypeId": {
+                "type": "number"
+              },
+              "defaultLanguage": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reminderEveryDays": {
+                "type": "number"
+              },
+              "autoSendEmail": {
+                "type": "boolean"
+              },
+              "disableReminder": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "receiptTypeId",
+              "invoiceTypeId",
+              "defaultLanguage",
+              "reminderEveryDays",
+              "autoSendEmail",
+              "disableReminder"
+            ]
+          },
+          "personalizedEmail": {
+            "type": "object",
+            "properties": {
+              "fromEmailName": {},
+              "fromEmailAddress": {
+                "type": "string",
+                "minLength": 1
+              },
+              "replyToEmail": {}
+            },
+            "required": [
+              "fromEmailAddress"
+            ]
+          }
+        },
+        "required": [
+          "dateFormat",
+          "currency",
+          "currencySymbol",
+          "defaultInvoiceType",
+          "defaultTemplate",
+          "appLanguage",
+          "multiLanguage",
+          "receiveReport",
+          "forwardingEmail",
+          "accountant",
+          "ocp",
+          "personalizedEmail"
+        ]
+      },
+      "Subscription": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "string",
+            "minLength": 1
+          },
+          "startedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expiresAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recurring": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "plan",
+          "startedAt",
+          "expiresAt",
+          "recurring"
+        ]
       }
     },
     "securitySchemes": {
