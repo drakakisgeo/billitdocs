@@ -134,7 +134,7 @@
             }
           }
         },
-        "description": "Get account details. This endpoint is quite unique since we also provide relations with information that can be \"hard\" cached and used to your requests. Id for vats, or your current Biller ID or payment methods are just some of the information provided. Try the end point to see the response with the payload.\n\n<!-- theme: info -->\n> This is a super charged endpoint that you can get resources and cache them locally",
+        "description": "Get account details. This endpoint is quite unique since we also provide relations with information that can be \"hard\" cached and used to your requests. Id for vats, or your current Biller ID or payment methods are just some of the extra information provided. Try the end point to see the response with the payload.\n\n<!-- theme: warning -->\n> This is a super charged endpoint with data that can be used in multiple requests and can be safely cached.",
         "parameters": [
           {
             "$ref": "#/components/parameters/Accept"
