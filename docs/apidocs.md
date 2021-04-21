@@ -29,6 +29,9 @@ Use that generated token to your requests by hitting the sandbox endpoints. If y
 <!-- theme: warning -->
 > In case you use PHP, we provide an opensource package you can use to make things very easy. Special addons included if you use the Laravel Framework
 
+<!-- theme: danger -->
+> Make sure to test your implementation thoroughly using the Sandbox account. Using the production URL has always the risk of destroying real production data that can't be restored.
+
 ## Authentication
 
 This API uses a **Bearer Token** for authentication,
