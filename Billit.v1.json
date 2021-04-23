@@ -3213,35 +3213,31 @@
               "type": "object",
               "properties": {
                 "statusCode": {
-                  "type": "number"
+                  "type": "number",
+                  "readOnly": true
                 },
                 "error": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "readOnly": true
                 },
                 "message": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "readOnly": true
                 },
                 "data": {
                   "type": "object",
                   "properties": {
                     "insidentId": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "readOnly": true
                     }
                   },
-                  "required": [
-                    "insidentId"
-                  ]
+                  "readOnly": true
                 }
-              },
-              "required": [
-                "statusCode",
-                "error",
-                "message",
-                "data"
-              ]
+              }
             },
             "examples": {
               "example": {
@@ -3314,17 +3310,10 @@
                 "data": {
                   "type": "array",
                   "items": {
-                    "required": [],
-                    "properties": {}
+                    "type": "object"
                   }
                 }
-              },
-              "required": [
-                "statusCode",
-                "error",
-                "message",
-                "data"
-              ]
+              }
             },
             "examples": {
               "example": {
@@ -3344,9 +3333,45 @@
         "content": {
           "application/json": {
             "schema": {
+              "description": "",
+              "type": "object",
               "properties": {
-                "id": {
-                  "type": "string"
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errors": {
+                  "type": "object"
+                }
+              }
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 422,
+                  "error": "Validation Failed",
+                  "message": "Your input had some validation errors.",
+                  "errors": {
+                    "isCompany": [
+                      "The is company field is required."
+                    ],
+                    "customerType": [
+                      "The customer type field is required."
+                    ],
+                    "company": [
+                      "The 'Company' field is required."
+                    ],
+                    "lang": [
+                      "The 'Language' field is required."
+                    ]
+                  }
                 }
               }
             }
@@ -3411,18 +3436,9 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "insidentId"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "statusCode",
-                "error",
-                "message",
-                "data"
-              ]
+              }
             },
             "examples": {
               "example": {
