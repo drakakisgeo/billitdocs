@@ -129,6 +129,129 @@
                       }
                     }
                   }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "data": {
+                        "uuid": "b3cce081-6796-409a-ace6-f7cf7bfc4771",
+                        "email": "example@billit.io",
+                        "subdomain": "example",
+                        "firstName": "John",
+                        "lastName": "Doe",
+                        "mobile": "6978787878",
+                        "isBlocked": true,
+                        "isSuspended": true,
+                        "isExpired": true,
+                        "isAccountant": true,
+                        "isValidated2fa": true,
+                        "createdAt": "2020-09-03T13:44:48+00:00",
+                        "updatedAt": "2020-09-03T13:44:48+00:00",
+                        "deletedAt": null,
+                        "relations": {
+                          "biller": {
+                            "id": 0,
+                            "company": "Mπαμπουλίδης O.E.",
+                            "companySec": "Mpampoulidis G.P.",
+                            "profession": "Υπηρεσίες δοκιμών",
+                            "professionSec": "testing services",
+                            "vatId": "075656565",
+                            "taxOffice": "Α' Πειραιά",
+                            "streetAddress": "Τσαμαδού 10-12",
+                            "streetAddressSec": "Tsamadou 10-12 str.",
+                            "city": "Πειραιάς",
+                            "citySec": "Piraeus",
+                            "postalCode": "18534",
+                            "phone": "2104111111",
+                            "phoneSec": "+302104111111",
+                            "mobile": "6978787878",
+                            "mobileSec": "+306978787878",
+                            "fax": "2104111112",
+                            "logo": "https://api.billit.io/uploads/logos/92/mpampoulidis-logo.png",
+                            "url": "https://test.mpampoulidis.gr",
+                            "urlSec": "https://test.mpampoulidis.gr/en",
+                            "urlLabel": "Mpampoulidis site",
+                            "country": "GR",
+                            "freeText": "<p>ΓΕ.ΜΗ: 123123</p>",
+                            "freeTextSec": "<p>GEMI: 123123</p>",
+                            "createdAt": "2021-04-24T14:15:22Z",
+                            "updatedAt": "2021-04-24T14:15:22Z"
+                          },
+                          "paymentMethods": [
+                            {
+                              "id": 292,
+                              "name": "Εθνική Τράπεζα",
+                              "nameSec": "NBG BANK",
+                              "info": null,
+                              "infoSec": null,
+                              "isOnlineMethod": false,
+                              "status": true,
+                              "default": true,
+                              "iban": "1231231231313141414141414141",
+                              "bic": "NBG10GD",
+                              "accountHolder": "Μπαμπουλίδης Ο.Ε.",
+                              "createdAt": "2019-05-22T11:48:04+00:00",
+                              "updatedAt": "2019-05-22T11:48:04+00:00",
+                              "deletedAt": null
+                            }
+                          ],
+                          "vats": [
+                            {
+                              "id": 0,
+                              "name": "string",
+                              "value": 0,
+                              "description": "string",
+                              "isDefault": true,
+                              "isHidden": true,
+                              "mydataVatCat": 0,
+                              "operand": "string",
+                              "isPercentable": true,
+                              "taxId": 0,
+                              "accountingCode": null,
+                              "deletedAt": null
+                            }
+                          ],
+                          "settings": {
+                            "dateFormat": "string",
+                            "currency": "string",
+                            "currencySymbol": "string",
+                            "defaultInvoiceType": 0,
+                            "defaultTemplate": "string",
+                            "appLanguage": "string",
+                            "multiLanguage": true,
+                            "incrementingNumberLength": null,
+                            "receiveReport": true,
+                            "reportToEmail": null,
+                            "forwardingEmail": "string",
+                            "accountant": {
+                              "accountantEmail": null,
+                              "accountantAccess": true,
+                              "accountantLoginNotification": true
+                            },
+                            "ocp": {
+                              "receiptTypeId": 0,
+                              "invoiceTypeId": 0,
+                              "defaultLanguage": "string",
+                              "reminderEveryDays": 0,
+                              "autoSendEmail": true,
+                              "disableReminder": true
+                            },
+                            "personalizedEmail": {
+                              "fromEmailName": null,
+                              "fromEmailAddress": "string",
+                              "replyToEmail": null
+                            }
+                          },
+                          "subscription": {
+                            "plan": "string",
+                            "startedAt": "string",
+                            "expiresAt": "string",
+                            "recurring": true
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
