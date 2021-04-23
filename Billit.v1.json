@@ -370,6 +370,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "422": {
             "description": "Unprocessable Entity (WebDAV)",
             "content": {
@@ -428,6 +431,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         },
         "operationId": "post-customers",
@@ -621,15 +627,14 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": ""
-                }
-              }
-            }
+            "$ref": "#/components/responses/500"
           }
         },
         "tags": [
@@ -3157,6 +3162,60 @@
       }
     },
     "responses": {
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "insidentId": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "insidentId"
+                  ]
+                }
+              },
+              "required": [
+                "statusCode",
+                "error",
+                "message",
+                "data"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 400,
+                  "error": "Bad Request",
+                  "message": "Logged so the Admin can take a look.",
+                  "data": {
+                    "insidentId": "eb9ff5d5-ee3c-4c24-937b-95644c8db839"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "404": {
         "description": "Page Not found",
         "content": {
@@ -3185,6 +3244,106 @@
                   "error": "Not found",
                   "message": "",
                   "data": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errors": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "statusCode",
+                "error",
+                "message",
+                "errors"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": "{\n    \"statusCode\": 422,\n    \"error\": \"Validation Failed\",\n    \"message\": \"Your input had some validation errors.\",\n    \"errors\": {\n        \"isCompany\": [\n            \"The is company field is required.\"\n        ],\n        \"customerType\": [\n            \"The customer type field is required.\"\n        ],\n        \"company\": [\n            \"The 'Company' field is required.\"\n        ],\n        \"lang\": [\n            \"The 'Language' field is required.\"\n        ]\n    }\n}"
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "insidentId": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "insidentId"
+                  ]
+                }
+              },
+              "required": [
+                "statusCode",
+                "error",
+                "message",
+                "data"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 500,
+                  "error": "Unfortunate Server error",
+                  "message": "",
+                  "data": {
+                    "insidentId": "1d5c6a8b-113d-40ff-9635-578d5cd02486"
+                  }
                 }
               }
             }
