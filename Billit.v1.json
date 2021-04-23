@@ -390,43 +390,10 @@
                       "minLength": 1
                     },
                     "errors": {
-                      "type": "object",
-                      "properties": {
-                        "isCompany": {
-                          "type": "array",
-                          "items": {
-                            "required": [],
-                            "properties": {}
-                          }
-                        },
-                        "customerType": {
-                          "type": "array",
-                          "items": {
-                            "required": [],
-                            "properties": {}
-                          }
-                        },
-                        "company": {
-                          "type": "array",
-                          "items": {
-                            "required": [],
-                            "properties": {}
-                          }
-                        },
-                        "lang": {
-                          "type": "array",
-                          "items": {
-                            "required": [],
-                            "properties": {}
-                          }
-                        }
-                      },
-                      "required": [
-                        "isCompany",
-                        "customerType",
-                        "company",
-                        "lang"
-                      ]
+                      "type": "object"
+                    },
+                    "": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -653,10 +620,26 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
           }
         },
         "tags": [
           "Customers"
+        ],
+        "description": "Update a customer",
+        "security": [
+          {
+            "API TOKEN": []
+          }
         ]
       },
       "parameters": []
@@ -3192,6 +3175,16 @@
                 "message": {
                   "type": "string",
                   "readOnly": true
+                }
+              }
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 404,
+                  "error": "Not found",
+                  "message": "",
+                  "data": []
                 }
               }
             }
