@@ -613,7 +613,6 @@
               "examples": {
                 "example": {
                   "value": {
-                    "gsis": 1,
                     "isCompany": true,
                     "company": "TestingCompany",
                     "lang": "el",
@@ -667,7 +666,89 @@
         "operationId": "put-customers",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "isCompany": {
+                      "type": "boolean"
+                    },
+                    "company": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "lang": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "profession": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "inCharge": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vatId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "taxOffice": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "alias": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "customerType": {
+                      "type": "number"
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "city": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "country": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "country"
+                  ]
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "isCompany": true,
+                      "company": "TestingCompany",
+                      "lang": "el",
+                      "profession": "Web Dev",
+                      "inCharge": "George Tester",
+                      "vatId": "EL89991223123",
+                      "taxOffice": "A Athens",
+                      "streetAddress": "Androutsou",
+                      "alias": "Test",
+                      "customerType": 1,
+                      "postalCode": "12312",
+                      "city": "Athens",
+                      "country": "GR"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/400"
