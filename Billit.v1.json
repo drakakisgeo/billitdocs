@@ -298,7 +298,8 @@
                       "$ref": "#/components/schemas/Meta"
                     }
                   }
-                }
+                },
+                "examples": {}
               }
             }
           }
@@ -364,6 +365,47 @@
                   "properties": {
                     "data": {
                       "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "data": {
+                        "id": 0,
+                        "email": "string",
+                        "inCharge": "string",
+                        "info": "string",
+                        "company": "string",
+                        "profession": "string",
+                        "vatId": "string",
+                        "taxOffice": "string",
+                        "streetAddress": "string",
+                        "city": "string",
+                        "postalCode": "string",
+                        "phone": "string",
+                        "mobile": "string",
+                        "fax": "string",
+                        "field1": null,
+                        "field2": null,
+                        "field3": null,
+                        "field4": null,
+                        "enabled": true,
+                        "lang": "el",
+                        "discount": 0,
+                        "alias": "string",
+                        "debt": 0,
+                        "overflowAmount": 0,
+                        "total": 0,
+                        "unpaid": 0,
+                        "createdAt": "2019-08-24T14:15:22Z",
+                        "updatedAt": "string",
+                        "deletedAt": null,
+                        "country": "GR",
+                        "isCompany": true,
+                        "customerType": 1,
+                        "publicNote": "string"
+                      }
                     }
                   }
                 }
@@ -3243,6 +3285,53 @@
                   "statusCode": 404,
                   "error": "Not found",
                   "message": "",
+                  "data": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "405": {
+        "description": "Method not supported",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "required": [],
+                    "properties": {}
+                  }
+                }
+              },
+              "required": [
+                "statusCode",
+                "error",
+                "message",
+                "data"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 405,
+                  "error": "Not supported",
+                  "message": "This method is not supported",
                   "data": []
                 }
               }
