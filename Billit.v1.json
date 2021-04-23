@@ -219,7 +219,7 @@
             "$ref": "#/components/parameters/per_page"
           }
         ],
-        "description": "",
+        "description": "A list of customers",
         "security": [
           {
             "API TOKEN": []
@@ -231,8 +231,290 @@
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "post-customers"
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity (WebDAV)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number"
+                    },
+                    "error": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "message": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "isCompany": {
+                          "type": "array",
+                          "items": {
+                            "required": [],
+                            "properties": {}
+                          }
+                        },
+                        "customerType": {
+                          "type": "array",
+                          "items": {
+                            "required": [],
+                            "properties": {}
+                          }
+                        },
+                        "company": {
+                          "type": "array",
+                          "items": {
+                            "required": [],
+                            "properties": {}
+                          }
+                        },
+                        "lang": {
+                          "type": "array",
+                          "items": {
+                            "required": [],
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "required": [
+                        "isCompany",
+                        "customerType",
+                        "company",
+                        "lang"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message",
+                    "errors"
+                  ]
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "statusCode": 422,
+                      "error": "Validation Failed",
+                      "message": "Your input had some validation errors.",
+                      "errors": {
+                        "isCompany": [
+                          "The is company field is required."
+                        ],
+                        "customerType": [
+                          "The customer type field is required."
+                        ],
+                        "company": [
+                          "The 'Company' field is required."
+                        ],
+                        "lang": [
+                          "The 'Language' field is required."
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-customers",
+        "description": "Create a customer",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "gsis": {
+                    "type": "number"
+                  },
+                  "isCompany": {
+                    "type": "boolean"
+                  },
+                  "company": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lang": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "profession": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "inCharge": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "vatId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "taxOffice": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "streetAddress": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "alias": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "customerType": {
+                    "type": "number"
+                  },
+                  "postalCode": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "city": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "country": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "addresses": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "title",
+                        "address",
+                        "city",
+                        "zip",
+                        "incharge",
+                        "tel",
+                        "country"
+                      ],
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "address": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "city": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zip": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "incharge": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "tel": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "country": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "gsis",
+                  "isCompany",
+                  "company",
+                  "lang",
+                  "profession",
+                  "inCharge",
+                  "vatId",
+                  "taxOffice",
+                  "streetAddress",
+                  "alias",
+                  "customerType",
+                  "postalCode",
+                  "city",
+                  "country",
+                  "addresses"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "gsis": 1,
+                    "isCompany": true,
+                    "company": "TestingCompany",
+                    "lang": "el",
+                    "profession": "Web Dev",
+                    "inCharge": "George Tester",
+                    "vatId": "EL89991223123",
+                    "taxOffice": "A Athens",
+                    "streetAddress": "Androutsou",
+                    "alias": "Test",
+                    "customerType": 1,
+                    "postalCode": "12312",
+                    "city": "Athens",
+                    "country": "GR",
+                    "addresses": [
+                      {
+                        "title": "Τιτλος 1",
+                        "address": "Διευθυνση 1",
+                        "city": "Πόλη 1",
+                        "zip": "ΤΚ 1",
+                        "incharge": "Γιωργος 1",
+                        "tel": "210 1",
+                        "country": "GR"
+                      },
+                      {
+                        "title": "Τιτλος 2",
+                        "address": "Διευθυνση 2",
+                        "city": "Πόλη 2",
+                        "zip": "ΤΚ 2",
+                        "incharge": "Γιωργος 2",
+                        "tel": "220 2",
+                        "country": "GR"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Delete a customer",
