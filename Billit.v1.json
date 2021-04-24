@@ -1079,8 +1079,88 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "",
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The title of the link"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "A more descriptive text on what this is about."
+                  },
+                  "cost": {
+                    "type": "number",
+                    "description": "The final cost, the payable amount."
+                  },
+                  "customerId": {
+                    "type": "number",
+                    "description": "Optionaly, if you know the customer fill in his ID. It will be used as the receiver in the invoice"
+                  },
+                  "invoiceTypeId": {
+                    "type": "number",
+                    "description": "Select the invoicetype ID that you want to the resulting invoice"
+                  },
+                  "netValue": {
+                    "type": "number",
+                    "description": "Fill in the net value of the link"
+                  },
+                  "vatId": {
+                    "type": "number",
+                    "description": "Select the Vat ID that will be applied"
+                  },
+                  "productId": {
+                    "type": "number",
+                    "description": "Optionaly, you can select the product ID to be selected as product in the resulting invoice"
+                  },
+                  "paymentMethodId": {
+                    "type": "number",
+                    "description": "You need to select the payment method ID that will be used."
+                  },
+                  "lang": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Select the default language of the OCP link form",
+                    "example": "el",
+                    "enum": [
+                      "el",
+                      "en"
+                    ]
+                  },
+                  "expirationAt": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The date in ISO format"
+                  }
+                },
+                "required": [
+                  "title",
+                  "cost",
+                  "invoiceTypeId",
+                  "netValue",
+                  "vatId",
+                  "paymentMethodId",
+                  "lang",
+                  "expirationAt"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "title": "My awesome service",
+                    "description": "My monthly support for your company",
+                    "cost": 200,
+                    "customerId": 10,
+                    "invoiceTypeId": 10,
+                    "netValue": 20,
+                    "vatId": 1,
+                    "productId": 141,
+                    "paymentMethodId": 141,
+                    "lang": "el",
+                    "expirationAt": "2021-05-05"
+                  }
+                }
               }
             }
           }
@@ -1507,7 +1587,10 @@
             "$ref": "#/components/parameters/Accept"
           }
         ],
-        "description": "Update an OCP link"
+        "description": "Update an OCP link",
+        "tags": [
+          "Ocp"
+        ]
       },
       "delete": {
         "summary": "Delete OCP link",
@@ -1527,6 +1610,9 @@
           {
             "$ref": "#/components/parameters/Accept"
           }
+        ],
+        "tags": [
+          "Ocp"
         ]
       }
     },
