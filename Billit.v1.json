@@ -1,9 +1,4 @@
 {
-  "x-stoplight": {
-    "docs": {
-      "showModels": false
-    }
-  },
   "openapi": "3.0.0",
   "info": {
     "title": "Billit",
@@ -19,6 +14,10 @@
     }
   },
   "servers": [
+    {
+      "url": "http://api.billit.local/v1",
+      "description": "local"
+    },
     {
       "url": "https://api.sandbox-billit.xyz/v1",
       "description": "Sandbox"
@@ -783,7 +782,7 @@
         ]
       }
     },
-    "/products": {
+    "products": {
       "get": {
         "summary": "List of products",
         "tags": [
@@ -799,9 +798,10 @@
         ],
         "responses": {},
         "operationId": "post-products"
-      }
+      },
+      "parameters": []
     },
-    "/ocps": {
+    "ocps": {
       "get": {
         "summary": "List OCP links",
         "tags": [
@@ -818,9 +818,10 @@
         ],
         "responses": {},
         "operationId": "post-ocps"
-      }
+      },
+      "parameters": []
     },
-    "/payments": {
+    "payments": {
       "get": {
         "summary": "List payments",
         "tags": [
@@ -836,9 +837,10 @@
         ],
         "responses": {},
         "operationId": "post-payments"
-      }
+      },
+      "parameters": []
     },
-    "/suppliers": {
+    "suppliers": {
       "get": {
         "summary": "A list of suppliers",
         "tags": [
@@ -854,9 +856,10 @@
         ],
         "responses": {},
         "operationId": "post-suppliers"
-      }
+      },
+      "parameters": []
     },
-    "/suppliers/{id}": {
+    "suppliers/{id}": {
       "parameters": [
         {
           "schema": {
@@ -876,7 +879,7 @@
         "operationId": "get-suppliers-id"
       }
     },
-    "/ocps/{uuid}": {
+    "ocps/{uuid}": {
       "parameters": [
         {
           "schema": {
@@ -896,7 +899,7 @@
         "operationId": "get-ocps-uuid"
       }
     },
-    "/tags": {
+    "tags": {
       "get": {
         "summary": "Show a tag",
         "responses": {},
@@ -904,9 +907,10 @@
         "tags": [
           "Tags"
         ]
-      }
+      },
+      "parameters": []
     },
-    "/tags/{id}": {
+    "tags/{id}": {
       "parameters": [
         {
           "schema": {
@@ -926,7 +930,7 @@
         "operationId": "get-tags-id"
       }
     },
-    "/customers/{id}": {
+    "customers/{id}": {
       "parameters": [
         {
           "schema": {
@@ -934,15 +938,8 @@
           },
           "name": "id",
           "in": "path",
-          "required": true
-        },
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          "required": true,
+          "description": "The customer's iD"
         }
       ],
       "get": {
@@ -950,24 +947,128 @@
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "get-customers-id"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "id": 694,
+                        "email": "drakakis@fantasy.gr",
+                        "inCharge": "Δρακάκης",
+                        "info": "mynewinfo 123",
+                        "company": "ΦΑΝΤΑΣΥ ΤΡΑΒΕΛ ΕΠΕ",
+                        "profession": "ΥΠΗΡΕΣΙΕΣ ΔΙΟΡΓΑΝΩΣΗΣ ΠΕΡΙΗΓΗΣΕΩΝ (ΠΡΑΚΤΟΡΕΙΟ ΤΑΞΙΔΙΩΝ) ΓΙΑ ΟΡΓΑΝΩΜΕΝΟ ΤΟΥΡΙΣΜΟ ΑΠΟ ΤΟ ΕΞΩΤΕΡΙΚΟ",
+                        "vatId": "095702357",
+                        "taxOffice": "Δ΄ ΑΘΗΝΩΝΝ",
+                        "streetAddress": "ΦΙΛΕΛΛΗΝΩΝ 19",
+                        "city": "ΑΘΗΝΑ",
+                        "postalCode": "1231",
+                        "phone": "",
+                        "mobile": "",
+                        "fax": "",
+                        "field1": "οκ",
+                        "field2": null,
+                        "field3": null,
+                        "field4": null,
+                        "enabled": true,
+                        "lang": "el",
+                        "discount": 10,
+                        "alias": "Εσωτερικού",
+                        "debt": 0,
+                        "overflowAmount": 462,
+                        "total": 1562.5,
+                        "unpaid": 9466.16,
+                        "createdAt": "2016-07-01T17:03:17+00:00",
+                        "updatedAt": "2021-04-22T19:05:42+00:00",
+                        "deletedAt": null,
+                        "country": "GR",
+                        "isCompany": null,
+                        "customerType": 1,
+                        "publicNote": "μια δημσια δηλωση"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-customers-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Get a specific customer by ID."
       },
       "put": {
         "summary": "Update a customer",
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "put-customers-id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "put-customers-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Delete a customer",
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "delete-customers-id"
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "operationId": "delete-customers-id",
+        "description": "Delete a customer by ID",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ]
       }
     }
   },
