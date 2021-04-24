@@ -1165,7 +1165,7 @@
             }
           }
         },
-        "description": "Create a new OCP ( One click payment ) link."
+        "description": "Create a new OCP ( One click payment ) link.\n\n<!-- theme: warning -->\n> You really need to setup an online payment method first through the Billit UI.\n\n<!-- theme: danger -->\n> Make sure to use a payment method sandbox account as well to avoid real charges while testing. \n\n"
       },
       "parameters": []
     },
@@ -1699,11 +1699,44 @@
     "tags": {
       "get": {
         "summary": "Show a tag",
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Tag"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/Links"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "operationId": "get-tags",
         "tags": [
           "Tags"
-        ]
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Get a list of tags"
       },
       "parameters": []
     },
@@ -1723,8 +1756,52 @@
         "tags": [
           "Tags"
         ],
-        "responses": {},
-        "operationId": "get-tags-id"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Tag"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "id": 44,
+                        "tag": "billit",
+                        "description": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "get-tags-id",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "description": "Get a tag by ID",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ]
       }
     },
     "customers/{id}": {
