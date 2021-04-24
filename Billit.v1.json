@@ -275,7 +275,7 @@
     },
     "customers": {
       "get": {
-        "summary": "Get a list of customers",
+        "summary": "List of customers",
         "tags": [
           "Customers"
         ],
@@ -682,7 +682,7 @@
     },
     "invoices": {
       "get": {
-        "summary": "Invoices list",
+        "summary": "List invoices",
         "tags": [
           "Invoices"
         ],
@@ -1378,7 +1378,7 @@
     },
     "suppliers": {
       "get": {
-        "summary": "A list of suppliers",
+        "summary": "List of suppliers",
         "tags": [
           "Suppliers"
         ],
@@ -1595,7 +1595,7 @@
         ]
       },
       "put": {
-        "summary": "",
+        "summary": "Update a supplier",
         "operationId": "putsuppliers-id",
         "responses": {
           "200": {
@@ -1624,7 +1624,7 @@
         ]
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete a supplier",
         "operationId": "deletesuppliers-id",
         "responses": {
           "204": {
@@ -1895,7 +1895,7 @@
     },
     "tags": {
       "get": {
-        "summary": "Show a tag",
+        "summary": "List tags",
         "responses": {
           "200": {
             "description": "OK",
@@ -2014,7 +2014,7 @@
         }
       ],
       "get": {
-        "summary": "Get a customer",
+        "summary": "Show a customer",
         "tags": [
           "Customers"
         ],
@@ -2321,6 +2321,229 @@
         "security": [
           {
             "API TOKEN": []
+          }
+        ]
+      }
+    },
+    "/products/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "124",
+            "pattern": "^[0-9]+"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The product's ID"
+        }
+      ],
+      "put": {
+        "summary": "Update a product",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "put-products-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "nameSec": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "descriptionSec": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "unitPrice": {
+                    "type": "number"
+                  },
+                  "defaultVatId": {
+                    "type": "number"
+                  },
+                  "stock": {
+                    "type": "number"
+                  },
+                  "withStock": {
+                    "type": "boolean"
+                  },
+                  "isVatIncluded": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "required": [],
+                      "properties": {}
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "nameSec",
+                  "descriptionSec",
+                  "unitPrice",
+                  "defaultVatId",
+                  "stock",
+                  "withStock",
+                  "isVatIncluded",
+                  "active",
+                  "tags"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "name": "Web Development",
+                    "description": "Web development services",
+                    "nameSec": "Web development services",
+                    "descriptionSec": "Web development Desc EN",
+                    "unitPrice": 4000,
+                    "defaultVatId": 250,
+                    "stock": 0,
+                    "withStock": false,
+                    "isVatIncluded": false,
+                    "active": true,
+                    "tags": [
+                      "tag1",
+                      "tag2"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "delete": {
+        "summary": "Delete a product",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "delete-products-id",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Delete a product by ID"
+      },
+      "get": {
+        "summary": "Show a product",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "id": 16,
+                        "name": "Web Development",
+                        "description": "Web development for Addapp project",
+                        "nameSec": "",
+                        "descriptionSec": "",
+                        "unitPrice": 4000,
+                        "defaultVatId": 250,
+                        "stock": 0,
+                        "withStock": false,
+                        "isVatIncluded": false,
+                        "ordering": false,
+                        "active": false,
+                        "bulkjobId": null,
+                        "createdAt": "2015-09-03T20:56:24+00:00",
+                        "updatedAt": "2016-06-27T09:28:46+00:00",
+                        "deletedAt": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "get-products-id",
+        "description": "Show a product",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
           }
         ]
       }
