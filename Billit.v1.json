@@ -369,7 +369,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "example": {
                     "value": {
                       "data": {
                         "id": 0,
@@ -492,9 +492,6 @@
                 "description": "",
                 "type": "object",
                 "properties": {
-                  "gsis": {
-                    "type": "number"
-                  },
                   "isCompany": {
                     "type": "boolean"
                   },
@@ -550,15 +547,7 @@
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
-                      "required": [
-                        "title",
-                        "address",
-                        "city",
-                        "zip",
-                        "incharge",
-                        "tel",
-                        "country"
-                      ],
+                      "type": "object",
                       "properties": {
                         "title": {
                           "type": "string",
@@ -588,27 +577,19 @@
                           "type": "string",
                           "minLength": 1
                         }
-                      }
+                      },
+                      "required": [
+                        "title",
+                        "address",
+                        "city",
+                        "zip",
+                        "incharge",
+                        "tel",
+                        "country"
+                      ]
                     }
                   }
-                },
-                "required": [
-                  "gsis",
-                  "isCompany",
-                  "company",
-                  "lang",
-                  "profession",
-                  "inCharge",
-                  "vatId",
-                  "taxOffice",
-                  "streetAddress",
-                  "alias",
-                  "customerType",
-                  "postalCode",
-                  "city",
-                  "country",
-                  "addresses"
-                ]
+                }
               },
               "examples": {
                 "example": {
@@ -768,7 +749,52 @@
           {
             "API TOKEN": []
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "isCompany": {
+                    "type": "boolean"
+                  },
+                  "company": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "customerType": {
+                    "type": "number"
+                  },
+                  "postalCode": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "country": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "isCompany": true,
+                    "company": "TestingCompany",
+                    "lang": "el",
+                    "profession": "Web Dev",
+                    "inCharge": "George Tester",
+                    "customerType": 1,
+                    "postalCode": "12312",
+                    "city": "Athens",
+                    "country": "CY"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "parameters": []
     },
