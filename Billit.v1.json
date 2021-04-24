@@ -847,16 +847,204 @@
         "tags": [
           "Products"
         ],
-        "responses": {},
-        "operationId": "get-products"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Product"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/Links"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": 16,
+                          "name": "Web Development",
+                          "description": "Web development services",
+                          "nameSec": "",
+                          "descriptionSec": "",
+                          "unitPrice": 4000,
+                          "defaultVatId": 250,
+                          "stock": 0,
+                          "withStock": false,
+                          "isVatIncluded": false,
+                          "ordering": false,
+                          "active": false,
+                          "bulkjobId": null,
+                          "createdAt": "2015-09-03T20:56:24+00:00",
+                          "updatedAt": "2016-06-27T09:28:46+00:00",
+                          "deletedAt": null
+                        },
+                        {
+                          "id": 21,
+                          "name": "Φιλοξενία χώρου",
+                          "description": "υπηρεσίες φιλοξενίας ιστοσελίδων",
+                          "nameSec": "Web hosting services",
+                          "descriptionSec": "",
+                          "unitPrice": 52,
+                          "defaultVatId": 376,
+                          "stock": 0,
+                          "withStock": true,
+                          "isVatIncluded": false,
+                          "ordering": false,
+                          "active": false,
+                          "bulkjobId": null,
+                          "createdAt": "2015-10-08T15:26:15+00:00",
+                          "updatedAt": "2016-10-11T13:18:17+00:00",
+                          "deletedAt": null
+                        }
+                      ],
+                      "links": {
+                        "first": "https://api.billit.io/v1/products?page=1",
+                        "last": "https://api.billit.io/v1/products?page=1",
+                        "prev": null,
+                        "next": null
+                      },
+                      "meta": {
+                        "current_page": 1,
+                        "from": 1,
+                        "last_page": 1,
+                        "links": [
+                          {
+                            "url": null,
+                            "label": "&laquo; Previous",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/products?page=1",
+                            "label": "1",
+                            "active": true
+                          },
+                          {
+                            "url": null,
+                            "label": "Next &raquo;",
+                            "active": false
+                          }
+                        ],
+                        "path": "https://api.billit.io/v1/products",
+                        "per_page": 50,
+                        "to": 6,
+                        "total": 6
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          }
+        },
+        "operationId": "get-products",
+        "description": "Get a list of products",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "5"
+            },
+            "in": "query",
+            "name": "has_stock",
+            "description": "Show only products that their stock is tracked."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "10"
+            },
+            "in": "query",
+            "name": "stock_less",
+            "description": "Show only products that their stock is less thank this number."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "10"
+            },
+            "in": "query",
+            "name": "stock_greater",
+            "description": "Show only products that their stock is less thank this number."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "100"
+            },
+            "in": "query",
+            "name": "tag_id",
+            "description": "Show only products that are using a certain tag."
+          }
+        ],
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ]
       },
       "post": {
         "summary": "Create a new product",
         "tags": [
           "Products"
         ],
-        "responses": {},
-        "operationId": "post-products"
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          }
+        },
+        "operationId": "post-products",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
       },
       "parameters": []
     },
@@ -1518,6 +1706,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         },
         "operationId": "get-ocps-uuid",
