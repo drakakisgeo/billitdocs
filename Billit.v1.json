@@ -4159,118 +4159,129 @@
         "properties": {
           "uuid": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Unique identifier"
           },
           "permalink": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "The invoice url. You can append \"/pdf\" to get the pdf version."
           },
           "number": {
-            "type": "number"
+            "type": "number",
+            "description": "The invoice number"
           },
           "type": {
             "type": "object",
-            "required": [
-              "id",
-              "name",
-              "subtitle",
-              "alias"
-            ],
             "properties": {
               "id": {
-                "type": "number"
+                "type": "number",
+                "description": "The invoice type ID"
               },
               "name": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The Friendly name of the type"
               },
               "subtitle": {
-                "type": "string"
+                "type": "string",
+                "description": "The subtitle of the type"
               },
-              "note": {},
+              "note": {
+                "type": [
+                  "string"
+                ],
+                "description": "A general always shown note",
+                "nullable": true
+              },
               "alias": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "A short version of the type. Ex: Τ.Π.Υ"
               },
-              "series": {}
+              "series": {
+                "type": [
+                  "string"
+                ],
+                "description": "The invoice type series",
+                "nullable": true
+              }
             }
           },
           "biller": {
             "type": "object",
-            "required": [
-              "id",
-              "company",
-              "info",
-              "profession",
-              "taxId",
-              "taxOffice",
-              "streetAddress",
-              "city",
-              "postCode",
-              "phone",
-              "mobile",
-              "url",
-              "urlLabel",
-              "country",
-              "freeText"
-            ],
             "properties": {
               "id": {
-                "type": "number"
+                "type": "number",
+                "description": "The biller's ID"
               },
               "company": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Biller's company name"
               },
               "info": {
-                "type": "string"
+                "type": "string",
+                "description": "private info text"
               },
               "profession": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The profession of the company"
               },
               "taxId": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The Tax ID"
               },
               "taxOffice": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The tax Office if available"
               },
               "streetAddress": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The physical address of the Biller's company"
               },
               "city": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The city"
               },
               "postCode": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The post code"
               },
               "phone": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The phone of the Biller"
               },
               "mobile": {
-                "type": "string"
+                "type": "string",
+                "description": "The mobile phone"
               },
               "url": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The website url of the Biller"
               },
               "urlLabel": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The website friendly label for the url"
               },
               "country": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The Country"
               },
               "freeText": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Html block"
               }
             }
           },
@@ -5839,51 +5850,60 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "type": "number",
+            "description": "Vat ID"
           },
           "name": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Vat friendly name"
           },
           "value": {
-            "type": "number"
+            "type": "number",
+            "description": "Vat value (%)"
           },
-          "description": {},
+          "description": {
+            "type": "string",
+            "description": "A description if needed"
+          },
           "isDefault": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Set as default while being used from resources"
           },
           "isHidden": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Hide from the dropdown menus because it's inactive."
           },
           "mydataVatCat": {
-            "type": "number"
+            "type": "number",
+            "description": "The mydata Category"
           },
           "operand": {
             "type": "string",
-            "minLength": 1
+            "description": "The operand of the vat",
+            "enum": [
+              "+",
+              "-"
+            ],
+            "readOnly": true
           },
           "isPercentable": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If the type is Percentable or not"
           },
           "taxId": {
-            "type": "number"
+            "type": "number",
+            "description": "The linked taxId"
           },
-          "accountingCode": {},
           "deletedAt": {
-            "description": "ISO 8601 format"
+            "type": [
+              "string"
+            ],
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "nullable": true
           }
-        },
-        "required": [
-          "id",
-          "name",
-          "value",
-          "isDefault",
-          "isHidden",
-          "mydataVatCat",
-          "operand",
-          "isPercentable",
-          "taxId"
-        ]
+        }
       },
       "Setting": {
         "description": "",
