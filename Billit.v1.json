@@ -2538,30 +2538,22 @@
                   "example": {
                     "value": {
                       "data": {
-                        "id": 838,
-                        "info": "",
-                        "supplierId": 647,
-                        "price": 66.92,
-                        "vatAmount": 15.39,
-                        "irsAmount": 66.92,
-                        "invoiceNum": "1111",
-                        "taxOffice": null,
-                        "streetAddress": null,
-                        "companyExpense": true,
-                        "isCredited": false,
-                        "paid": false,
-                        "irsType": 1,
-                        "irsPercent": null,
-                        "receiptId": null,
-                        "originalPrice": null,
-                        "originalVat": null,
-                        "originalCurrency": null,
-                        "systemCurrency": null,
-                        "rate": null,
-                        "dateOccurred": "2018-11-02",
-                        "datePaid": "2021-04-19",
-                        "createdAt": "2018-11-21T14:56:03+00:00",
-                        "updatedAt": "2019-08-08T17:26:53+00:00"
+                        "id": 16,
+                        "name": "Web Development",
+                        "description": "Web development for Addapp project",
+                        "nameSec": "",
+                        "descriptionSec": "",
+                        "unitPrice": 4000,
+                        "defaultVatId": 250,
+                        "stock": 0,
+                        "withStock": false,
+                        "isVatIncluded": false,
+                        "ordering": false,
+                        "active": false,
+                        "bulkjobId": null,
+                        "createdAt": "2015-09-03T20:56:24+00:00",
+                        "updatedAt": "2016-06-27T09:28:46+00:00",
+                        "deletedAt": null
                       }
                     }
                   }
