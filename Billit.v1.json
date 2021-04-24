@@ -3064,9 +3064,6 @@
     "/purchases": {
       "post": {
         "summary": "Create a new purchase",
-        "tags": [
-          "Purchase"
-        ],
         "responses": {
           "201": {
             "description": "Created",
@@ -3192,13 +3189,13 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Purchases"
+        ]
       },
       "get": {
         "summary": "List of purchases",
-        "tags": [
-          "Purchase"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3331,7 +3328,89 @@
             "$ref": "#/components/parameters/Accept"
           }
         ],
-        "description": "Get a list of purchases"
+        "description": "Get a list of purchases",
+        "tags": [
+          "Purchases"
+        ]
+      }
+    },
+    "/purchases/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Show a purchase",
+        "tags": [
+          "Purchases"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Purchase"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-purchases-id",
+        "description": "Show a Purchase",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete a purchase",
+        "tags": [
+          "Purchases"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "delete-purchases-id",
+        "description": "Delete a Purchase",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       }
     }
   },
