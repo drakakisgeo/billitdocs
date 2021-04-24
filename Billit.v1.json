@@ -5269,6 +5269,23 @@
       "Payment": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "id": 994,
+            "invoiceId": 1181,
+            "paymentMethodId": 483,
+            "amount": 123,
+            "info": "",
+            "transactionId": null,
+            "apptransactionId": null,
+            "customerId": 694,
+            "paidInvoices": null,
+            "overflowAmount": 0,
+            "dateOccurred": "2021-01-04T00:00:00+00:00",
+            "createdAt": "2021-01-04T08:48:01+00:00",
+            "updatedAt": "2021-01-04T08:48:01+00:00"
+          }
+        },
         "properties": {
           "id": {
             "type": "number"
@@ -5300,34 +5317,46 @@
           },
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format"
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
-          }
-        },
-        "x-examples": {
-          "example": {
-            "id": 994,
-            "invoiceId": 1181,
-            "paymentMethodId": 483,
-            "amount": 123,
-            "info": "",
-            "transactionId": null,
-            "apptransactionId": null,
-            "customerId": 694,
-            "paidInvoices": null,
-            "overflowAmount": 0,
-            "dateOccurred": "2021-01-04T00:00:00+00:00",
-            "createdAt": "2021-01-04T08:48:01+00:00",
-            "updatedAt": "2021-01-04T08:48:01+00:00"
+            "minLength": 1,
+            "description": "ISO 8601 format"
           }
         }
       },
       "Supplier": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "data": {
+              "id": 626,
+              "company": "Kalampakopoulos Solutions L.T.D.",
+              "info": "private information",
+              "profession": "Printing solutions",
+              "vatId": "123123123123",
+              "taxOffice": "asdfasdf",
+              "streetAddress": "asdfa 123",
+              "city": "Piraeus",
+              "zipCode": "15854",
+              "phone": "213131313",
+              "mobile": "6983412312",
+              "fax": "6983412312",
+              "email": "test@test.com",
+              "url": "http://www.calabac-test.com",
+              "enabled": true,
+              "alias": "Calabac",
+              "currency": "EUR",
+              "country": "GR",
+              "createdAt": "2018-05-17T12:29:57+00:00",
+              "updatedAt": "2020-01-16T10:45:37+00:00",
+              "deletedAt": null
+            }
+          }
+        },
         "properties": {
           "id": {
             "type": "number"
@@ -5391,39 +5420,26 @@
           },
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
-          "deletedAt": {}
-        },
-        "x-examples": {
-          "example": {
-            "data": {
-              "id": 626,
-              "company": "Kalampakopoulos Solutions L.T.D.",
-              "info": "private information",
-              "profession": "Printing solutions",
-              "vatId": "123123123123",
-              "taxOffice": "asdfasdf",
-              "streetAddress": "asdfa 123",
-              "city": "Piraeus",
-              "zipCode": "15854",
-              "phone": "213131313",
-              "mobile": "6983412312",
-              "fax": "6983412312",
-              "email": "test@test.com",
-              "url": "http://www.calabac-test.com",
-              "enabled": true,
-              "alias": "Calabac",
-              "currency": "EUR",
-              "country": "GR",
-              "createdAt": "2018-05-17T12:29:57+00:00",
-              "updatedAt": "2020-01-16T10:45:37+00:00",
-              "deletedAt": null
-            }
+          "deletedAt": {
+            "type": [
+              "string"
+            ],
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
           }
         }
       },
@@ -5515,22 +5531,42 @@
           },
           "expirationAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date-time",
+            "description": "ISO 8601 format"
           },
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
-          "deletedAt": {}
+          "deletedAt": {
+            "type": "string",
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
+          }
         }
       },
       "Tag": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "id": 0,
+            "tag": "a tag",
+            "description": "This is a testing tag"
+          }
+        },
         "properties": {
           "id": {
             "type": "number",
@@ -5547,18 +5583,33 @@
         },
         "required": [
           "tag"
-        ],
-        "x-examples": {
-          "example": {
-            "id": 0,
-            "tag": "a tag",
-            "description": "This is a testing tag"
-          }
-        }
+        ]
       },
       "Product": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "data": {
+              "id": 16,
+              "name": "Web Development",
+              "description": "Web development for Addapp project",
+              "nameSec": "",
+              "descriptionSec": "",
+              "unitPrice": 4000,
+              "defaultVatId": 250,
+              "stock": 0,
+              "withStock": false,
+              "isVatIncluded": false,
+              "ordering": false,
+              "active": false,
+              "bulkjobId": null,
+              "createdAt": "2015-09-03T20:56:24+00:00",
+              "updatedAt": "2016-06-27T09:28:46+00:00",
+              "deletedAt": null
+            }
+          }
+        },
         "properties": {
           "id": {
             "type": "number"
@@ -5601,40 +5652,60 @@
           "bulkjobId": {},
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "readOnly": true
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "readOnly": true
           },
-          "deletedAt": {}
-        },
-        "x-examples": {
-          "example": {
-            "data": {
-              "id": 16,
-              "name": "Web Development",
-              "description": "Web development for Addapp project",
-              "nameSec": "",
-              "descriptionSec": "",
-              "unitPrice": 4000,
-              "defaultVatId": 250,
-              "stock": 0,
-              "withStock": false,
-              "isVatIncluded": false,
-              "ordering": false,
-              "active": false,
-              "bulkjobId": null,
-              "createdAt": "2015-09-03T20:56:24+00:00",
-              "updatedAt": "2016-06-27T09:28:46+00:00",
-              "deletedAt": null
-            }
+          "deletedAt": {
+            "type": [
+              "string"
+            ],
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "nullable": true,
+            "readOnly": true
           }
         }
       },
       "Purchase": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "id": 838,
+            "info": "",
+            "supplierId": 647,
+            "price": 66.92,
+            "vatAmount": 15.39,
+            "irsAmount": 66.92,
+            "invoiceNum": "1111",
+            "taxOffice": null,
+            "streetAddress": null,
+            "companyExpense": true,
+            "isCredited": false,
+            "paid": false,
+            "irsType": 1,
+            "irsPercent": null,
+            "receiptId": null,
+            "originalPrice": null,
+            "originalVat": null,
+            "originalCurrency": null,
+            "systemCurrency": null,
+            "rate": null,
+            "dateOccurred": "2018-11-02",
+            "datePaid": "2021-04-19",
+            "createdAt": "2018-11-21T14:56:03+00:00",
+            "updatedAt": "2019-08-08T17:26:53+00:00"
+          }
+        },
         "properties": {
           "id": {
             "type": "number"
@@ -5681,47 +5752,27 @@
           "rate": {},
           "dateOccurred": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date"
           },
           "datePaid": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date"
           },
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "readOnly": true
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
-          }
-        },
-        "x-examples": {
-          "example": {
-            "id": 838,
-            "info": "",
-            "supplierId": 647,
-            "price": 66.92,
-            "vatAmount": 15.39,
-            "irsAmount": 66.92,
-            "invoiceNum": "1111",
-            "taxOffice": null,
-            "streetAddress": null,
-            "companyExpense": true,
-            "isCredited": false,
-            "paid": false,
-            "irsType": 1,
-            "irsPercent": null,
-            "receiptId": null,
-            "originalPrice": null,
-            "originalVat": null,
-            "originalCurrency": null,
-            "systemCurrency": null,
-            "rate": null,
-            "dateOccurred": "2018-11-02",
-            "datePaid": "2021-04-19",
-            "createdAt": "2018-11-21T14:56:03+00:00",
-            "updatedAt": "2019-08-08T17:26:53+00:00"
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           }
         }
       },
@@ -5753,22 +5804,34 @@
           "accountHolder": {},
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date-time",
+            "description": "ISO 8601 format",
+            "readOnly": true
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
-          "deletedAt": {}
+          "deletedAt": {
+            "type": [
+              "string"
+            ],
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
+          }
         },
         "required": [
           "id",
           "name",
           "isOnlineMethod",
           "status",
-          "default",
-          "createdAt",
-          "updatedAt"
+          "default"
         ]
       },
       "Vat": {
@@ -5806,7 +5869,9 @@
             "type": "number"
           },
           "accountingCode": {},
-          "deletedAt": {}
+          "deletedAt": {
+            "description": "ISO 8601 format"
+          }
         },
         "required": [
           "id",
@@ -5947,22 +6012,22 @@
           },
           "startedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
           "expiresAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "readOnly": true
           },
           "recurring": {
             "type": "boolean"
           }
-        },
-        "required": [
-          "plan",
-          "startedAt",
-          "expiresAt",
-          "recurring"
-        ]
+        }
       }
     },
     "securitySchemes": {
