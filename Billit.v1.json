@@ -866,17 +866,226 @@
         "tags": [
           "Ocp"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Ocp"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/Links"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": [
+                        {
+                          "uuid": "17e03bbe-4df2-4ab7-827f-455fca8aae7d",
+                          "customerId": null,
+                          "title": "Web services for April",
+                          "description": "tewst",
+                          "productId": null,
+                          "paymentmethodId": 491,
+                          "cost": 100,
+                          "vatId": 248,
+                          "active": true,
+                          "invoiceTypeId": null,
+                          "cleanCost": 80,
+                          "locale": "en",
+                          "wasSend": false,
+                          "permalink": "http://billitio.billit.io/ocpform/17e03bbe-4df2-4ab7-827f-455fca8aae7d",
+                          "tags": [],
+                          "sales": [],
+                          "expirationAt": "-0001-11-30T00:00:00+00:00",
+                          "createdAt": "2021-03-02T20:49:30+00:00",
+                          "updatedAt": "2021-03-02T20:49:30+00:00",
+                          "deletedAt": null
+                        },
+                        {
+                          "uuid": "f73feaf6-34d3-4827-a188-16841881d795",
+                          "customerId": null,
+                          "title": "Support services",
+                          "description": "With this link you will pay your yearly support",
+                          "productId": 24,
+                          "paymentmethodId": 491,
+                          "cost": 1000,
+                          "vatId": 248,
+                          "active": false,
+                          "invoiceTypeId": null,
+                          "cleanCost": 1000,
+                          "locale": "en",
+                          "wasSend": false,
+                          "permalink": "http://billitio.billit.io/ocpform/f73feaf6-34d3-4827-a188-16841881d795",
+                          "tags": [],
+                          "sales": [],
+                          "expirationAt": "-0001-11-30T00:00:00+00:00",
+                          "createdAt": "2021-03-02T20:41:34+00:00",
+                          "updatedAt": "2021-03-02T20:49:00+00:00",
+                          "deletedAt": null
+                        }
+                      ],
+                      "links": {
+                        "first": "https://api.billit.io/v1/ocps?page=1",
+                        "last": "https://api.billit.io/v1/ocps?page=3",
+                        "prev": null,
+                        "next": "https://api.billit.io/v1/ocps?page=2"
+                      },
+                      "meta": {
+                        "current_page": 1,
+                        "from": 1,
+                        "last_page": 3,
+                        "links": [
+                          {
+                            "url": null,
+                            "label": "&laquo; Previous",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/ocps?page=1",
+                            "label": "1",
+                            "active": true
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/ocps?page=2",
+                            "label": "2",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/ocps?page=3",
+                            "label": "3",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/ocps?page=2",
+                            "label": "Next &raquo;",
+                            "active": false
+                          }
+                        ],
+                        "path": "https://api.billit.io/v1/ocps",
+                        "per_page": 15,
+                        "to": 15,
+                        "total": 44
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
         "operationId": "get-ocps",
-        "description": "Get a list of ocp links"
+        "description": "Get a list of ocp links",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       },
       "post": {
         "summary": "Create a new OCP link",
         "tags": [
           "Ocp"
         ],
-        "responses": {},
-        "operationId": "post-ocps"
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Ocp"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "uuid": "5fee570c-136d-4691-a76e-b08136433da9",
+                        "customerId": 726,
+                        "title": "test lollypop",
+                        "description": "asdf",
+                        "productId": null,
+                        "paymentmethodId": 483,
+                        "cost": 138.99,
+                        "vatId": 377,
+                        "active": false,
+                        "invoiceTypeId": 350,
+                        "netValue": 123,
+                        "locale": "el",
+                        "wasSend": false,
+                        "permalink": "http://billitio.billit.local/ocpform/5fee570c-136d-4691-a76e-b08136433da9",
+                        "tags": [],
+                        "sales": [],
+                        "expirationAt": "2019-04-11T00:00:00+00:00",
+                        "createdAt": "2019-04-06T21:49:34+00:00",
+                        "updatedAt": "2019-04-13T21:12:24+00:00",
+                        "deletedAt": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "post-ocps",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "description": "Create a new OCP ( One click payment ) link."
       },
       "parameters": []
     },
@@ -1182,12 +1391,143 @@
         }
       ],
       "get": {
-        "summary": "Show an ocp link",
+        "summary": "Show an OCP link",
         "tags": [
           "Ocp"
         ],
-        "responses": {},
-        "operationId": "get-ocps-uuid"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Ocp"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "uuid": "5fee570c-136d-4691-a76e-b08136433da9",
+                        "customerId": 726,
+                        "title": "test lollypop",
+                        "description": "asdf",
+                        "productId": null,
+                        "paymentmethodId": 483,
+                        "cost": 138.99,
+                        "vatId": 377,
+                        "active": false,
+                        "invoiceTypeId": 350,
+                        "cleanCost": 123,
+                        "locale": "el",
+                        "wasSend": false,
+                        "permalink": "http://billitio.billit.local/ocpform/5fee570c-136d-4691-a76e-b08136433da9",
+                        "tags": [],
+                        "sales": [],
+                        "expirationAt": "2019-04-11T00:00:00+00:00",
+                        "createdAt": "2019-04-06T21:49:34+00:00",
+                        "updatedAt": "2019-04-13T21:12:24+00:00",
+                        "deletedAt": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-ocps-uuid",
+        "description": "Show an ocp link",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update OCP link",
+        "operationId": "putocps-uuid",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Ocp"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "uuid": "5fee570c-136d-4691-a76e-b08136433da9",
+                        "customerId": 726,
+                        "title": "test lollypop",
+                        "description": "asdf",
+                        "productId": null,
+                        "paymentmethodId": 483,
+                        "cost": 138.99,
+                        "vatId": 377,
+                        "active": false,
+                        "invoiceTypeId": 350,
+                        "netValue": 123,
+                        "locale": "el",
+                        "wasSend": false,
+                        "permalink": "http://billitio.billit.local/ocpform/5fee570c-136d-4691-a76e-b08136433da9",
+                        "tags": [],
+                        "sales": [],
+                        "expirationAt": "2019-04-11T00:00:00+00:00",
+                        "createdAt": "2019-04-06T21:49:34+00:00",
+                        "updatedAt": "2019-04-13T21:12:24+00:00",
+                        "deletedAt": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "description": "Update an OCP link"
+      },
+      "delete": {
+        "summary": "Delete OCP link",
+        "operationId": "deleteocps-uuid",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete an OCP link",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       }
     },
     "tags": {
@@ -3136,6 +3476,32 @@
       "Ocp": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example": {
+            "data": {
+              "uuid": "5fee570c-136d-4691-a76e-b08136433da9",
+              "customerId": 726,
+              "title": "test lollypop",
+              "description": "asdf",
+              "productId": null,
+              "paymentmethodId": 483,
+              "cost": 138.99,
+              "vatId": 377,
+              "active": false,
+              "invoiceTypeId": 350,
+              "netValue": 123,
+              "locale": "el",
+              "wasSend": false,
+              "permalink": "http://billitio.billit.local/ocpform/5fee570c-136d-4691-a76e-b08136433da9",
+              "tags": [],
+              "sales": [],
+              "expirationAt": "2019-04-11T00:00:00+00:00",
+              "createdAt": "2019-04-06T21:49:34+00:00",
+              "updatedAt": "2019-04-13T21:12:24+00:00",
+              "deletedAt": null
+            }
+          }
+        },
         "properties": {
           "uuid": {
             "type": "string",
@@ -3171,7 +3537,7 @@
           "invoiceTypeId": {
             "type": "number"
           },
-          "cleanCost": {
+          "netValue": {
             "type": "number"
           },
           "locale": {
@@ -3206,23 +3572,6 @@
             "minLength": 1
           },
           "deletedAt": {}
-        },
-        "x-examples": {
-          "example": {
-            "id": 994,
-            "invoiceId": 1181,
-            "paymentMethodId": 483,
-            "amount": 123,
-            "info": "",
-            "transactionId": null,
-            "apptransactionId": null,
-            "customerId": 694,
-            "paidInvoices": null,
-            "overflowAmount": 0,
-            "dateOccurred": "2021-01-04T00:00:00+00:00",
-            "createdAt": "2021-01-04T08:48:01+00:00",
-            "updatedAt": "2021-01-04T08:48:01+00:00"
-          }
         }
       },
       "Tag": {
@@ -3751,6 +4100,53 @@
                   "data": {
                     "insidentId": "eb9ff5d5-ee3c-4c24-937b-95644c8db839"
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Not Authorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "required": [],
+                    "properties": {}
+                  }
+                }
+              },
+              "required": [
+                "statusCode",
+                "error",
+                "message",
+                "data"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "statusCode": 401,
+                  "error": "Authorization Required",
+                  "message": "Make sure to provide a valid token.",
+                  "data": []
                 }
               }
             }
