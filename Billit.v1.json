@@ -951,7 +951,8 @@
           "Ocp"
         ],
         "responses": {},
-        "operationId": "get-ocps"
+        "operationId": "get-ocps",
+        "description": "Get a list of ocp links"
       },
       "post": {
         "summary": "Create a new OCP link",
