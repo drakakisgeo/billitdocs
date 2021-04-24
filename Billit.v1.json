@@ -1600,62 +1600,51 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "description": "The title of the link"
+                    "minLength": 1
                   },
                   "description": {
                     "type": "string",
-                    "description": "A more descriptive text on what this is about."
+                    "minLength": 1
                   },
                   "cost": {
-                    "type": "number",
-                    "description": "The final cost, the payable amount."
+                    "type": "number"
                   },
                   "customerId": {
-                    "type": "number",
-                    "description": "Optionaly, if you know the customer fill in his ID. It will be used as the receiver in the invoice"
+                    "type": "number"
                   },
                   "invoiceTypeId": {
-                    "type": "number",
-                    "description": "Select the invoicetype ID that you want to the resulting invoice"
+                    "type": "number"
                   },
                   "netValue": {
-                    "type": "number",
-                    "description": "Fill in the net value of the link"
+                    "type": "number"
                   },
                   "vatId": {
-                    "type": "number",
-                    "description": "Select the Vat ID that will be applied"
+                    "type": "number"
                   },
                   "productId": {
-                    "type": "number",
-                    "description": "Optionaly, you can select the product ID to be selected as product in the resulting invoice"
+                    "type": "number"
                   },
                   "paymentMethodId": {
-                    "type": "number",
-                    "description": "You need to select the payment method ID that will be used."
+                    "type": "number"
                   },
                   "lang": {
                     "type": "string",
-                    "minLength": 1,
-                    "description": "Select the default language of the OCP link form",
-                    "example": "el",
-                    "enum": [
-                      "el",
-                      "en"
-                    ]
+                    "minLength": 1
                   },
                   "expirationAt": {
                     "type": "string",
-                    "minLength": 1,
-                    "description": "The date in ISO format"
+                    "minLength": 1
                   }
                 },
                 "required": [
                   "title",
+                  "description",
                   "cost",
+                  "customerId",
                   "invoiceTypeId",
                   "netValue",
                   "vatId",
+                  "productId",
                   "paymentMethodId",
                   "lang",
                   "expirationAt"
@@ -1679,8 +1668,9 @@
                 }
               }
             }
-          }
-        },
+          },
+          "description": ""
+        }
       },
       "delete": {
         "summary": "Delete OCP link",
