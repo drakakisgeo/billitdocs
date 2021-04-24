@@ -1905,7 +1905,10 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Tag"
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Tag"
+                      }
                     },
                     "links": {
                       "$ref": "#/components/schemas/Links"
@@ -1914,9 +1917,65 @@
                       "$ref": "#/components/schemas/Meta"
                     }
                   }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": 62,
+                          "tag": "millit",
+                          "description": null
+                        },
+                        {
+                          "id": 44,
+                          "tag": "billit",
+                          "description": null
+                        }
+                      ],
+                      "links": {
+                        "first": "https://api.billit.io/v1/tags?page=1",
+                        "last": "https://api.billit.io/v1/tags?page=1",
+                        "prev": null,
+                        "next": null
+                      },
+                      "meta": {
+                        "current_page": 1,
+                        "from": 1,
+                        "last_page": 1,
+                        "links": [
+                          {
+                            "url": null,
+                            "label": "&laquo; Previous",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/tags?page=1",
+                            "label": "1",
+                            "active": true
+                          },
+                          {
+                            "url": null,
+                            "label": "Next &raquo;",
+                            "active": false
+                          }
+                        ],
+                        "path": "https://api.billit.io/v1/tags",
+                        "per_page": 20,
+                        "to": 9,
+                        "total": 9
+                      }
+                    }
+                  }
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "get-tags",
@@ -1997,6 +2056,29 @@
         "security": [
           {
             "API TOKEN": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete a tag",
+        "operationId": "deletetags-id",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "description": "Delete a tag",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
           }
         ]
       }
