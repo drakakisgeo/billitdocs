@@ -634,184 +634,6 @@
           }
         }
       },
-      "delete": {
-        "summary": "Delete a customer",
-        "tags": [
-          "Customers"
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          },
-          "500": {
-            "$ref": "#/components/responses/500"
-          }
-        },
-        "operationId": "delete-customers",
-        "security": [
-          {
-            "API TOKEN": []
-          }
-        ],
-        "description": "Delete a customer by ID."
-      },
-      "put": {
-        "summary": "Update a customer",
-        "operationId": "put-customers",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "isCompany": {
-                      "type": "boolean"
-                    },
-                    "company": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "lang": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "profession": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "inCharge": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "vatId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "taxOffice": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "streetAddress": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "alias": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "customerType": {
-                      "type": "number"
-                    },
-                    "postalCode": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "city": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "country": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "country"
-                  ]
-                },
-                "examples": {
-                  "example": {
-                    "value": {
-                      "isCompany": true,
-                      "company": "TestingCompany",
-                      "lang": "el",
-                      "profession": "Web Dev",
-                      "inCharge": "George Tester",
-                      "vatId": "EL89991223123",
-                      "taxOffice": "A Athens",
-                      "streetAddress": "Androutsou",
-                      "alias": "Test",
-                      "customerType": 1,
-                      "postalCode": "12312",
-                      "city": "Athens",
-                      "country": "GR"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "422": {
-            "$ref": "#/components/responses/422"
-          },
-          "500": {
-            "$ref": "#/components/responses/500"
-          }
-        },
-        "tags": [
-          "Customers"
-        ],
-        "description": "Update a customer",
-        "security": [
-          {
-            "API TOKEN": []
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "",
-                "type": "object",
-                "properties": {
-                  "isCompany": {
-                    "type": "boolean"
-                  },
-                  "company": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "customerType": {
-                    "type": "number"
-                  },
-                  "postalCode": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "country": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                }
-              },
-              "examples": {
-                "example": {
-                  "value": {
-                    "isCompany": true,
-                    "company": "TestingCompany",
-                    "lang": "el",
-                    "profession": "Web Dev",
-                    "inCharge": "George Tester",
-                    "customerType": 1,
-                    "postalCode": "12312",
-                    "city": "Athens",
-                    "country": "CY"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "parameters": []
     },
     "invoices": {
@@ -889,22 +711,6 @@
           }
         ]
       },
-      "put": {
-        "summary": "Update an invoice",
-        "tags": [
-          "Invoices"
-        ],
-        "responses": {},
-        "operationId": "put-v1-invoices"
-      },
-      "delete": {
-        "summary": "Cancel/Delete an invoice",
-        "tags": [
-          "Invoices"
-        ],
-        "responses": {},
-        "operationId": "delete-v1-invoices"
-      },
       "parameters": []
     },
     "invoices/{uuid}": {
@@ -915,7 +721,8 @@
           },
           "name": "uuid",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "The uuid of invoice"
         }
       ],
       "get": {
@@ -950,6 +757,30 @@
             "$ref": "#/components/responses/404"
           }
         }
+      },
+      "put": {
+        "summary": "Update an invoice",
+        "operationId": "putinvoices-uuid",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Invoices"
+        ]
+      },
+      "delete": {
+        "summary": "Delete an invoice",
+        "operationId": "deleteinvoices-uuid",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Invoices"
+        ]
       }
     },
     "/products": {
@@ -968,22 +799,6 @@
         ],
         "responses": {},
         "operationId": "post-products"
-      },
-      "put": {
-        "summary": "Update a product",
-        "responses": {},
-        "operationId": "put-products",
-        "tags": [
-          "Products"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a product",
-        "tags": [
-          "Products"
-        ],
-        "responses": {},
-        "operationId": "delete-products"
       }
     },
     "/ocps": {
@@ -1003,22 +818,6 @@
         ],
         "responses": {},
         "operationId": "post-ocps"
-      },
-      "put": {
-        "summary": "Update OCP link",
-        "tags": [
-          "Ocp"
-        ],
-        "responses": {},
-        "operationId": "put-ocps"
-      },
-      "delete": {
-        "summary": "Delete OCP link",
-        "tags": [
-          "Ocp"
-        ],
-        "responses": {},
-        "operationId": "delete-ocps"
       }
     },
     "/payments": {
@@ -1037,14 +836,6 @@
         ],
         "responses": {},
         "operationId": "post-payments"
-      },
-      "delete": {
-        "summary": "Delete a payment",
-        "tags": [
-          "Payments"
-        ],
-        "responses": {},
-        "operationId": "delete-payments"
       }
     },
     "/suppliers": {
@@ -1063,46 +854,6 @@
         ],
         "responses": {},
         "operationId": "post-suppliers"
-      },
-      "put": {
-        "summary": "Update a supplier",
-        "tags": [
-          "Suppliers"
-        ],
-        "responses": {},
-        "operationId": "put-suppliers"
-      },
-      "delete": {
-        "summary": "Delete a supplier",
-        "tags": [
-          "Suppliers"
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          },
-          "500": {
-            "$ref": "#/components/responses/500"
-          }
-        },
-        "operationId": "delete-suppliers",
-        "security": [
-          {
-            "API TOKEN": []
-          }
-        ],
-        "description": ""
       }
     },
     "/suppliers/{id}": {
@@ -1184,37 +935,39 @@
           "name": "id",
           "in": "path",
           "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
         }
       ],
       "get": {
-        "summary": "Show a customer",
+        "summary": "Get a customer",
         "tags": [
           "Customers"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Customer"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-customers-id",
-        "security": [
-          {
-            "API TOKEN": []
-          }
+        "responses": {},
+        "operationId": "get-customers-id"
+      },
+      "put": {
+        "summary": "Update a customer",
+        "tags": [
+          "Customers"
         ],
-        "description": "Show a customer. Provide his ID in order to get the data."
+        "responses": {},
+        "operationId": "put-customers-id"
+      },
+      "delete": {
+        "summary": "Delete a customer",
+        "tags": [
+          "Customers"
+        ],
+        "responses": {},
+        "operationId": "delete-customers-id"
       }
     }
   },
