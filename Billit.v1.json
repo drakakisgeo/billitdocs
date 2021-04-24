@@ -3,7 +3,7 @@
   "info": {
     "title": "Billit",
     "version": "1.0.0",
-    "description": "This is the Billit API",
+    "description": "This is the Billit API. Feel free to test our endpoints with the provided Sandbox account first. Play safe! \n\n<!-- theme: warning -->\n> As an extra step of security by default you're assigned read only access to resources in Production mode. **Please contact us when you're ready for production** and we will give you full access the same day.\n\n<!-- theme: danger -->\n> In Sandbox environment all data are wiped out each month.",
     "contact": {
       "name": "BILLIT G.P.",
       "url": "https://billit.io/contact",
@@ -14,10 +14,6 @@
     }
   },
   "servers": [
-    {
-      "url": "http://api.billit.local/v1",
-      "description": "local"
-    },
     {
       "url": "https://api.sandbox-billit.xyz/v1",
       "description": "Sandbox"
