@@ -1063,42 +1063,68 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "",
                 "type": "object",
                 "properties": {
-                  "data": {
-                    "$ref": "#/components/schemas/Product"
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "nameSec": {
+                    "type": "string"
+                  },
+                  "descriptionSec": {
+                    "type": "string"
+                  },
+                  "unitPrice": {
+                    "type": "number"
+                  },
+                  "defaultVatId": {
+                    "type": "number"
+                  },
+                  "stock": {
+                    "type": "number"
+                  },
+                  "withStock": {
+                    "type": "boolean"
+                  },
+                  "isVatIncluded": {
+                    "type": "boolean"
+                  },
+                  "active": {
+                    "type": "boolean"
                   }
-                }
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "nameSec",
+                  "descriptionSec",
+                  "unitPrice",
+                  "defaultVatId",
+                  "stock",
+                  "withStock",
+                  "isVatIncluded",
+                  "active"
+                ]
               },
               "examples": {
                 "example": {
                   "value": {
-                    "data": {
-                      "id": 838,
-                      "info": "",
-                      "supplierId": 647,
-                      "price": 66.92,
-                      "vatAmount": 15.39,
-                      "irsAmount": 66.92,
-                      "invoiceNum": "1111",
-                      "taxOffice": null,
-                      "streetAddress": null,
-                      "companyExpense": true,
-                      "isCredited": false,
-                      "paid": false,
-                      "irsType": 1,
-                      "irsPercent": null,
-                      "receiptId": null,
-                      "originalPrice": null,
-                      "originalVat": null,
-                      "originalCurrency": null,
-                      "systemCurrency": null,
-                      "rate": null,
-                      "dateOccurred": "2018-11-02",
-                      "datePaid": "2021-04-19",
-                      "createdAt": "2018-11-21T14:56:03+00:00",
-                      "updatedAt": "2019-08-08T17:26:53+00:00"
-                    }
+                    "name": "Web Development",
+                    "description": "Web development for Addapp project",
+                    "nameSec": "",
+                    "descriptionSec": "",
+                    "unitPrice": 4000,
+                    "defaultVatId": 250,
+                    "stock": 0,
+                    "withStock": false,
+                    "isVatIncluded": false,
+                    "active": false
                   }
                 }
               }
@@ -2497,7 +2523,51 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "id": 838,
+                        "info": "",
+                        "supplierId": 647,
+                        "price": 66.92,
+                        "vatAmount": 15.39,
+                        "irsAmount": 66.92,
+                        "invoiceNum": "1111",
+                        "taxOffice": null,
+                        "streetAddress": null,
+                        "companyExpense": true,
+                        "isCredited": false,
+                        "paid": false,
+                        "irsType": 1,
+                        "irsPercent": null,
+                        "receiptId": null,
+                        "originalPrice": null,
+                        "originalVat": null,
+                        "originalCurrency": null,
+                        "systemCurrency": null,
+                        "rate": null,
+                        "dateOccurred": "2018-11-02",
+                        "datePaid": "2021-04-19",
+                        "createdAt": "2018-11-21T14:56:03+00:00",
+                        "updatedAt": "2019-08-08T17:26:53+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "422": {
             "$ref": "#/components/responses/422"
@@ -2512,6 +2582,7 @@
             "API TOKEN": []
           }
         ],
+        "description": "Update a product",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2528,12 +2599,10 @@
                     "minLength": 1
                   },
                   "nameSec": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "descriptionSec": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "unitPrice": {
                     "type": "number"
@@ -2552,13 +2621,6 @@
                   },
                   "active": {
                     "type": "boolean"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "required": [],
-                      "properties": {}
-                    }
                   }
                 },
                 "required": [
@@ -2571,45 +2633,27 @@
                   "stock",
                   "withStock",
                   "isVatIncluded",
-                  "active",
-                  "tags"
+                  "active"
                 ]
               },
               "examples": {
                 "example": {
                   "value": {
-                    "data": {
-                      "id": 838,
-                      "info": "",
-                      "supplierId": 647,
-                      "price": 66.92,
-                      "vatAmount": 15.39,
-                      "irsAmount": 66.92,
-                      "invoiceNum": "1111",
-                      "taxOffice": null,
-                      "streetAddress": null,
-                      "companyExpense": true,
-                      "isCredited": false,
-                      "paid": false,
-                      "irsType": 1,
-                      "irsPercent": null,
-                      "receiptId": null,
-                      "originalPrice": null,
-                      "originalVat": null,
-                      "originalCurrency": null,
-                      "systemCurrency": null,
-                      "rate": null,
-                      "dateOccurred": "2018-11-02",
-                      "datePaid": "2021-04-19",
-                      "createdAt": "2018-11-21T14:56:03+00:00",
-                      "updatedAt": "2019-08-08T17:26:53+00:00"
-                    }
+                    "name": "Web Development",
+                    "description": "Web development for Addapp project",
+                    "nameSec": "",
+                    "descriptionSec": "",
+                    "unitPrice": 4000,
+                    "defaultVatId": 250,
+                    "stock": 0,
+                    "withStock": false,
+                    "isVatIncluded": false,
+                    "active": false
                   }
                 }
               }
             }
-          },
-          "description": ""
+          }
         }
       },
       "delete": {
@@ -4473,30 +4517,24 @@
         },
         "x-examples": {
           "example": {
-            "id": 838,
-            "info": "",
-            "supplierId": 647,
-            "price": 66.92,
-            "vatAmount": 15.39,
-            "irsAmount": 66.92,
-            "invoiceNum": "1111",
-            "taxOffice": null,
-            "streetAddress": null,
-            "companyExpense": true,
-            "isCredited": false,
-            "paid": false,
-            "irsType": 1,
-            "irsPercent": null,
-            "receiptId": null,
-            "originalPrice": null,
-            "originalVat": null,
-            "originalCurrency": null,
-            "systemCurrency": null,
-            "rate": null,
-            "dateOccurred": "2018-11-02",
-            "datePaid": "2021-04-19",
-            "createdAt": "2018-11-21T14:56:03+00:00",
-            "updatedAt": "2019-08-08T17:26:53+00:00"
+            "data": {
+              "id": 16,
+              "name": "Web Development",
+              "description": "Web development for Addapp project",
+              "nameSec": "",
+              "descriptionSec": "",
+              "unitPrice": 4000,
+              "defaultVatId": 250,
+              "stock": 0,
+              "withStock": false,
+              "isVatIncluded": false,
+              "ordering": false,
+              "active": false,
+              "bulkjobId": null,
+              "createdAt": "2015-09-03T20:56:24+00:00",
+              "updatedAt": "2016-06-27T09:28:46+00:00",
+              "deletedAt": null
+            }
           }
         }
       },
