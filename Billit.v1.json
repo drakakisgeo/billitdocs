@@ -639,8 +639,24 @@
         "tags": [
           "Customers"
         ],
-        "responses": {},
-        "operationId": "delete-customers"
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "delete-customers",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": "Delete a customer by ID."
       },
       "put": {
         "summary": "Update a customer",
@@ -1061,8 +1077,32 @@
         "tags": [
           "Suppliers"
         ],
-        "responses": {},
-        "operationId": "delete-suppliers"
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "delete-suppliers",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "description": ""
       }
     },
     "/suppliers/{id}": {
