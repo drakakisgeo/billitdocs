@@ -3914,19 +3914,23 @@
             "description": "Unique identifier for the given user."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "The first name of the user"
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "The last name of the user"
           },
           "email": {
             "type": "string",
-            "format": "email"
+            "format": "email",
+            "description": "A valid email address of the user"
           },
           "dateOfBirth": {
             "type": "string",
             "format": "date",
-            "example": "1997-10-31"
+            "example": "1997-10-31",
+            "description": "The birthdate in Y-m-d format"
           },
           "emailVerified": {
             "type": "boolean",
@@ -3937,14 +3941,7 @@
             "format": "date",
             "description": "The date that the user was created."
           }
-        },
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email",
-          "emailVerified"
-        ]
+        }
       },
       "Invoice": {
         "description": "Invoice model in billit.",
@@ -4537,13 +4534,23 @@
           "dateRead": {},
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format"
           },
           "updatedAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format"
           },
-          "deletedAt": {},
+          "deletedAt": {
+            "type": [
+              "string"
+            ],
+            "description": "ISO 8601 format",
+            "format": "date",
+            "nullable": true,
+            "readOnly": true
+          },
           "tags": {
             "type": "array",
             "items": {
@@ -4555,12 +4562,6 @@
           },
           "mydata": {
             "type": "object",
-            "required": [
-              "type",
-              "state",
-              "branch",
-              "mydataPaymentType"
-            ],
             "properties": {
               "type": {
                 "type": "string",
@@ -4599,12 +4600,7 @@
                     "paymentMethodInfo": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "type",
-                    "amount",
-                    "paymentMethodInfo"
-                  ]
+                  }
                 }
               }
             }
@@ -4658,11 +4654,7 @@
                   "type": "string",
                   "minLength": 1
                 }
-              },
-              "required": [
-                "label",
-                "value"
-              ]
+              }
             }
           },
           "onlinePaymentMethods": {
@@ -4682,33 +4674,11 @@
                 "gatewayId": {
                   "type": "number"
                 }
-              },
-              "required": [
-                "id",
-                "name",
-                "gatewayId"
-              ]
+              }
             }
           },
           "templateExtras": {
             "type": "object",
-            "required": [
-              "logo",
-              "templateName",
-              "multiLang",
-              "dateFormat",
-              "currency",
-              "currencySymbol",
-              "currencyPos",
-              "customerDept",
-              "allowPayments",
-              "hideTmx",
-              "hideReceiver",
-              "hidePricing",
-              "showBalance",
-              "hasSigningbox",
-              "extraFieldsLabels"
-            ],
             "properties": {
               "logo": {
                 "type": "string",
@@ -4765,45 +4735,7 @@
               }
             }
           }
-        },
-        "required": [
-          "uuid",
-          "type",
-          "biller",
-          "customer",
-          "items",
-          "note",
-          "amount",
-          "vatAmount",
-          "finalAmount",
-          "payableAmount",
-          "discountedAmount",
-          "restAmount",
-          "isPaid",
-          "layoutLang",
-          "paymentMethodIds",
-          "templateId",
-          "hideItemNum",
-          "isRecurring",
-          "isSend",
-          "isRead",
-          "dateIssued",
-          "createdAt",
-          "updatedAt",
-          "tags",
-          "isMydataEnabled",
-          "mydata",
-          "correlatedInvoices",
-          "taxTotals",
-          "totalWithheldAmount",
-          "totalFeesAmount",
-          "totalStampDutyAmount",
-          "totalOtherTaxesAmount",
-          "totalDeductionsAmount",
-          "offlinePaymentMethods",
-          "onlinePaymentMethods",
-          "templateExtras"
-        ]
+        }
       },
       "Links": {
         "description": "",
@@ -4965,20 +4897,37 @@
           },
           "dateIssued": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "format": "date"
           },
-          "dateExpires": {},
-          "dateRead": {},
+          "dateExpires": {
+            "type": "string",
+            "format": "date"
+          },
+          "dateRead": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "ISO 8601 format",
+            "format": "date-time"
           },
           "updatedAt": {
             "type": "string",
             "minLength": 1,
-            "format": "date-time"
+            "format": "date-time",
+            "description": "ISO 8601 format"
           },
-          "deletedAt": {},
+          "deletedAt": {
+            "type": [
+              "string"
+            ],
+            "description": "ISO 8601 format",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
+          },
           "isMydataEnabled": {
             "type": "boolean"
           },
@@ -5584,18 +5533,28 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "type": "number",
+            "description": "The unique id of the tag"
           },
           "tag": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "The tag name"
           },
-          "description": {}
+          "description": {
+            "description": "A description of the tag"
+          }
         },
         "required": [
-          "id",
           "tag"
-        ]
+        ],
+        "x-examples": {
+          "example": {
+            "id": 0,
+            "tag": "a tag",
+            "description": "This is a testing tag"
+          }
+        }
       },
       "Product": {
         "description": "",
