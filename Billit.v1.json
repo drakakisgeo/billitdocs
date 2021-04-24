@@ -793,6 +793,216 @@
                       "$ref": "#/components/schemas/Invoice"
                     }
                   }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "user_id": 92,
+                        "uuid": "f7234af9-1f67-48d3-98b6-22813b3a935f",
+                        "permalink": "https://billitio.billit.io/inv/f7234af9-1f67-48d3-98b6-22813b3a935f",
+                        "number": 401,
+                        "type": {
+                          "id": 349,
+                          "name": "INVOICE",
+                          "subtitle": "",
+                          "note": "general note eng",
+                          "alias": null,
+                          "series": null
+                        },
+                        "biller": {
+                          "id": 224,
+                          "company": "BILLIT GP",
+                          "info": null,
+                          "profession": "Web development",
+                          "taxId": "EL801379527",
+                          "taxOffice": "N.Σμύρνη",
+                          "streetAddress": "Tsamaous",
+                          "city": "Piraeus",
+                          "postCode": "18538",
+                          "phone": "21023123",
+                          "mobile": "123123",
+                          "url": "https://billit.io/en",
+                          "urlLabel": null,
+                          "country": "GR",
+                          "freeText": "<p>free text enlighs</p>"
+                        },
+                        "customer": {
+                          "id": 644,
+                          "email": "info@artspot.gr",
+                          "company": "ARTSPOT  L.T.D",
+                          "profession": "art promotions",
+                          "taxId": "998039738",
+                          "taxOffice": "Α΄ΠΕΙΡΑΙΑ",
+                          "streetAddress": "Voulgari 23",
+                          "city": "Piraeus",
+                          "country": "AS",
+                          "postCode": "18533",
+                          "phone": "",
+                          "mobile": "",
+                          "isCompany": true,
+                          "field1": "test",
+                          "field2": null,
+                          "field3": null,
+                          "field4": null
+                        },
+                        "items": [
+                          {
+                            "quantity": 1,
+                            "measurementUnitId": 1,
+                            "product": {
+                              "id": 56,
+                              "title": null,
+                              "description": "test"
+                            },
+                            "netAmount": 100,
+                            "vatAmount": 0,
+                            "totalAmount": 100,
+                            "discountPercent": 0,
+                            "discountAmount": 0,
+                            "undiscountedTotalAmount": 100,
+                            "vatId": 526,
+                            "vatPercent": 0,
+                            "mydata": {
+                              "vatCat": null,
+                              "vatExemptionCat": 6,
+                              "dienergia": null,
+                              "discountOption": null,
+                              "withheldAmount": null,
+                              "withheldPercentCat": null,
+                              "stampDutyAmount": null,
+                              "stampDutyPercent_cat": null,
+                              "feesAmount": null,
+                              "feesPercentCat": null,
+                              "otherTaxesAmount": null,
+                              "otherTaxesPercent_cat": null,
+                              "deductionsAmount": null,
+                              "lineComments": null,
+                              "incomeClassificationType": [
+                                {
+                                  "id": 1,
+                                  "type": "E3_561_006",
+                                  "amount": 100,
+                                  "category": "category1_3"
+                                }
+                              ],
+                              "expensesClassificationType": null,
+                              "rowType": null
+                            }
+                          }
+                        ],
+                        "note": "general note eng",
+                        "amount": 100,
+                        "vatAmount": 0,
+                        "finalAmount": 100,
+                        "payableAmount": 100,
+                        "discountedAmount": 0,
+                        "restAmount": 100,
+                        "isPaid": false,
+                        "layoutLang": "EN",
+                        "paymentMethodIds": [
+                          0
+                        ],
+                        "templateId": 0,
+                        "hideItemNum": false,
+                        "isRecurring": false,
+                        "isSend": false,
+                        "isRead": false,
+                        "dateIssued": "2021-04-22",
+                        "dateExpires": null,
+                        "dateRead": null,
+                        "createdAt": "2021-04-22T19:06:38+00:00",
+                        "updatedAt": "2021-04-23T16:10:51+00:00",
+                        "deletedAt": "2021-04-23T16:10:51+00:00",
+                        "tags": [],
+                        "isMydataEnabled": true,
+                        "mydata": {
+                          "type": "2.3",
+                          "state": 1,
+                          "errors": null,
+                          "branch": 0,
+                          "invoiceUid": null,
+                          "invoiceMark": null,
+                          "transmissionFailure": null,
+                          "selfPricing": null,
+                          "classificationMark": null,
+                          "authenticationCode": null,
+                          "canceledByMark": null,
+                          "incomeClassification": null,
+                          "expenseClassification": null,
+                          "dienergia": null,
+                          "mydataPaymentType": [
+                            {
+                              "type": 5,
+                              "amount": 100,
+                              "paymentMethodInfo": ""
+                            }
+                          ]
+                        },
+                        "dispatchDate": null,
+                        "dispatchTime": null,
+                        "vehicleNumber": null,
+                        "movePurpose": null,
+                        "loadingPlace": null,
+                        "destination": null,
+                        "correlatedInvoices": [],
+                        "taxTotals": [],
+                        "totalWithheldAmount": 0,
+                        "totalFeesAmount": 0,
+                        "totalStampDutyAmount": 0,
+                        "totalOtherTaxesAmount": 0,
+                        "totalDeductionsAmount": 0,
+                        "vatList": [
+                          {
+                            "name": "0%",
+                            "value": 0
+                          }
+                        ],
+                        "offlinePaymentMethods": [
+                          {
+                            "label": "Cash",
+                            "value": "<p>Payment in headquarters</p>"
+                          }
+                        ],
+                        "onlinePaymentMethods": [
+                          {
+                            "id": 482,
+                            "name": "Τραπεζα Πειραιώς [online]",
+                            "gatewayId": 5
+                          },
+                          {
+                            "id": 483,
+                            "name": "BrainTree [online]",
+                            "gatewayId": 3
+                          },
+                          {
+                            "id": 491,
+                            "name": "Paypal [online]",
+                            "gatewayId": 2
+                          }
+                        ],
+                        "templateExtras": {
+                          "logo": "https://app.billit.local/uploads/logos/92/billit-other.png",
+                          "templateName": "hydromet",
+                          "multiLang": 1,
+                          "dateFormat": "d-m-Y",
+                          "currency": "EUR",
+                          "currencySymbol": "€",
+                          "currencyPos": 1,
+                          "customerDept": false,
+                          "allowPayments": true,
+                          "hideTmx": false,
+                          "hideReceiver": false,
+                          "hidePricing": false,
+                          "showBalance": false,
+                          "hasSigningbox": false,
+                          "extraFieldsLabels": [
+                            "testen"
+                          ]
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -800,14 +1010,253 @@
           "404": {
             "$ref": "#/components/responses/404"
           }
-        }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       },
       "put": {
         "summary": "Update an invoice",
         "operationId": "putinvoices-uuid",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Invoice"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "user_id": 92,
+                        "uuid": "f7234af9-1f67-48d3-98b6-22813b3a935f",
+                        "permalink": "https://billitio.billit.io/inv/f7234af9-1f67-48d3-98b6-22813b3a935f",
+                        "number": 401,
+                        "type": {
+                          "id": 349,
+                          "name": "INVOICE",
+                          "subtitle": "",
+                          "note": "general note eng",
+                          "alias": null,
+                          "series": null
+                        },
+                        "biller": {
+                          "id": 224,
+                          "company": "BILLIT GP",
+                          "info": null,
+                          "profession": "Web development",
+                          "taxId": "EL801379527",
+                          "taxOffice": "N.Σμύρνη",
+                          "streetAddress": "Tsamaous",
+                          "city": "Piraeus",
+                          "postCode": "18538",
+                          "phone": "21023123",
+                          "mobile": "123123",
+                          "url": "https://billit.io/en",
+                          "urlLabel": null,
+                          "country": "GR",
+                          "freeText": "<p>free text enlighs</p>"
+                        },
+                        "customer": {
+                          "id": 644,
+                          "email": "info@artspot.gr",
+                          "company": "ARTSPOT  L.T.D",
+                          "profession": "art promotions",
+                          "taxId": "998039738",
+                          "taxOffice": "Α΄ΠΕΙΡΑΙΑ",
+                          "streetAddress": "Voulgari 23",
+                          "city": "Piraeus",
+                          "country": "AS",
+                          "postCode": "18533",
+                          "phone": "",
+                          "mobile": "",
+                          "isCompany": true,
+                          "field1": "test",
+                          "field2": null,
+                          "field3": null,
+                          "field4": null
+                        },
+                        "items": [
+                          {
+                            "quantity": 1,
+                            "measurementUnitId": 1,
+                            "product": {
+                              "id": 56,
+                              "title": null,
+                              "description": "test"
+                            },
+                            "netAmount": 100,
+                            "vatAmount": 0,
+                            "totalAmount": 100,
+                            "discountPercent": 0,
+                            "discountAmount": 0,
+                            "undiscountedTotalAmount": 100,
+                            "vatId": 526,
+                            "vatPercent": 0,
+                            "mydata": {
+                              "vatCat": null,
+                              "vatExemptionCat": 6,
+                              "dienergia": null,
+                              "discountOption": null,
+                              "withheldAmount": null,
+                              "withheldPercentCat": null,
+                              "stampDutyAmount": null,
+                              "stampDutyPercent_cat": null,
+                              "feesAmount": null,
+                              "feesPercentCat": null,
+                              "otherTaxesAmount": null,
+                              "otherTaxesPercent_cat": null,
+                              "deductionsAmount": null,
+                              "lineComments": null,
+                              "incomeClassificationType": [
+                                {
+                                  "id": 1,
+                                  "type": "E3_561_006",
+                                  "amount": 100,
+                                  "category": "category1_3"
+                                }
+                              ],
+                              "expensesClassificationType": null,
+                              "rowType": null
+                            }
+                          }
+                        ],
+                        "note": "general note eng",
+                        "amount": 100,
+                        "vatAmount": 0,
+                        "finalAmount": 100,
+                        "payableAmount": 100,
+                        "discountedAmount": 0,
+                        "restAmount": 100,
+                        "isPaid": false,
+                        "layoutLang": "EN",
+                        "paymentMethodIds": [
+                          0
+                        ],
+                        "templateId": 0,
+                        "hideItemNum": false,
+                        "isRecurring": false,
+                        "isSend": false,
+                        "isRead": false,
+                        "dateIssued": "2021-04-22",
+                        "dateExpires": null,
+                        "dateRead": null,
+                        "createdAt": "2021-04-22T19:06:38+00:00",
+                        "updatedAt": "2021-04-23T16:10:51+00:00",
+                        "deletedAt": "2021-04-23T16:10:51+00:00",
+                        "tags": [],
+                        "isMydataEnabled": true,
+                        "mydata": {
+                          "type": "2.3",
+                          "state": 1,
+                          "errors": null,
+                          "branch": 0,
+                          "invoiceUid": null,
+                          "invoiceMark": null,
+                          "transmissionFailure": null,
+                          "selfPricing": null,
+                          "classificationMark": null,
+                          "authenticationCode": null,
+                          "canceledByMark": null,
+                          "incomeClassification": null,
+                          "expenseClassification": null,
+                          "dienergia": null,
+                          "mydataPaymentType": [
+                            {
+                              "type": 5,
+                              "amount": 100,
+                              "paymentMethodInfo": ""
+                            }
+                          ]
+                        },
+                        "dispatchDate": null,
+                        "dispatchTime": null,
+                        "vehicleNumber": null,
+                        "movePurpose": null,
+                        "loadingPlace": null,
+                        "destination": null,
+                        "correlatedInvoices": [],
+                        "taxTotals": [],
+                        "totalWithheldAmount": 0,
+                        "totalFeesAmount": 0,
+                        "totalStampDutyAmount": 0,
+                        "totalOtherTaxesAmount": 0,
+                        "totalDeductionsAmount": 0,
+                        "vatList": [
+                          {
+                            "name": "0%",
+                            "value": 0
+                          }
+                        ],
+                        "offlinePaymentMethods": [
+                          {
+                            "label": "Cash",
+                            "value": "<p>Payment in headquarters</p>"
+                          }
+                        ],
+                        "onlinePaymentMethods": [
+                          {
+                            "id": 482,
+                            "name": "Τραπεζα Πειραιώς [online]",
+                            "gatewayId": 5
+                          },
+                          {
+                            "id": 483,
+                            "name": "BrainTree [online]",
+                            "gatewayId": 3
+                          },
+                          {
+                            "id": 491,
+                            "name": "Paypal [online]",
+                            "gatewayId": 2
+                          }
+                        ],
+                        "templateExtras": {
+                          "logo": "https://app.billit.local/uploads/logos/92/billit-other.png",
+                          "templateName": "hydromet",
+                          "multiLang": 1,
+                          "dateFormat": "d-m-Y",
+                          "currency": "EUR",
+                          "currencySymbol": "€",
+                          "currencyPos": 1,
+                          "customerDept": false,
+                          "allowPayments": true,
+                          "hideTmx": false,
+                          "hideReceiver": false,
+                          "hidePricing": false,
+                          "showBalance": false,
+                          "hasSigningbox": false,
+                          "extraFieldsLabels": [
+                            "testen"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         },
         "tags": [
@@ -826,18 +1275,46 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "description": "Update an invoice"
       },
       "delete": {
         "summary": "Delete an invoice",
         "operationId": "deleteinvoices-uuid",
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         },
         "tags": [
           "Invoices"
+        ],
+        "description": "Delete an invoice. By deleting an invoice, you actually cancel it the first time. Only way you can actually delete it permantly is if the invoice is the last one for a certain invoice type.",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
         ]
       }
     },
