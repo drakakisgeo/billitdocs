@@ -4276,7 +4276,7 @@
               "country": {
                 "type": "string",
                 "minLength": 1,
-                "description": "The Country"
+                "description": "ISO 3166-1 alpha-2 code"
               },
               "freeText": {
                 "type": "string",
@@ -4287,78 +4287,85 @@
           },
           "customer": {
             "type": "object",
-            "required": [
-              "id",
-              "email",
-              "company",
-              "profession",
-              "taxId",
-              "taxOffice",
-              "streetAddress",
-              "city",
-              "country",
-              "postCode",
-              "phone",
-              "mobile",
-              "isCompany",
-              "field1"
-            ],
             "properties": {
               "id": {
-                "type": "number"
+                "type": "number",
+                "description": "Customer's ID"
               },
               "email": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Emaill address"
               },
               "company": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Company name or Full Name (if individual)"
               },
               "profession": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The profession"
               },
               "taxId": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The tax ID"
               },
               "taxOffice": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The Tax office of the customer"
               },
               "streetAddress": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The physical address"
               },
               "city": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "The city"
               },
               "country": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "ISO 3166-1 alpha-2 code"
               },
               "postCode": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "THe postal code"
               },
               "phone": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone naumber"
               },
               "mobile": {
-                "type": "string"
+                "type": "string",
+                "description": "The mobile phone"
               },
               "isCompany": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Set if it's a company"
               },
               "field1": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "custom field 1"
               },
-              "field2": {},
-              "field3": {},
-              "field4": {}
+              "field2": {
+                "description": "custom field 2",
+                "type": "string"
+              },
+              "field3": {
+                "description": "custom field 3",
+                "type": "string"
+              },
+              "field4": {
+                "description": "custom field 4",
+                "type": "string"
+              }
             }
           },
           "items": {
@@ -4489,32 +4496,41 @@
           },
           "note": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "The invoice public note"
           },
           "amount": {
-            "type": "number"
+            "type": "number",
+            "description": "The net amount of the invoice"
           },
           "vatAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The vat amount"
           },
           "finalAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The final amount"
           },
           "payableAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The payable amount, after applier taxes"
           },
           "discountedAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The discounted amount"
           },
           "restAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The amount that is not paid"
           },
           "isPaid": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Invoice paid status"
           },
           "layoutLang": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "The language of the invoice. \"GR\" or \"EN\""
           },
           "paymentMethodIds": {
             "type": "array",
