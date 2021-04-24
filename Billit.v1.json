@@ -3060,6 +3060,279 @@
           }
         ]
       }
+    },
+    "/purchases": {
+      "post": {
+        "summary": "Create a new purchase",
+        "tags": [
+          "Purchase"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Purchase"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": {
+                        "id": 838,
+                        "info": "",
+                        "supplierId": 647,
+                        "price": 66.92,
+                        "vatAmount": 15.39,
+                        "irsAmount": 66.92,
+                        "invoiceNum": "1111",
+                        "taxOffice": null,
+                        "streetAddress": null,
+                        "companyExpense": true,
+                        "isCredited": false,
+                        "paid": false,
+                        "irsType": 1,
+                        "irsPercent": null,
+                        "receiptId": null,
+                        "originalPrice": null,
+                        "originalVat": null,
+                        "originalCurrency": null,
+                        "systemCurrency": null,
+                        "rate": null,
+                        "dateOccurred": "2018-11-02",
+                        "datePaid": "2021-04-24",
+                        "createdAt": "2018-11-21T14:56:03+00:00",
+                        "updatedAt": "2019-08-08T17:26:53+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "422": {
+            "$ref": "#/components/responses/422"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "operationId": "post-purchases",
+        "description": "Create a new purchase",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "supplierId": {
+                    "type": "number"
+                  },
+                  "invoiceNum": {
+                    "type": "number"
+                  },
+                  "vatAmount": {
+                    "type": "number"
+                  },
+                  "cleanAmount": {
+                    "type": "number"
+                  },
+                  "dateOccurred": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "irsAmount": {
+                    "type": "number"
+                  },
+                  "irsType": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "supplierId",
+                  "invoiceNum",
+                  "vatAmount",
+                  "cleanAmount",
+                  "dateOccurred",
+                  "irsAmount",
+                  "irsType"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "supplierId": 10,
+                    "invoiceNum": 101,
+                    "vatAmount": 24,
+                    "cleanAmount": 100,
+                    "dateOccurred": "2021-09-08",
+                    "irsAmount": 100,
+                    "irsType": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List of purchases",
+        "tags": [
+          "Purchase"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": [
+                        "string",
+                        "array"
+                      ],
+                      "items": {
+                        "$ref": "#/components/schemas/Purchase"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/Links"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": 838,
+                          "info": "",
+                          "supplierId": 647,
+                          "price": 66.92,
+                          "vatAmount": 15.39,
+                          "irsAmount": 66.92,
+                          "invoiceNum": "1111",
+                          "taxOffice": null,
+                          "streetAddress": null,
+                          "companyExpense": true,
+                          "isCredited": false,
+                          "paid": false,
+                          "irsType": 1,
+                          "irsPercent": null,
+                          "receiptId": null,
+                          "originalPrice": null,
+                          "originalVat": null,
+                          "originalCurrency": null,
+                          "systemCurrency": null,
+                          "rate": null,
+                          "dateOccurred": "2018-11-02",
+                          "datePaid": "2021-04-24",
+                          "createdAt": "2018-11-21T14:56:03+00:00",
+                          "updatedAt": "2019-08-08T17:26:53+00:00"
+                        },
+                        {
+                          "id": 831,
+                          "info": "asdf",
+                          "supplierId": 627,
+                          "price": 100,
+                          "vatAmount": 20,
+                          "irsAmount": 0,
+                          "invoiceNum": "1564",
+                          "taxOffice": "asdf",
+                          "streetAddress": "asdf",
+                          "companyExpense": true,
+                          "isCredited": true,
+                          "paid": true,
+                          "irsType": 1,
+                          "irsPercent": null,
+                          "receiptId": null,
+                          "originalPrice": null,
+                          "originalVat": null,
+                          "originalCurrency": null,
+                          "systemCurrency": null,
+                          "rate": null,
+                          "dateOccurred": "2018-07-20",
+                          "datePaid": "2021-04-24",
+                          "createdAt": "2018-07-20T19:52:33+00:00",
+                          "updatedAt": "2018-07-20T19:52:33+00:00"
+                        }
+                      ],
+                      "links": {
+                        "first": "https://api.billit.io/v1/purchases?page=1",
+                        "last": "https://api.billit.io/v1/purchases?page=1",
+                        "prev": null,
+                        "next": null
+                      },
+                      "meta": {
+                        "current_page": 1,
+                        "from": 1,
+                        "last_page": 1,
+                        "links": [
+                          {
+                            "url": null,
+                            "label": "&laquo; Previous",
+                            "active": false
+                          },
+                          {
+                            "url": "https://api.billit.io/v1/purchases?page=1",
+                            "label": "1",
+                            "active": true
+                          },
+                          {
+                            "url": null,
+                            "label": "Next &raquo;",
+                            "active": false
+                          }
+                        ],
+                        "path": "https://api.billit.io/v1/purchases",
+                        "per_page": 20,
+                        "to": 19,
+                        "total": 19
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-purchases",
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ],
+        "description": "Get a list of purchases"
+      }
     }
   },
   "components": {
