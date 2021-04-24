@@ -1018,6 +1018,30 @@
                       "$ref": "#/components/schemas/Product"
                     }
                   }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "data": {
+                        "id": 0,
+                        "name": "string",
+                        "description": "string",
+                        "nameSec": "string",
+                        "descriptionSec": "string",
+                        "unitPrice": 0,
+                        "defaultVatId": 0,
+                        "stock": 0,
+                        "withStock": true,
+                        "isVatIncluded": true,
+                        "ordering": true,
+                        "active": true,
+                        "bulkjobId": null,
+                        "createdAt": "string",
+                        "updatedAt": "string",
+                        "deletedAt": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1040,11 +1064,53 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "data": {
+                      "id": 838,
+                      "info": "",
+                      "supplierId": 647,
+                      "price": 66.92,
+                      "vatAmount": 15.39,
+                      "irsAmount": 66.92,
+                      "invoiceNum": "1111",
+                      "taxOffice": null,
+                      "streetAddress": null,
+                      "companyExpense": true,
+                      "isCredited": false,
+                      "paid": false,
+                      "irsType": 1,
+                      "irsPercent": null,
+                      "receiptId": null,
+                      "originalPrice": null,
+                      "originalVat": null,
+                      "originalCurrency": null,
+                      "systemCurrency": null,
+                      "rate": null,
+                      "dateOccurred": "2018-11-02",
+                      "datePaid": "2021-04-19",
+                      "createdAt": "2018-11-21T14:56:03+00:00",
+                      "updatedAt": "2019-08-08T17:26:53+00:00"
+                    }
+                  }
+                }
               }
             }
           }
-        }
+        },
+        "description": "Create a new product",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       },
       "parameters": []
     },
@@ -2080,6 +2146,9 @@
           {
             "$ref": "#/components/parameters/Accept"
           }
+        ],
+        "tags": [
+          "Tags"
         ]
       }
     },
@@ -2509,20 +2578,32 @@
               "examples": {
                 "example": {
                   "value": {
-                    "name": "Web Development",
-                    "description": "Web development services",
-                    "nameSec": "Web development services",
-                    "descriptionSec": "Web development Desc EN",
-                    "unitPrice": 4000,
-                    "defaultVatId": 250,
-                    "stock": 0,
-                    "withStock": false,
-                    "isVatIncluded": false,
-                    "active": true,
-                    "tags": [
-                      "tag1",
-                      "tag2"
-                    ]
+                    "data": {
+                      "id": 838,
+                      "info": "",
+                      "supplierId": 647,
+                      "price": 66.92,
+                      "vatAmount": 15.39,
+                      "irsAmount": 66.92,
+                      "invoiceNum": "1111",
+                      "taxOffice": null,
+                      "streetAddress": null,
+                      "companyExpense": true,
+                      "isCredited": false,
+                      "paid": false,
+                      "irsType": 1,
+                      "irsPercent": null,
+                      "receiptId": null,
+                      "originalPrice": null,
+                      "originalVat": null,
+                      "originalCurrency": null,
+                      "systemCurrency": null,
+                      "rate": null,
+                      "dateOccurred": "2018-11-02",
+                      "datePaid": "2021-04-19",
+                      "createdAt": "2018-11-21T14:56:03+00:00",
+                      "updatedAt": "2019-08-08T17:26:53+00:00"
+                    }
                   }
                 }
               }
