@@ -41,7 +41,7 @@ To Generate a token follow the instructions as seen in the **"How to start"** se
 ```
 Authorization: Bearer dAmj16gJe0YNrjw6x9EBpMm7IAahs0M5ZQGiNZ7rnfRBAG5oN3ocTjnwidmd
 ```
-If you want to test your credentials just make a POST request with the Authorization Header to https://api.sandbox-billit.xyz and you will receive a 200OK response with the following json body
+If you want to test your credentials just make a POST request with the Authorization Header to https://api.sandbox-billit.xyz/v1 and you will receive a 200OK response with the following json body
 
 > {'msg' : 'Hello from the Billit API'}
 
