@@ -3943,74 +3943,97 @@
         "description": "Invoice model in billit.",
         "type": "object",
         "x-examples": {
-          "example-1": {
-            "uuid": "3f6f4ce1-d7fa-4a5f-996e-4979d71fb776",
-            "permalink": "https://billitio.billit.local/inv/3f6f4ce1-d7fa-4a5f-996e-4979d71fb776",
-            "number": 5,
+          "example": {
+            "user_id": 92,
+            "uuid": "f7234af9-1f67-48d3-98b6-22813b3a935f",
+            "permalink": "https://billitio.billit.local/inv/f7234af9-1f67-48d3-98b6-22813b3a935f",
+            "number": 401,
+            "note": "general note eng",
+            "amount": 100,
+            "vatAmount": 0,
+            "finalAmount": 100,
+            "payableAmount": 100,
+            "discountedAmount": 0,
+            "restAmount": 100,
+            "isPaid": false,
+            "layoutLang": "EN",
+            "paymentMethodIds": [
+              0
+            ],
+            "templateId": 0,
+            "hideItemNum": false,
+            "isRecurring": false,
+            "isSend": false,
+            "isRead": false,
+            "dateIssued": "2021-04-22",
+            "dateExpires": null,
+            "dateRead": null,
+            "tags": [],
+            "isMydataEnabled": true,
             "type": {
-              "id": 670,
-              "name": "Τιμολόγιο Πώλησης",
+              "id": 349,
+              "name": "INVOICE",
               "subtitle": "",
-              "note": null,
-              "alias": "Τ.Π",
+              "note": "general note eng",
+              "alias": null,
               "series": null
             },
             "biller": {
-              "id": 223,
-              "company": "BILLIT OE",
-              "info": "",
-              "profession": "Κατασκευη απλικασιο",
-              "taxId": "801379527",
+              "id": 224,
+              "company": "BILLIT GP",
+              "info": null,
+              "profession": "Web development",
+              "taxId": "EL801379527",
               "taxOffice": "N.Σμύρνη",
-              "streetAddress": "Thoukididou 39-90",
-              "city": "Αθήνα",
+              "streetAddress": "Tsamaous",
+              "city": "Piraeus",
               "postCode": "18538",
-              "phone": "2104111111, 210131313",
-              "mobile": "",
-              "url": "https://billit.io",
-              "urlLabel": "BILLIT",
+              "phone": "21023123",
+              "mobile": "123123",
+              "url": "https://billit.io/en",
+              "urlLabel": null,
               "country": "GR",
-              "freeText": "<p>Δοκιμαστικο κειμενο<br /><strong>ΑΜΚΑ</strong>: σδφασδφασδφ<br />Τηλ: 123123123</p>"
+              "freeText": "<p>free text enlighs</p>"
             },
             "customer": {
-              "id": 694,
-              "email": "drakakis@fantasy.gr",
-              "company": "ΦΑΝΤΑΣΥ ΤΡΑΒΕΛ ΕΠΕ",
-              "profession": "ΥΠΗΡΕΣΙΕΣ ΔΙΟΡΓΑΝΩΣΗΣ ΠΕΡΙΗΓΗΣΕΩΝ (ΠΡΑΚΤΟΡΕΙΟ ΤΑΞΙΔΙΩΝ) ΓΙΑ ΟΡΓΑΝΩΜΕΝΟ ΤΟΥΡΙΣΜΟ ΑΠΟ ΤΟ ΕΞΩΤΕΡΙΚΟ",
-              "taxId": "095702357",
-              "taxOffice": "Δ΄ ΑΘΗΝΩΝΝ",
-              "streetAddress": "ΦΙΛΕΛΛΗΝΩΝ 19",
-              "city": "ΑΘΗΝΑ",
-              "country": "GR",
-              "postCode": "1231",
+              "id": 644,
+              "email": "info@artspot.gr",
+              "company": "ARTSPOT  L.T.D",
+              "profession": "art promotions",
+              "taxId": "998039738",
+              "taxOffice": "Α΄ΠΕΙΡΑΙΑ",
+              "streetAddress": "Voulgari 23",
+              "city": "Piraeus",
+              "country": "AS",
+              "postCode": "18533",
               "phone": "",
               "mobile": "",
               "isCompany": true,
-              "field1": "οκ",
+              "field1": "test",
               "field2": null,
               "field3": null,
               "field4": null
             },
             "items": [
               {
-                "quantity": 4,
+                "quantity": 1,
                 "measurementUnitId": 1,
                 "product": {
-                  "id": 24,
-                  "title": "Billit Pro",
-                  "description": ""
+                  "id": 56,
+                  "title": null,
+                  "description": "test"
                 },
-                "netAmount": 19.9,
-                "vatAmount": 17.19,
-                "totalAmount": 71.64,
-                "discountPercent": 10,
-                "discountAmount": 7.959999999999994,
-                "undiscountedTotalAmount": 79.6,
-                "vatId": 376,
-                "vatPercent": 24,
+                "netAmount": 100,
+                "vatAmount": 0,
+                "totalAmount": 100,
+                "discountPercent": 0,
+                "discountAmount": 0,
+                "undiscountedTotalAmount": 100,
+                "vatId": 526,
+                "vatPercent": 0,
                 "mydata": {
                   "vatCat": null,
-                  "vatExemptionCat": null,
+                  "vatExemptionCat": 6,
                   "dienergia": null,
                   "discountOption": null,
                   "withheldAmount": null,
@@ -4026,9 +4049,9 @@
                   "incomeClassificationType": [
                     {
                       "id": 1,
-                      "type": "E3_561_001",
-                      "amount": 71.64,
-                      "category": "category1_1"
+                      "type": "E3_561_006",
+                      "amount": 100,
+                      "category": "category1_3"
                     }
                   ],
                   "expensesClassificationType": null,
@@ -4036,33 +4059,8 @@
                 }
               }
             ],
-            "note": "μια δημσια δηλωση",
-            "amount": 71.64,
-            "vatAmount": 17.19,
-            "finalAmount": 88.83,
-            "payableAmount": 88.83,
-            "discountedAmount": 7.96,
-            "restAmount": 88.83,
-            "isPaid": false,
-            "layoutLang": "GR",
-            "paymentMethodIds": [
-              "null"
-            ],
-            "templateId": 0,
-            "hideItemNum": false,
-            "isRecurring": false,
-            "isSend": false,
-            "isRead": false,
-            "dateIssued": "2021-04-08",
-            "dateExpires": null,
-            "dateRead": null,
-            "createdAt": "2021-04-08T09:50:38+00:00",
-            "updatedAt": "2021-04-11T18:08:15+00:00",
-            "deletedAt": null,
-            "tags": [],
-            "isMydataEnabled": true,
             "mydata": {
-              "type": "1.1",
+              "type": "2.3",
               "state": 1,
               "errors": null,
               "branch": 0,
@@ -4078,18 +4076,8 @@
               "dienergia": null,
               "mydataPaymentType": [
                 {
-                  "type": 3,
-                  "amount": 1,
-                  "paymentMethodInfo": ""
-                },
-                {
-                  "type": 4,
-                  "amount": 2,
-                  "paymentMethodInfo": ""
-                },
-                {
                   "type": 5,
-                  "amount": 85.83,
+                  "amount": 100,
                   "paymentMethodInfo": ""
                 }
               ]
@@ -4107,11 +4095,16 @@
             "totalStampDutyAmount": 0,
             "totalOtherTaxesAmount": 0,
             "totalDeductionsAmount": 0,
-            "vatList": null,
+            "vatList": [
+              {
+                "name": "0%",
+                "value": 0
+              }
+            ],
             "offlinePaymentMethods": [
               {
-                "label": "Μετρητά",
-                "value": "<p>Πληρωμή στην έδρα της επιχείρησης</p>"
+                "label": "Cash",
+                "value": "<p>Payment in headquarters</p>"
               }
             ],
             "onlinePaymentMethods": [
@@ -4133,23 +4126,26 @@
             ],
             "templateExtras": {
               "logo": "https://app.billit.local/uploads/logos/92/billit-other.png",
-              "templateName": "minimal-2020",
+              "templateName": "minimal",
               "multiLang": 1,
               "dateFormat": "d-m-Y",
               "currency": "EUR",
               "currencySymbol": "€",
               "currencyPos": 1,
               "customerDept": false,
-              "allowPayments": 0,
+              "allowPayments": true,
               "hideTmx": false,
               "hideReceiver": false,
               "hidePricing": false,
               "showBalance": false,
-              "hasSigningbox": false,
+              "hasSigningbox": true,
               "extraFieldsLabels": [
-                "test"
+                "testen"
               ]
-            }
+            },
+            "createdAt": "2021-04-22T19:06:38+00:00",
+            "updatedAt": "2021-04-23T16:10:51+00:00",
+            "deletedAt": "2021-04-23T16:10:51+00:00"
           }
         },
         "properties": {
@@ -4390,12 +4386,7 @@
                     "description": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "id",
-                    "title",
-                    "description"
-                  ]
+                  }
                 },
                 "netAmount": {
                   "type": "number"
@@ -4470,24 +4461,9 @@
                     },
                     "expensesClassificationType": {},
                     "rowType": {}
-                  },
-                  "required": [
-                    "incomeClassificationType"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "quantity",
-                "measurementUnitId",
-                "netAmount",
-                "vatAmount",
-                "totalAmount",
-                "discountPercent",
-                "discountAmount",
-                "undiscountedTotalAmount",
-                "vatId",
-                "vatPercent"
-              ]
+              }
             }
           },
           "note": {
@@ -4535,26 +4511,38 @@
             }
           },
           "templateId": {
-            "type": "number"
+            "type": "number",
+            "description": "If template is used, add the ID"
           },
           "hideItemNum": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "if Numbering is hidden from products"
           },
           "isRecurring": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If it is scheduled"
           },
           "isSend": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If it was send by email"
           },
           "isRead": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If the email was opened/read"
           },
           "dateIssued": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Date format Y-m-d"
           },
-          "dateExpires": {},
-          "dateRead": {},
+          "dateExpires": {
+            "type": "string",
+            "description": "Date format Y-m-d"
+          },
+          "dateRead": {
+            "type": "string",
+            "description": "Date format Y-m-d"
+          },
           "createdAt": {
             "type": "string",
             "minLength": 1,
@@ -4576,12 +4564,14 @@
           },
           "tags": {
             "type": "array",
+            "description": "Tags attached to invoice",
             "items": {
               "type": "object"
             }
           },
           "isMydataEnabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If Mydata is enabled for this invoice"
           },
           "mydata": {
             "type": "object",
