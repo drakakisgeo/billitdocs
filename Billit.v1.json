@@ -1471,10 +1471,170 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "",
                 "type": "object",
                 "properties": {
-                  "": {
-                    "type": "string"
+                  "customerId": {
+                    "type": "number"
+                  },
+                  "sendMail": {
+                    "type": "boolean"
+                  },
+                  "excludeMydata": {
+                    "type": "boolean"
+                  },
+                  "invoiceDate": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "invoiceTypeId": {
+                    "type": "number"
+                  },
+                  "mydataInvoiceType": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "taxes": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "taxId",
+                        "taxVatShow"
+                      ],
+                      "properties": {
+                        "taxId": {
+                          "type": "number"
+                        },
+                        "taxVatShow": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "products": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "details",
+                        "measurementUnit",
+                        "vatId",
+                        "price",
+                        "quantity",
+                        "incomeClassificationCat",
+                        "incomeClassificationType"
+                      ],
+                      "properties": {
+                        "productId": {},
+                        "details": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "measurementUnit": {
+                          "type": "number"
+                        },
+                        "vatId": {
+                          "type": "number"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "quantity": {
+                          "type": "number"
+                        },
+                        "incomeClassificationCat": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "incomeClassificationType": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "required": [],
+                      "properties": {}
+                    }
+                  },
+                  "mydataPayment": {
+                    "type": "object",
+                    "properties": {
+                      "paidAmount": {
+                        "type": "number"
+                      },
+                      "paymentMethod": {
+                        "type": "number"
+                      },
+                      "epiPistosi": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "paidAmount",
+                      "paymentMethod",
+                      "epiPistosi"
+                    ]
+                  }
+                },
+                "required": [
+                  "customerId",
+                  "sendMail",
+                  "excludeMydata",
+                  "invoiceDate",
+                  "invoiceTypeId",
+                  "mydataInvoiceType",
+                  "taxes",
+                  "products",
+                  "tags",
+                  "mydataPayment"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "customerId": 694,
+                    "sendMail": false,
+                    "excludeMydata": true,
+                    "invoiceDate": "2021-04-15",
+                    "invoiceTypeId": 349,
+                    "mydataInvoiceType": "2.1",
+                    "taxes": [
+                      {
+                        "taxId": 514
+                      },
+                      {
+                        "taxId": 524,
+                        "taxVatShow": 1
+                      }
+                    ],
+                    "products": [
+                      {
+                        "productId": null,
+                        "details": "test",
+                        "measurementUnit": 1,
+                        "vatId": 376,
+                        "price": 123.32,
+                        "quantity": 1,
+                        "incomeClassificationCat": "category1_3",
+                        "incomeClassificationType": "E3_561_001"
+                      }
+                    ],
+                    "tags": [
+                      "billit",
+                      "millit"
+                    ],
+                    "mydataPayment": {
+                      "paidAmount": 0.32,
+                      "paymentMethod": 3,
+                      "epiPistosi": 10
+                    }
                   }
                 }
               }
@@ -3596,48 +3756,53 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The product/service name"
                   },
                   "description": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The product/service description"
                   },
                   "nameSec": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The product/service in Secondary language"
                   },
                   "descriptionSec": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The product/service description is secondary language"
                   },
                   "unitPrice": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The product/service price"
                   },
                   "defaultVatId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The default vat ID (It will be autoselected while creating invoice)"
                   },
                   "stock": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The stock number"
                   },
                   "withStock": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If the product has stock or not"
                   },
                   "isVatIncluded": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determine if the value includes vat or it's the net one."
                   },
                   "active": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If it's active"
                   }
                 },
                 "required": [
                   "name",
                   "description",
-                  "nameSec",
-                  "descriptionSec",
                   "unitPrice",
                   "defaultVatId",
-                  "stock",
-                  "withStock",
-                  "isVatIncluded",
-                  "active"
+                  "isVatIncluded"
                 ]
               },
               "examples": {
@@ -3658,7 +3823,12 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Accept"
+          }
+        ]
       },
       "delete": {
         "summary": "Delete a product",
