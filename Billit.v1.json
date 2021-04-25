@@ -501,15 +501,18 @@
                 "type": "object",
                 "properties": {
                   "isCompany": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If customer is company, make that true"
                   },
                   "company": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The company name"
                   },
                   "lang": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "the language that you want the customer to receive his invoices. \"el\" or \"en\""
                   },
                   "profession": {
                     "type": "string",
@@ -575,15 +578,7 @@
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
-                      "required": [
-                        "title",
-                        "address",
-                        "city",
-                        "zip",
-                        "incharge",
-                        "tel",
-                        "country"
-                      ],
+                      "type": "object",
                       "properties": {
                         "title": {
                           "type": "string",
@@ -613,7 +608,16 @@
                           "type": "string",
                           "minLength": 1
                         }
-                      }
+                      },
+                      "required": [
+                        "title",
+                        "address",
+                        "city",
+                        "zip",
+                        "incharge",
+                        "tel",
+                        "country"
+                      ]
                     }
                   }
                 },
