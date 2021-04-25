@@ -2700,36 +2700,46 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The title of the ocp link"
                   },
                   "description": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "A more descriptive text for the ocp link"
                   },
                   "cost": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The total cost of the link"
                   },
                   "customerId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The customer ID if you want to link to a certain one."
                   },
                   "invoiceTypeId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The invoicetype ID that will be generated afterwards"
                   },
                   "netValue": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The net value of the link"
                   },
                   "vatId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The Vat ID"
                   },
                   "productId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The product ID if used"
                   },
                   "paymentMethodId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The payment method ID"
                   },
                   "lang": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The language of the link, \"el\" or \"en\""
                   },
                   "expirationAt": {
                     "type": "string",
@@ -2740,14 +2750,9 @@
                   "title",
                   "description",
                   "cost",
-                  "customerId",
-                  "invoiceTypeId",
                   "netValue",
-                  "vatId",
-                  "productId",
                   "paymentMethodId",
-                  "lang",
-                  "expirationAt"
+                  "lang"
                 ]
               },
               "examples": {
