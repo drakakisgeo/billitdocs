@@ -42,52 +42,65 @@
                       "properties": {
                         "uuid": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Unique identifier"
                         },
                         "email": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "User's email"
                         },
                         "subdomain": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "The account's subdomain."
                         },
                         "firstName": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "First name"
                         },
                         "lastName": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Last name"
                         },
                         "mobile": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Mobile phone number"
                         },
                         "isBlocked": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "If account is blocked by admin"
                         },
                         "isSuspended": {
-                          "type": "boolean"
-                        },
-                        "isExpired": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "If acccount is suspended because it's more than 60 days in frozen plan"
                         },
                         "isAccountant": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "If the account user is an accountant"
                         },
                         "isValidated2fa": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "If 2FA is enabled"
                         },
                         "createdAt": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ISO 8601 format"
                         },
                         "updatedAt": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ISO 8601 format"
                         },
                         "deletedAt": {
-                          "type": "null"
+                          "type": [
+                            "string"
+                          ],
+                          "description": "ISO 8601 format",
+                          "nullable": true
                         },
                         "relations": {
                           "type": "object",
@@ -2168,52 +2181,64 @@
                 "type": "object",
                 "properties": {
                   "customerId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The customer ID"
                   },
                   "dateOccurred": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "Payment Date that occured. In Y-m-d format"
                   },
                   "amount": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The amount of payment"
                   },
                   "paymentMethod": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The payment ID that it was used"
                   },
                   "paymentType": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The payment type. Possible values \"1\" - Auto,\"2\" - Manual,\"3\" - No type"
                   },
                   "amountLeftOver": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "If there is a left over amount, fill it in."
                   },
                   "selectionsAmount": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The amount that will be used/linked to invoices"
                   },
                   "invoicesPaid": {
                     "type": "array",
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "description": "Invoice ID"
+                        },
+                        "label": {
+                          "type": "number",
+                          "description": "The invoice type"
+                        },
+                        "unpaidAmount": {
+                          "type": "number",
+                          "description": "The leftover amount of the invoice"
+                        },
+                        "paymentAmount": {
+                          "type": "number",
+                          "description": "The amount that you want to be asigned"
+                        }
+                      },
                       "required": [
                         "id",
                         "label",
                         "unpaidAmount",
                         "paymentAmount"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "number"
-                        },
-                        "label": {
-                          "type": "number"
-                        },
-                        "unpaidAmount": {
-                          "type": "number"
-                        },
-                        "paymentAmount": {
-                          "type": "number"
-                        }
-                      }
+                      ]
                     }
                   }
                 },
@@ -2224,8 +2249,7 @@
                   "paymentMethod",
                   "paymentType",
                   "amountLeftOver",
-                  "selectionsAmount",
-                  "invoicesPaid"
+                  "selectionsAmount"
                 ]
               },
               "examples": {
