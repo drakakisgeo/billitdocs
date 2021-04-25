@@ -719,7 +719,7 @@
             }
           }
         },
-        "description": "Get a list with your invoices"
+        "description": "Get a list with your invoices."
       },
       "post": {
         "summary": "Create an invoice",
@@ -744,7 +744,7 @@
           }
         },
         "operationId": "post-v1-invoices",
-        "description": "Create a new invoice\n",
+        "description": "Create a new invoice\n\n<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account.",
         "security": [
           {
             "API TOKEN": []
@@ -1282,7 +1282,7 @@
             "$ref": "#/components/parameters/Accept"
           }
         ],
-        "description": "Update an invoice"
+        "description": "Update an invoice\n\n<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account."
       },
       "delete": {
         "summary": "Delete an invoice",
@@ -4578,10 +4578,13 @@
             "properties": {
               "type": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Mydata type according the spec",
+                "example": "2.1"
               },
               "state": {
-                "type": "number"
+                "description": "The myData status",
+                "type": "string"
               },
               "errors": {},
               "branch": {
