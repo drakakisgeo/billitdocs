@@ -4833,102 +4833,135 @@
           "uuid": {
             "type": "string",
             "minLength": 1,
+            "description": "Unique identifier",
             "readOnly": true
           },
           "billerId": {
-            "type": "number"
+            "type": "number",
+            "description": "Biller's ID"
           },
           "customer": {
             "type": "object",
             "properties": {
               "id": {
-                "type": "number"
+                "type": "number",
+                "description": "Customer's ID"
               },
               "email": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Customer's email"
               },
               "company": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "Customer's company name"
               },
               "isCompany": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "If is company or individual"
               }
             }
           },
           "number": {
-            "type": "number"
+            "type": "number",
+            "description": "The invoice number"
           },
           "type": {
             "type": "object",
             "properties": {
               "id": {
-                "type": "number"
+                "type": "number",
+                "description": "Invoicetype ID"
               },
               "name": {
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "description": "invoicetype name"
               },
-              "alias": {},
-              "series": {}
+              "alias": {
+                "description": "Short alias of invoiceType",
+                "type": "string"
+              },
+              "series": {
+                "description": "The series of the invoicetype",
+                "type": "string"
+              }
             }
           },
           "note": {
-            "type": "string"
+            "type": "string",
+            "description": "The public note, if any."
           },
           "amount": {
-            "type": "number"
+            "type": "number",
+            "description": "The net amount"
           },
           "vatAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The vat amount"
           },
           "finalAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The total amount"
           },
           "payableAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The payable amount, after taxes"
           },
           "restAmount": {
-            "type": "number"
+            "type": "number",
+            "description": "The unpaid ( if any ) amount of invoice"
           },
           "isPaid": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Paid status of invoice"
           },
           "layoutLang": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "The language of the invoce, GR or EN"
           },
-          "discount": {
-            "type": "number"
+          "paymentMethodIds": {
+            "type": "array",
+            "description": "Paymentmethods Id's",
+            "items": {}
           },
-          "paymentMethodIds": {},
           "templateId": {
-            "type": "number"
+            "type": "number",
+            "description": "If customer template is used, fill in the ID"
           },
           "hideItemNum": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Hide item numbering"
           },
           "isRecurring": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If was setup as recurring (scheduled)"
           },
           "isSend": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If is send to the client by email"
           },
           "isRead": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": " the client has read/open the email"
           },
           "dateIssued": {
             "type": "string",
             "minLength": 1,
-            "format": "date"
+            "format": "date",
+            "description": "Date Format Y-m-d"
           },
           "dateExpires": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "description": "Date Format Y-m-d"
           },
           "dateRead": {
-            "type": "string"
+            "type": "string",
+            "description": "Date Format Y-m-d",
+            "format": "date"
           },
           "createdAt": {
             "type": "string",
@@ -4952,10 +4985,12 @@
             "readOnly": true
           },
           "isMydataEnabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If mydata is enabled for this invoice"
           },
           "correlatedInvoices": {
             "type": "array",
+            "description": "Correlated invoices if any",
             "items": {
               "type": "object"
             }
@@ -4963,6 +4998,7 @@
           "permalink": {
             "type": "string",
             "format": "uri",
+            "description": "The public URL for invoice",
             "readOnly": true
           }
         }
