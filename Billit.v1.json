@@ -610,13 +610,7 @@
                         }
                       },
                       "required": [
-                        "title",
-                        "address",
-                        "city",
-                        "zip",
-                        "incharge",
-                        "tel",
-                        "country"
+                        "title"
                       ]
                     }
                   }
@@ -624,23 +618,8 @@
                 "required": [
                   "isCompany",
                   "company",
-                  "lang",
-                  "profession",
-                  "inCharge",
-                  "vatId",
-                  "taxOffice",
-                  "streetAddress",
-                  "alias",
                   "customerType",
-                  "postalCode",
-                  "city",
-                  "country",
-                  "mobile",
-                  "phone",
-                  "fax",
-                  "info",
-                  "publicNote",
-                  "addresses"
+                  "country"
                 ]
               },
               "examples": {
