@@ -752,7 +752,7 @@
           }
         },
         "operationId": "post-v1-invoices",
-        "description": "Create a new invoice. This is by far the most complex endpoint, since it's having a lot of options and flexibility.",
+        "description": "Create a new invoice.",
         "security": [
           {
             "API TOKEN": []
@@ -955,7 +955,7 @@
               }
             }
           },
-          "description": "<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account.\n\n#### Mydata details\n\n- For the key \"mydataInvoiceType\" the options are:\n\n| Option | Description |\n| --- | ----------- |\n| 2.1 | Invoice of services |\n\n\n#### incomeClassificationCat options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### incomeClassificationType options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### paymentMethod options\n\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic Payments Account |\n| 2 | Foreign Payments Account |\n| 3 | Cash |\n| 4 | Cheque |"
+          "description": "<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account.\n\n### Mydata details\n\n#### mydataInvoiceType options\n\n| Option | Description |\n| --- | ----------- |\n| 2.1 | Invoice of services |\n\n\n#### incomeClassificationCat options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### incomeClassificationType options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### paymentMethod options\n\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic Payments Account |\n| 2 | Foreign Payments Account |\n| 3 | Cash |\n| 4 | Cheque |"
         }
       },
       "parameters": []
