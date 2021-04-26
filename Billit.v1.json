@@ -752,7 +752,7 @@
           }
         },
         "operationId": "post-v1-invoices",
-        "description": "Create a new invoice\n\n<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account.",
+        "description": "Create a new invoice. This is by far the most complex endpoint, since it's having a lot of options and flexibility.",
         "security": [
           {
             "API TOKEN": []
@@ -771,45 +771,54 @@
                 "type": "object",
                 "properties": {
                   "customerId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The customer ID"
                   },
                   "sendMail": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Fill in true if you want your customer to receive the invoice by email."
                   },
                   "excludeMydata": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "By making this true, the invoice is excluded from myData."
                   },
                   "invoiceDate": {
                     "type": "string",
-                    "minLength": 1
+                    "description": "The invoice's date, in Y-m-d format",
+                    "format": "date"
                   },
                   "invoiceTypeId": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The invoice type ID"
                   },
                   "isPaid": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "The invoice paid status"
                   },
                   "mydataInvoiceType": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "description": "The invoice type according Mydata"
                   },
                   "taxes": {
                     "type": "array",
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
-                      "required": [
-                        "taxId",
-                        "taxVatShow"
-                      ],
+                      "type": "object",
                       "properties": {
                         "taxId": {
-                          "type": "number"
+                          "type": "number",
+                          "description": "The Tax ID."
                         },
                         "taxVatShow": {
-                          "type": "number"
+                          "type": "number",
+                          "description": "Select if you want to be able to override it in the UI."
                         }
-                      }
+                      },
+                      "required": [
+                        "taxId"
+                      ]
                     }
                   },
                   "products": {
@@ -817,23 +826,20 @@
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
-                      "required": [
-                        "details",
-                        "measurementUnit",
-                        "vatId",
-                        "price",
-                        "quantity",
-                        "incomeClassificationCat",
-                        "incomeClassificationType"
-                      ],
+                      "type": "object",
                       "properties": {
-                        "productId": {},
+                        "productId": {
+                          "type": "integer",
+                          "description": "The product ID"
+                        },
                         "details": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "The body of the product in case you want to overrride the default body."
                         },
                         "measurementUnit": {
-                          "type": "number"
+                          "type": "number",
+                          "description": "Options are 1 - Pcs, 2 - Kg, 3 - Lt"
                         },
                         "vatId": {
                           "type": "number"
@@ -846,24 +852,29 @@
                         },
                         "incomeClassificationCat": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Is needed if Mydata plugin is enabled. Check the possible options in the endpoint's description."
                         },
                         "incomeClassificationType": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Is needed if Mydata plugin is enabled. Check the possible options in the endpoint's description."
                         }
-                      }
+                      },
+                      "required": [
+                        "details",
+                        "vatId"
+                      ]
                     }
                   },
                   "tags": {
                     "type": "array",
-                    "items": {
-                      "required": [],
-                      "properties": {}
-                    }
+                    "description": "An array of tags if any",
+                    "items": {}
                   },
                   "mydataPayment": {
                     "type": "object",
+                    "description": "Is needed if Mydata plugin is enabled. Check the possible options in the endpoint's description.",
                     "properties": {
                       "paidAmount": {
                         "type": "number"
@@ -874,30 +885,33 @@
                       "epiPistosi": {
                         "type": "number"
                       }
-                    },
-                    "required": [
-                      "paidAmount",
-                      "paymentMethod",
-                      "epiPistosi"
-                    ]
+                    }
+                  },
+                  "mailOptions": {
+                    "type": [
+                      "string",
+                      "object"
+                    ],
+                    "description": "In case you want to have custom email subject/body",
+                    "properties": {
+                      "subject": {
+                        "type": "string",
+                        "description": "The subject of the email"
+                      },
+                      "body": {
+                        "type": "string",
+                        "description": "The main body of the email"
+                      }
+                    }
                   }
                 },
                 "required": [
-                  "customerId",
-                  "sendMail",
-                  "excludeMydata",
-                  "invoiceDate",
                   "invoiceTypeId",
-                  "isPaid",
-                  "mydataInvoiceType",
-                  "taxes",
-                  "products",
-                  "tags",
-                  "mydataPayment"
+                  "products"
                 ]
               },
               "examples": {
-                "example-1": {
+                "Example-1- Simple": {
                   "value": {
                     "customerId": 694,
                     "sendMail": false,
@@ -940,7 +954,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "<!-- theme: warning -->\n> In order to get back or post payload with MyData information, you need to enable the Mydata plugin first. Please do from your settings menu if your business is located in Greece and you need to connect myData to your account.\n\n#### Mydata details\n\n- For the key \"mydataInvoiceType\" the options are:\n\n| Option | Description |\n| --- | ----------- |\n| 2.1 | Invoice of services |\n\n\n#### incomeClassificationCat options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### incomeClassificationType options\n\n| Option | Description |\n| --- | ----------- |\n| - | - |\n\n#### paymentMethod options\n\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic Payments Account |\n| 2 | Foreign Payments Account |\n| 3 | Cash |\n| 4 | Cheque |"
         }
       },
       "parameters": []
