@@ -86,7 +86,7 @@ Where applicable this API MUST use the JSON media-type. Requests with a message-
 
 All exchange of date and time-related data MUST be done according to ISO 8601 standard and stored in UTC.
 
-When you send a date as input to create a new resource or to filter results, you need to send it formatted as in your account settings. You can check the date format if you make a get request to /account endpoint. You can alter this only from your app dashboard settings as always.
+When you send a date as input to create a new resource or to filter results, you need to send it formatted as "Y-m-d" ( Year - Month - day Ex: 2021-05-28).
 
 ## Status Codes and Errors
 
