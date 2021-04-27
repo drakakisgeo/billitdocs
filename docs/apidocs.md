@@ -45,6 +45,14 @@ If you want to test your credentials just make a POST request with the Authoriza
 
 > {'msg' : 'Hello from the Billit API'}
 
+## The "Try it out" feature
+
+The documentation includes a client that you can make realy quickly make requests and see the responses. To use the Authentication, useand Authorization header with value of your token with an appended "Bearer" string, like this
+```
+Bearer dAmj16gJe0YNrjw6x9EBpMm7IAahs0M5ZQGiNZ7rnfRBAG5oN3ocTjnwidmd
+```
+
+
 ## The 'Account' endpoint
 
 The **`/account`** endpoint response is important. The reason is that except the expected information regarding the user, the setup and subscription details it also contains the account's Vat details, Payment methods and Biller information. This information doesn't change often so you can safely cache it as long as you need or even hard code the Ids from those objects when you need them to your requests.
