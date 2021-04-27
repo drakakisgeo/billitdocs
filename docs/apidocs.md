@@ -24,6 +24,8 @@ For your convinience, Billit provides you a Sandbox environment. This way you ca
 
 2. After [logging in to your app section](https://app.sandbox-billit.xyz/) of your Sandbox account, you need to navigate to settings > API (tab) and generate a token
 
+![Client](../assets/images/apitoken-make.png)
+
 Use that generated token to your requests by hitting the sandbox endpoints. If you want to check the UI after your API request, visit the Sandbox web app url as well.
 
 <!-- theme: warning -->
@@ -37,7 +39,7 @@ Use that generated token to your requests by hitting the sandbox endpoints. If y
 This API uses a **Bearer Token** for authentication,
 To Generate a token follow the instructions as seen in the **"How to start"** section of this documentation.
 
-### Example Header
+#### Example Header
 ```
 Authorization: Bearer dAmj16gJe0YNrjw6x9EBpMm7IAahs0M5ZQGiNZ7rnfRBAG5oN3ocTjnwidmd
 ```
@@ -47,13 +49,12 @@ If you want to test your credentials just make a POST request with the Authoriza
 
 ## The "Try it out" feature
 
-The documentation includes a client that you can make realy quickly make requests and see the responses. To use the Authentication, useand Authorization header with value of your token with an appended "Bearer" string, like this
-```
-Bearer dAmj16gJe0YNrjw6x9EBpMm7IAahs0M5ZQGiNZ7rnfRBAG5oN3ocTjnwidmd
-```
+The API documentation includes an HTTP client that you can use to make realy quickly requests and see the responses. To use the Authentication, send an "Authorization" header with value of your token with an appended "Bearer" string, like this:
+
+![Client](../assets/images/clienthelp.png)
 
 
-## The 'Account' endpoint
+## Using the "My Account" endpoint
 
 The **`/account`** endpoint response is important. The reason is that except the expected information regarding the user, the setup and subscription details it also contains the account's Vat details, Payment methods and Biller information. This information doesn't change often so you can safely cache it as long as you need or even hard code the Ids from those objects when you need them to your requests.
 
