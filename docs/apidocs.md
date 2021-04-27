@@ -29,7 +29,7 @@ For your convinience, Billit provides you a Sandbox environment. This way you ca
 Use that generated token to your requests by hitting the sandbox endpoints. If you want to check the UI after your API request, visit the Sandbox web app url as well.
 
 <!-- theme: warning -->
-> In case you use PHP, we provide an opensource package you can use to make things very easy. Special addons included if you use the Laravel Framework
+> In case you use PHP, we provide an [opensource package](https://github.com/drakakisgeo/billit) you can use to make things very easy. Special addons included if you use the Laravel Framework
 
 <!-- theme: info -->
 > Make sure to test your implementation thoroughly using the Sandbox account first. When you're ready for production we will give you full write access to all resources the same day.
