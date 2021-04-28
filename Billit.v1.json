@@ -487,7 +487,7 @@
           }
         },
         "operationId": "post-customers",
-        "description": "Create a customer\n\n#### customerType\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
+        "description": "Create a customer\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
         "security": [
           {
             "API TOKEN": []
@@ -3656,7 +3656,7 @@
             }
           }
         },
-        "description": "Update a customer\n\n#### customerType\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |"
+        "description": "Update a customer\n\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |"
       },
       "delete": {
         "summary": "Delete a customer",
