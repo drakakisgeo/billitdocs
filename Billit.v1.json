@@ -541,6 +541,9 @@
                   "customerType": {
                     "type": "number"
                   },
+                  "skipVatIdUniqueness": {
+                    "type": "boolean"
+                  },
                   "postalCode": {
                     "type": "string",
                     "minLength": 1
@@ -5461,32 +5464,24 @@
             "description": "Fax number"
           },
           "field1": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Custom field 1"
+            "type": "string",
+            "description": "Custom field 1",
+            "nullable": true
           },
           "field2": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Custom field 2"
+            "type": "string",
+            "description": "Custom field 2",
+            "nullable": true
           },
           "field3": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Custom field 3"
+            "type": "string",
+            "description": "Custom field 3",
+            "nullable": true
           },
           "field4": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Custom field 4"
+            "type": "string",
+            "description": "Custom field 4",
+            "nullable": true
           },
           "enabled": {
             "type": "boolean",
@@ -5494,7 +5489,6 @@
           },
           "lang": {
             "type": "string",
-            "minLength": 1,
             "enum": [
               "el",
               "en"
@@ -5507,7 +5501,6 @@
           },
           "alias": {
             "type": "string",
-            "minLength": 1,
             "description": "A friendly short name that you identify the customer."
           },
           "debt": {
@@ -5540,12 +5533,10 @@
             "description": "ISO 8601 format"
           },
           "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time",
-            "description": "ISO 8601 format"
+            "description": "ISO 8601 format",
+            "nullable": true
           },
           "country": {
             "type": "string",
