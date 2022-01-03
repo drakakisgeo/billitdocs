@@ -962,6 +962,53 @@
                     },
                     "reminder": 1
                   }
+                },
+                "Example with TaxProduct(Telos)": {
+                  "value": {
+                    "customerId": 0,
+                    "sendMail": true,
+                    "excludeMydata": true,
+                    "invoiceDate": "2019-08-24",
+                    "invoiceTypeId": 0,
+                    "isPaid": true,
+                    "mydataInvoiceType": "string",
+                    "taxes": [
+                      {
+                        "taxId": 0,
+                        "taxVatShow": 0
+                      }
+                    ],
+                    "products": [
+                      {
+                        "productId": 0,
+                        "details": "string",
+                        "measurementUnit": 0,
+                        "vatId": 0,
+                        "price": 0,
+                        "quantity": 0,
+                        "incomeClassificationCat": "string",
+                        "incomeClassificationType": "string",
+                        "vatExceptionCat": "string"
+                      },
+                      {
+                        "vatId": 376,
+                        "price": 11,
+                        "quantity": 1,
+                        "type": "telos",
+                        "taxId": 592
+                      }
+                    ],
+                    "tags": [
+                      null
+                    ],
+                    "mydataPayment": {
+                      "paidAmount": 0,
+                      "paymentMethod": 0,
+                      "epiPistosi": 0
+                    },
+                    "mailOptions": "string",
+                    "reminder": true
+                  }
                 }
               }
             }
