@@ -879,7 +879,7 @@
           }
         },
         "operationId": "post-contacts",
-        "description": "Create a contact\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
+        "description": "Create a contact\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |\n\n#### contactType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Customer |\n| 2 | Supplier |\n| 3 | Customer & Supplier |\n\n",
         "security": [
           {
             "API TOKEN": []
@@ -1008,6 +1008,12 @@
                         "title"
                       ]
                     }
+                  },
+                  "contactType": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1038,6 +1044,8 @@
                     "fax": "123123123123",
                     "info": "private information text",
                     "publicNote": "public note text",
+                    "contactType": 1,
+                    "currency": "EUR",
                     "addresses": [
                       {
                         "title": "Τιτλος 1",
