@@ -680,9 +680,6 @@
     "contacts": {
       "get": {
         "summary": "List of contacts",
-        "tags": [
-          "Customers"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -751,13 +748,13 @@
           {
             "API TOKEN": []
           }
+        ],
+        "tags": [
+          "Contacts"
         ]
       },
       "post": {
         "summary": "Create a contact",
-        "tags": [
-          "Customers"
-        ],
         "responses": {
           "201": {
             "description": "Created",
@@ -1066,7 +1063,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Contacts"
+        ]
       },
       "parameters": []
     },
@@ -3923,7 +3923,7 @@
       "get": {
         "summary": "Show a customer",
         "tags": [
-          "Customers"
+          "Contacts"
         ],
         "responses": {
           "200": {
@@ -3996,9 +3996,6 @@
       },
       "put": {
         "summary": "Update a customer",
-        "tags": [
-          "Customers"
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -4212,13 +4209,13 @@
             }
           }
         },
-        "description": "Update a contact\n\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |"
+        "description": "Update a contact\n\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
+        "tags": [
+          "Contacts"
+        ]
       },
       "delete": {
         "summary": "Delete a customer",
-        "tags": [
-          "Customers"
-        ],
         "responses": {
           "204": {
             "description": "No Content"
@@ -4230,6 +4227,9 @@
           {
             "API TOKEN": []
           }
+        ],
+        "tags": [
+          "Contacts"
         ]
       }
     },
