@@ -15,12 +15,12 @@
   },
   "servers": [
     {
-      "url": "https://api.sandbox-billit.xyz/v1/",
+      "url": "https://api.sandbox-billit.xyz/v1",
       "description": "Sandbox"
     },
     {
       "description": "Production",
-      "url": "https://api.billit.io/v1/"
+      "url": "https://api.billit.io/v1"
     }
   ],
   "paths": {
