@@ -24,7 +24,7 @@
     }
   ],
   "paths": {
-    "account": {
+    "/account": {
       "get": {
         "summary": "My Account",
         "operationId": "get-user",
