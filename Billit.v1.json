@@ -282,7 +282,7 @@
       },
       "parameters": []
     },
-    "customers": {
+    "/customers": {
       "get": {
         "summary": "List of customers",
         "tags": [
@@ -677,7 +677,7 @@
       },
       "parameters": []
     },
-    "contacts": {
+    "/contacts": {
       "get": {
         "summary": "List of contacts",
         "responses": {
@@ -1078,7 +1078,7 @@
       },
       "parameters": []
     },
-    "invoices": {
+    "/invoices": {
       "get": {
         "summary": "List invoices",
         "tags": [
@@ -1471,7 +1471,7 @@
       },
       "parameters": []
     },
-    "invoices/{uuid}": {
+    "/invoices/{uuid}": {
       "parameters": [
         {
           "schema": {
@@ -2192,7 +2192,7 @@
         ]
       }
     },
-    "products": {
+    "/products": {
       "get": {
         "summary": "List of products",
         "tags": [
@@ -2491,7 +2491,7 @@
       },
       "parameters": []
     },
-    "ocps": {
+    "/ocps": {
       "get": {
         "summary": "List OCP links",
         "tags": [
@@ -2800,7 +2800,7 @@
       },
       "parameters": []
     },
-    "payments": {
+    "/payments": {
       "get": {
         "summary": "List payments",
         "tags": [
@@ -3144,7 +3144,7 @@
       },
       "parameters": []
     },
-    "ocps/{uuid}": {
+    "/ocps/{uuid}": {
       "parameters": [
         {
           "schema": {
@@ -3395,7 +3395,7 @@
         ]
       }
     },
-    "tags": {
+    "/tags": {
       "get": {
         "summary": "List tags",
         "responses": {
@@ -3498,7 +3498,7 @@
       },
       "parameters": []
     },
-    "tags/{id}": {
+    "/tags/{id}": {
       "parameters": [
         {
           "schema": {
@@ -3588,7 +3588,7 @@
         ]
       }
     },
-    "customers/{id}": {
+    "/customers/{id}": {
       "parameters": [
         {
           "schema": {
@@ -3916,7 +3916,7 @@
         "deprecated": true
       }
     },
-    "contacts/{id}": {
+    "/contacts/{id}": {
       "parameters": [
         {
           "schema": {
