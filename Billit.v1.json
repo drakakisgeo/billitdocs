@@ -1316,6 +1316,12 @@
                   },
                   "reminder": {
                     "type": "boolean"
+                  },
+                  "paymentMethod": {
+                    "type": "array",
+                    "description": "By setting to null or not including at all you set the \"default\" payment methods. If you want to set certain online/offline payment methods, ad their id in an array. In case you want to expilicitly avoid any payment for this invoice put the value of -1 in the array",
+                    "nullable": true,
+                    "items": {}
                   }
                 },
                 "required": [
@@ -1461,6 +1467,52 @@
                       "paymentMethod": 3,
                       "epiPistosi": 10
                     }
+                  }
+                },
+                "example-withPaymentMethods": {
+                  "value": {
+                    "customerId": 694,
+                    "sendMail": false,
+                    "excludeMydata": true,
+                    "invoiceDate": "2021-04-15",
+                    "invoiceTypeId": 349,
+                    "isPaid": true,
+                    "mydataInvoiceType": "2.1",
+                    "taxes": [
+                      {
+                        "taxId": 514
+                      },
+                      {
+                        "taxId": 524,
+                        "taxVatShow": 1
+                      }
+                    ],
+                    "products": [
+                      {
+                        "productId": null,
+                        "details": "test",
+                        "measurementUnit": 1,
+                        "vatId": 376,
+                        "price": 123.32,
+                        "quantity": 1,
+                        "incomeClassificationCat": "category1_3",
+                        "incomeClassificationType": "E3_561_001"
+                      }
+                    ],
+                    "tags": [
+                      "billit",
+                      "millit"
+                    ],
+                    "mydataPayment": {
+                      "paidAmount": 0.32,
+                      "paymentMethod": 3,
+                      "epiPistosi": 10
+                    },
+                    "reminder": 1,
+                    "paymentMethod": [
+                      1506,
+                      1511
+                    ]
                   }
                 }
               }
