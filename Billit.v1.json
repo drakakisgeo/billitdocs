@@ -1247,6 +1247,10 @@
                           "type": "number",
                           "description": "Options are 1 - Pcs, 2 - Kg, 3 - Lt"
                         },
+                        "discount": {
+                          "type": "integer",
+                          "description": "The discount percentage integer ex.: 20"
+                        },
                         "vatId": {
                           "type": "number"
                         },
