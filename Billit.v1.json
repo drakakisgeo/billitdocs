@@ -1193,6 +1193,12 @@
                     "description": "The invoice's date, in Y-m-d format",
                     "format": "date"
                   },
+                  "dateExpires": {
+                    "type": "string",
+                    "description": "The invoice's date, in Y-m-d format",
+                    "format": "date",
+                    "nullable": true
+                  },
                   "invoiceTypeId": {
                     "type": "number",
                     "description": "The invoice type ID"
@@ -1329,6 +1335,7 @@
                   }
                 },
                 "required": [
+                  "invoiceDate",
                   "invoiceTypeId",
                   "products"
                 ]
