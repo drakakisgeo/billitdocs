@@ -898,37 +898,29 @@
                   },
                   "company": {
                     "type": "string",
-                    "minLength": 1,
                     "description": "The company name"
                   },
                   "lang": {
                     "type": "string",
-                    "minLength": 1,
                     "description": "the language that you want the customer to receive his invoices. \"el\" or \"en\""
                   },
                   "profession": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "inCharge": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "vatId": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "taxOffice": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "streetAddress": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "alias": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "customerType": {
                     "type": "number"
@@ -937,71 +929,55 @@
                     "type": "boolean"
                   },
                   "postalCode": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "city": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "country": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "mobile": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "phone": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "fax": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "info": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "publicNote": {
-                    "type": "string",
-                    "minLength": 1
+                    "type": "string"
                   },
                   "addresses": {
                     "type": "array",
                     "uniqueItems": true,
-                    "minItems": 1,
                     "items": {
                       "type": "object",
                       "properties": {
                         "title": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "address": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "city": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "zip": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "incharge": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "tel": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "country": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1014,6 +990,13 @@
                   },
                   "currency": {
                     "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "defaultVatId": {
+                    "type": "number"
                   }
                 },
                 "required": [
