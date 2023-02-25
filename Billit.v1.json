@@ -4960,7 +4960,7 @@
           }
         },
         "x-internal": false,
-        "description": "In order to use this service, you first need to [enable the GSIS plugin](https://app.billit.io/settingsapp#settings) in your Billit account. Instructions can be found in this [blog article](https://blog.billit.io/gsis-vatid-lookup/)"
+        "description": "In order to use this service, you first need to [enable GSIS](https://app.billit.io/settingsapp#settings) in your Billit account. Instructions can be found in this [blog post](https://blog.billit.io/gsis-vatid-lookup/)"
       }
     }
   },
