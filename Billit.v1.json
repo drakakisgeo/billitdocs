@@ -4907,7 +4907,7 @@
         }
       ],
       "get": {
-        "summary": "/gsis/{vatId}",
+        "summary": "Get details from GSIS",
         "tags": [
           "Customers"
         ],
