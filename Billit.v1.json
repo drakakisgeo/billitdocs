@@ -4893,6 +4893,75 @@
           }
         ]
       }
+    },
+    "/gsis/{vatId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "vatId",
+          "in": "path",
+          "required": true,
+          "description": "The GR Vat ID (Aka Afm) you want to lookup "
+        }
+      ],
+      "get": {
+        "summary": "/gsis/{vatId}",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "get-gsis-vatId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "company": {
+                      "type": "string"
+                    },
+                    "alias": {
+                      "type": "string"
+                    },
+                    "object": {
+                      "type": "string"
+                    },
+                    "afm": {
+                      "type": "string"
+                    },
+                    "doy": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "postcode": {
+                      "type": "string"
+                    },
+                    "companytype": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-internal": false,
+        "description": "In order to use this service, you first need to [enable the GSIS plugin](https://app.billit.io/settingsapp#settings) in your Billit account. Instructions can be found in this [blog article](https://blog.billit.io/gsis-vatid-lookup/)"
+      }
     }
   },
   "components": {
