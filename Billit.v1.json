@@ -1156,8 +1156,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
+                "required": [
+                  "invoiceDate",
+                  "invoiceTypeId",
+                  "products"
+                ],
                 "properties": {
                   "customerId": {
                     "type": "number",
@@ -1170,6 +1174,13 @@
                   "excludeMydata": {
                     "type": "boolean",
                     "description": "By making this true, the invoice is excluded from myData."
+                  },
+                  "vatPaymentSuspension": {
+                    "type": "boolean",
+                    "description": "By making this true, the invoice is excluded from myData.",
+                    "x-stoplight": {
+                      "id": "89p01zdxycspb"
+                    }
                   },
                   "invoiceDate": {
                     "type": "string",
@@ -1201,6 +1212,9 @@
                     "minItems": 1,
                     "items": {
                       "type": "object",
+                      "required": [
+                        "taxId"
+                      ],
                       "properties": {
                         "taxId": {
                           "type": "number",
@@ -1210,10 +1224,7 @@
                           "type": "number",
                           "description": "Select if you want to be able to override it in the UI."
                         }
-                      },
-                      "required": [
-                        "taxId"
-                      ]
+                      }
                     }
                   },
                   "products": {
@@ -1222,6 +1233,10 @@
                     "minItems": 1,
                     "items": {
                       "type": "object",
+                      "required": [
+                        "details",
+                        "vatId"
+                      ],
                       "properties": {
                         "productId": {
                           "type": "integer",
@@ -1263,11 +1278,7 @@
                           "type": "string",
                           "description": "Only needed if vat is 0%.Mydata plugin should be enabled as well. Check the possible options in the endpoint's description."
                         }
-                      },
-                      "required": [
-                        "details",
-                        "vatId"
-                      ]
+                      }
                     }
                   },
                   "tags": {
@@ -1316,12 +1327,7 @@
                     "nullable": true,
                     "items": {}
                   }
-                },
-                "required": [
-                  "invoiceDate",
-                  "invoiceTypeId",
-                  "products"
-                ]
+                }
               },
               "examples": {
                 "Example-1- Simple": {
