@@ -4979,64 +4979,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "invoiceSignatures": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "signingAuthor": {
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "integer"
-                          },
-                          "signatureExpirationDate": {
-                            "type": "integer"
-                          },
-                          "netAmount": {
-                            "type": "number"
-                          },
-                          "signature": {
-                            "type": "string"
-                          },
-                          "grossAmount": {
-                            "type": "integer"
-                          },
-                          "terminalId": {
-                            "type": "string"
-                          },
-                          "signedContent": {
-                            "type": "string"
-                          },
-                          "vatAmount": {
-                            "type": "number"
-                          },
-                          "uid": {
-                            "type": "string"
-                          },
-                          "uidHash": {
-                            "type": "string"
-                          },
-                          "signaturePublicKey": {
-                            "type": "string"
-                          },
-                          "signedAt": {
-                            "type": "integer"
-                          },
-                          "nspProtocol": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    },
-                    "invoiceMarking": {
-                      "type": "null"
-                    },
-                    "errors": {
-                      "type": "null"
-                    }
-                  },
                   "x-examples": {
                     "Example 1": {
                       "invoiceSignatures": [
@@ -5059,6 +5001,78 @@
                       ],
                       "invoiceMarking": null,
                       "errors": null
+                    }
+                  },
+                  "properties": {
+                    "invoiceSignatures": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "signingAuthor": {
+                            "type": "string",
+                            "example": "008"
+                          },
+                          "amount": {
+                            "type": "integer",
+                            "example": 100
+                          },
+                          "signatureExpirationDate": {
+                            "type": "integer",
+                            "example": 1717832415480
+                          },
+                          "netAmount": {
+                            "type": "number",
+                            "example": 80.65
+                          },
+                          "signature": {
+                            "type": "string",
+                            "example": "MEUCIFTYSYasR4UlVzDabqs+ixSITUwkrJahNwUPNFIUNMS4AiEA2cdYPzUYXA"
+                          },
+                          "grossAmount": {
+                            "type": "integer",
+                            "example": 100
+                          },
+                          "terminalId": {
+                            "type": "string",
+                            "example": "pos_1"
+                          },
+                          "signedContent": {
+                            "type": "string",
+                            "example": "1445C1FCFBA729DBDBA9591404051D8440EF123B"
+                          },
+                          "vatAmount": {
+                            "type": "number",
+                            "example": 19.3
+                          },
+                          "uid": {
+                            "type": "string",
+                            "example": "177472438-2024-06-07-0-11.1-TC-415c58af-ae35-4cbd-929f-709f403a9f7a"
+                          },
+                          "uidHash": {
+                            "type": "string",
+                            "example": "1445C1FCFBA729DBDBA9591404051D8440EF123B"
+                          },
+                          "signaturePublicKey": {
+                            "type": "string",
+                            "example": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE0sgcjvxxDq6UjPJyWTMBOFWYUByE2d9HCAmiYj9QnIJ7EmOe+tMDP4apdBWYlU1dpg0hQhclHImADwrNEHDEaa=="
+                          },
+                          "signedAt": {
+                            "type": "integer",
+                            "example": 1717746015480
+                          },
+                          "nspProtocol": {
+                            "type": "string",
+                            "example": "DEFAULT"
+                          }
+                        }
+                      }
+                    },
+                    "invoiceMarking": {
+                      "nullable": true
+                    },
+                    "errors": {
+                      "nullable": true
                     }
                   }
                 }
@@ -5089,14 +5103,14 @@
                     "x-stoplight": {
                       "id": "fftez7g7ngjzq"
                     },
-                    "example": 100
+                    "example": 80.65
                   },
                   "vatAmount": {
                     "type": "number",
                     "x-stoplight": {
                       "id": "g3ipew6sddbbw"
                     },
-                    "example": 100
+                    "example": 19.35
                   },
                   "grossAmount": {
                     "type": "number",
@@ -5109,13 +5123,15 @@
                     "type": "string",
                     "x-stoplight": {
                       "id": "ngc7rt27f2f5c"
-                    }
+                    },
+                    "example": "177472438"
                   },
                   "series": {
                     "type": "string",
                     "x-stoplight": {
                       "id": "skumvo09djzgx"
-                    }
+                    },
+                    "example": "TC"
                   },
                   "invoiceTypeCode": {
                     "type": "string",
@@ -5135,7 +5151,8 @@
                     "type": "string",
                     "x-stoplight": {
                       "id": "19clvvj8vzn7q"
-                    }
+                    },
+                    "example": "pos_1"
                   }
                 }
               },
