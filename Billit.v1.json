@@ -4972,9 +4972,6 @@
     "/alp-signature": {
       "post": {
         "summary": "alp-signature",
-        "tags": [
-          "retail"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5159,7 +5156,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Invoices"
+        ]
       }
     }
   },
