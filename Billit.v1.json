@@ -5159,6 +5159,11 @@
         },
         "tags": [
           "Invoices"
+        ],
+        "security": [
+          {
+            "API TOKEN": []
+          }
         ]
       }
     }
