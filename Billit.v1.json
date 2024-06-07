@@ -4968,6 +4968,199 @@
         "x-internal": false,
         "description": "In order to use this service, you first need to [enable GSIS](https://app.billit.io/settingsapp#settings) in your Billit account. Instructions can be found in this [blog post](https://blog.billit.io/gsis-vatid-lookup/)"
       }
+    },
+    "/alp-signature": {
+      "post": {
+        "summary": "alp-signature",
+        "tags": [
+          "retail"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invoiceSignatures": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "signingAuthor": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "integer"
+                          },
+                          "signatureExpirationDate": {
+                            "type": "integer"
+                          },
+                          "netAmount": {
+                            "type": "number"
+                          },
+                          "signature": {
+                            "type": "string"
+                          },
+                          "grossAmount": {
+                            "type": "integer"
+                          },
+                          "terminalId": {
+                            "type": "string"
+                          },
+                          "signedContent": {
+                            "type": "string"
+                          },
+                          "vatAmount": {
+                            "type": "number"
+                          },
+                          "uid": {
+                            "type": "string"
+                          },
+                          "uidHash": {
+                            "type": "string"
+                          },
+                          "signaturePublicKey": {
+                            "type": "string"
+                          },
+                          "signedAt": {
+                            "type": "integer"
+                          },
+                          "nspProtocol": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "invoiceMarking": {
+                      "type": "null"
+                    },
+                    "errors": {
+                      "type": "null"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "invoiceSignatures": [
+                        {
+                          "signingAuthor": "008",
+                          "amount": 100,
+                          "signatureExpirationDate": 1717832415480,
+                          "netAmount": 80.65,
+                          "signature": "MEUCIFTYSYasR4UlVzDabqs+ixSITUwkrJahNwUPNFIUNMS4AiEA2cdYPzUYXZ/E++CpCK2++dec5tDUm54WHkYfJdofRCw=",
+                          "grossAmount": 100,
+                          "terminalId": "pos_1",
+                          "signedContent": "1445C1FCFBA729DBDBA9591404051D8440EF123A;;20240607104015;10000;8065;1935;10000;pos_1",
+                          "vatAmount": 19.35,
+                          "uid": "177472438-2024-06-07-0-11.1-TC-415c58af-ae35-4cbd-929f-709f403a9f7b",
+                          "uidHash": "1445C1FCFBA729DBDBA9591404051D8440EF123A",
+                          "signaturePublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE0sgcjvxxDq6UjPJyWTMBOFWYUByE2d9HCAmiYj9QnIJ7EmOe+tMDP4apdBWYlU1dpg0hQhclHImADwrNEHDEdw==",
+                          "signedAt": 1717746015480,
+                          "nspProtocol": "DEFAULT"
+                        }
+                      ],
+                      "invoiceMarking": null,
+                      "errors": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-alp-signature",
+        "x-stoplight": {
+          "id": "iyxu86t77wc1t"
+        },
+        "description": "In order to use this endpoint you need to have enabled the connection with our partner Ilyda for Signing digitally invoices. This endpoint returns a legal sign that you can then forward to a POS.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "x-stoplight": {
+                      "id": "09y9lr96bun8e"
+                    },
+                    "example": 100
+                  },
+                  "netAmount": {
+                    "type": "number",
+                    "x-stoplight": {
+                      "id": "fftez7g7ngjzq"
+                    },
+                    "example": 100
+                  },
+                  "vatAmount": {
+                    "type": "number",
+                    "x-stoplight": {
+                      "id": "g3ipew6sddbbw"
+                    },
+                    "example": 100
+                  },
+                  "grossAmount": {
+                    "type": "number",
+                    "x-stoplight": {
+                      "id": "5z164twr3lwwr"
+                    },
+                    "example": 100
+                  },
+                  "sellerVat": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "ngc7rt27f2f5c"
+                    }
+                  },
+                  "series": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "skumvo09djzgx"
+                    }
+                  },
+                  "invoiceTypeCode": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "7qdxgqbt8qs19"
+                    },
+                    "example": "11.1"
+                  },
+                  "sellerBranch": {
+                    "type": "integer",
+                    "x-stoplight": {
+                      "id": "fpsbgw1o473o7"
+                    },
+                    "default": 0
+                  },
+                  "terminalId": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "19clvvj8vzn7q"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "amount": 100,
+                    "netAmount": 80.65,
+                    "vatAmount": 19.35,
+                    "grossAmount": 100,
+                    "sellerVat": "177472438",
+                    "series": "TC",
+                    "invoiceTypeCode": "11.1",
+                    "sellerBranch": 0,
+                    "terminalId": "pos_1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
