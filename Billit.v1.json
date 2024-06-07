@@ -5152,6 +5152,13 @@
                     "sellerBranch": 0,
                     "terminalId": "pos_1"
                   }
+                },
+                "Example 2": {
+                  "value": {
+                    "amount": 100,
+                    "mark": "400001926844434",
+                    "terminalId": "pos_1"
+                  }
                 }
               }
             }
