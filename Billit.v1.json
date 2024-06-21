@@ -6953,7 +6953,6 @@
         ]
       },
       "Product": {
-        "description": "",
         "type": "object",
         "x-examples": {
           "example": {
@@ -7016,6 +7015,13 @@
           "active": {
             "type": "boolean"
           },
+          "isService": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "lad4sd6yqb1np"
+            },
+            "nullable": true
+          },
           "bulkjobId": {},
           "createdAt": {
             "type": "string",
@@ -7032,9 +7038,7 @@
             "readOnly": true
           },
           "deletedAt": {
-            "type": [
-              "string"
-            ],
+            "type": "string",
             "format": "date-time",
             "description": "ISO 8601 format",
             "nullable": true,
