@@ -2466,8 +2466,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
+                "required": [
+                  "name",
+                  "description",
+                  "nameSec",
+                  "descriptionSec",
+                  "unitPrice",
+                  "defaultVatId",
+                  "stock",
+                  "withStock",
+                  "isVatIncluded",
+                  "active"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -2495,25 +2506,19 @@
                   "withStock": {
                     "type": "boolean"
                   },
+                  "isService": {
+                    "type": "boolean",
+                    "x-stoplight": {
+                      "id": "7jvorfm38p4wf"
+                    }
+                  },
                   "isVatIncluded": {
                     "type": "boolean"
                   },
                   "active": {
                     "type": "boolean"
                   }
-                },
-                "required": [
-                  "name",
-                  "description",
-                  "nameSec",
-                  "descriptionSec",
-                  "unitPrice",
-                  "defaultVatId",
-                  "stock",
-                  "withStock",
-                  "isVatIncluded",
-                  "active"
-                ]
+                }
               },
               "examples": {
                 "example": {
@@ -4370,8 +4375,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
+                "required": [
+                  "name",
+                  "description",
+                  "unitPrice",
+                  "defaultVatId",
+                  "isVatIncluded"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -4407,6 +4418,13 @@
                     "type": "boolean",
                     "description": "If the product has stock or not"
                   },
+                  "isService": {
+                    "type": "boolean",
+                    "description": "If the product has stock or not",
+                    "x-stoplight": {
+                      "id": "z9bqmfx2wj7tz"
+                    }
+                  },
                   "isVatIncluded": {
                     "type": "boolean",
                     "description": "Determine if the value includes vat or it's the net one."
@@ -4415,14 +4433,7 @@
                     "type": "boolean",
                     "description": "If it's active"
                   }
-                },
-                "required": [
-                  "name",
-                  "description",
-                  "unitPrice",
-                  "defaultVatId",
-                  "isVatIncluded"
-                ]
+                }
               },
               "examples": {
                 "example": {
