@@ -394,7 +394,6 @@
                             }
                           ]
                         }
-                        }
                       }
                     }
                   }
@@ -1687,17 +1686,9 @@
                         "vatId": 0,
                         "price": 0,
                         "quantity": 0,
-                        "incomeClassificationCat": "category1_1",
-                        "incomeClassificationType": "E3_561_003",
-                        "vatExceptionCat": "3"
-                      },
-                      {
-                        "productId": 4055,
-                        "vatId": 1001,
-                        "price": 10.23,
-                        "incomeClassificationCat": "category1_95",
-                        "incomeClassificationType": "",
-                        "vatExceptionCat": "3"
+                        "incomeClassificationCat": "string",
+                        "incomeClassificationType": "string",
+                        "vatExceptionCat": "string"
                       }
                     ],
                     "tags": [
