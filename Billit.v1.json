@@ -255,7 +255,145 @@
                             "startedAt": "string",
                             "expiresAt": "string",
                             "recurring": true
-                          }
+                          },
+                          "ossProductTaxes": [
+                            {
+                              "id": 160,
+                              "name": "OSS Austria (AT) ΦΟΡΟΣ",
+                              "oss_country": "AT"
+                            },
+                            {
+                              "id": 161,
+                              "name": "OSS Belgium (BE) ΦΟΡΟΣ",
+                              "oss_country": "BE"
+                            },
+                            {
+                              "id": 162,
+                              "name": "OSS Bulgaria (BG) ΦΟΡΟΣ",
+                              "oss_country": "BG"
+                            },
+                            {
+                              "id": 163,
+                              "name": "OSS Croatia (HR) ΦΟΡΟΣ",
+                              "oss_country": "HR"
+                            },
+                            {
+                              "id": 164,
+                              "name": "OSS Cyprus (CY) ΦΟΡΟΣ",
+                              "oss_country": "CY"
+                            },
+                            {
+                              "id": 165,
+                              "name": "OSS Czechia (CZ) ΦΟΡΟΣ",
+                              "oss_country": "CZ"
+                            },
+                            {
+                              "id": 166,
+                              "name": "OSS Denmark (DK) ΦΟΡΟΣ",
+                              "oss_country": "DK"
+                            },
+                            {
+                              "id": 167,
+                              "name": "OSS Estonia (EE) ΦΟΡΟΣ",
+                              "oss_country": "EE"
+                            },
+                            {
+                              "id": 168,
+                              "name": "OSS Finland (FI) ΦΟΡΟΣ",
+                              "oss_country": "FI"
+                            },
+                            {
+                              "id": 169,
+                              "name": "OSS France (FR) ΦΟΡΟΣ",
+                              "oss_country": "FR"
+                            },
+                            {
+                              "id": 170,
+                              "name": "OSS Germany (DE) ΦΟΡΟΣ",
+                              "oss_country": "DE"
+                            },
+                            {
+                              "id": 171,
+                              "name": "OSS Greece (GR) ΦΟΡΟΣ",
+                              "oss_country": "GR"
+                            },
+                            {
+                              "id": 172,
+                              "name": "OSS Hungary (HU) ΦΟΡΟΣ",
+                              "oss_country": "HU"
+                            },
+                            {
+                              "id": 173,
+                              "name": "OSS Ireland (IE) ΦΟΡΟΣ",
+                              "oss_country": "IE"
+                            },
+                            {
+                              "id": 174,
+                              "name": "OSS Italy (IT) ΦΟΡΟΣ",
+                              "oss_country": "IT"
+                            },
+                            {
+                              "id": 175,
+                              "name": "OSS Latvia (LV) ΦΟΡΟΣ",
+                              "oss_country": "LV"
+                            },
+                            {
+                              "id": 176,
+                              "name": "OSS Lithuania (LT) ΦΟΡΟΣ",
+                              "oss_country": "LT"
+                            },
+                            {
+                              "id": 177,
+                              "name": "OSS Luxembourg (LU) ΦΟΡΟΣ",
+                              "oss_country": "LU"
+                            },
+                            {
+                              "id": 178,
+                              "name": "OSS Malta (MT) ΦΟΡΟΣ",
+                              "oss_country": "MT"
+                            },
+                            {
+                              "id": 179,
+                              "name": "OSS Netherlands (NL) ΦΟΡΟΣ",
+                              "oss_country": "NL"
+                            },
+                            {
+                              "id": 180,
+                              "name": "OSS Poland (PL) ΦΟΡΟΣ",
+                              "oss_country": "PL"
+                            },
+                            {
+                              "id": 181,
+                              "name": "OSS Portugal (PT) ΦΟΡΟΣ",
+                              "oss_country": "PT"
+                            },
+                            {
+                              "id": 182,
+                              "name": "OSS Romania (RO) ΦΟΡΟΣ",
+                              "oss_country": "RO"
+                            },
+                            {
+                              "id": 183,
+                              "name": "OSS Slovakia (SK) ΦΟΡΟΣ",
+                              "oss_country": "SK"
+                            },
+                            {
+                              "id": 184,
+                              "name": "OSS Slovenia (SI) ΦΟΡΟΣ",
+                              "oss_country": "SI"
+                            },
+                            {
+                              "id": 185,
+                              "name": "OSS Spain (ES) ΦΟΡΟΣ",
+                              "oss_country": "ES"
+                            },
+                            {
+                              "id": 186,
+                              "name": "OSS Sweden (SE) ΦΟΡΟΣ",
+                              "oss_country": "SE"
+                            }
+                          ]
+                        }
                         }
                       }
                     }
