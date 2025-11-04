@@ -4407,7 +4407,7 @@
             }
           }
         },
-        "description": "Update a contact\n\nIn case the contact is NOT set as a company, the only valid option is 4 (Private individual)\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
+        "description": "Update a contact\n\nIn case the contact is NOT set as a company, the only valid option is 4 (Private individual)\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
         "tags": [
           "Contacts"
         ]
