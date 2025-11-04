@@ -4276,8 +4276,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
                 "type": "object",
+                "required": [
+                  "company",
+                  "customerType"
+                ],
                 "properties": {
                   "isCompany": {
                     "type": "boolean"
@@ -4353,70 +4356,9 @@
                     "type": "array",
                     "uniqueItems": true,
                     "minItems": 1,
-                    "items": {
-                      "required": [
-                        "title",
-                        "address",
-                        "city",
-                        "zip",
-                        "incharge",
-                        "tel",
-                        "country"
-                      ],
-                      "properties": {
-                        "title": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "address": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "city": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "zip": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "incharge": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "tel": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "country": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
+                    "items": {}
                   }
-                },
-                "required": [
-                  "isCompany",
-                  "company",
-                  "lang",
-                  "profession",
-                  "inCharge",
-                  "vatId",
-                  "taxOffice",
-                  "streetAddress",
-                  "alias",
-                  "customerType",
-                  "postalCode",
-                  "city",
-                  "country",
-                  "mobile",
-                  "phone",
-                  "fax",
-                  "info",
-                  "publicNote",
-                  "addresses"
-                ]
+                }
               },
               "examples": {
                 "example": {
@@ -4465,7 +4407,7 @@
             }
           }
         },
-        "description": "Update a contact\n\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
+        "description": "Update a contact\n\nIn case the contact is NOT set as a company, the only valid option is 4 (Private individual)\n\n#### customerType options\n| Option | Description |\n| --- | ----------- |\n| 1 | Domestic customer |\n| 2 | Intra-community customer (EU-VIES) |\n| 3 | Foreign customer |\n| 4 | Private individual |",
         "tags": [
           "Contacts"
         ]
